@@ -1,4 +1,4 @@
 User-agent: *
 Disallow: 
 
-Sitemap: http://kylelieber.com/sitemap.xml 
+Sitemap: http://klieber.github.io/sitemap.xml 

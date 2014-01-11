@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: Development | Kyle Lieber]]></title>
-  <link href="http://kylelieber.com/blog/categories/development/atom.xml" rel="self"/>
-  <link href="http://kylelieber.com/"/>
-  <updated>2014-01-10T23:23:57-06:00</updated>
-  <id>http://kylelieber.com/</id>
+  <link href="http://klieber.github.io/blog/categories/development/atom.xml" rel="self"/>
+  <link href="http://klieber.github.io/"/>
+  <updated>2014-01-11T00:18:53-06:00</updated>
+  <id>http://klieber.github.io/</id>
   <author>
     <name><![CDATA[Kyle Lieber]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Jasmine Maven Plugin 1.3.1.0 - My First Release]]></title>
-    <link href="http://kylelieber.com/blog/2013/03/12/jasmine-maven-plugin-1-3-1-0-my-first-release/"/>
+    <link href="http://klieber.github.io/blog/2013/03/12/jasmine-maven-plugin-1-3-1-0-my-first-release/"/>
     <updated>2013-03-12T23:57:41-05:00</updated>
-    <id>http://kylelieber.com/blog/2013/03/12/jasmine-maven-plugin-1-3-1-0-my-first-release</id>
+    <id>http://klieber.github.io/blog/2013/03/12/jasmine-maven-plugin-1-3-1-0-my-first-release</id>
     <content type="html"><![CDATA[<p>I began using the the <a href="http://searls.github.com/jasmine-maven-plugin">Jasmine Maven Plugin</a> in June of 2012 and was immediately impressed with how well it worked and how easy it made automating my test execution. Soon after I discovered <a href="http://requirejs.org">require.js</a> and decided to begin using it in my applications. I learned quickly however that the require.js support in the Jasmine Maven Plugin had quite a few issues and so I decided to try and help fix some of them.</p>
 
 <p>Fast-forward to January of this year and I found myself a maintainer of the plugin with full commit access and a huge list of issues (thank you <a href="http://about.me/searls">Justin Searls</a> for the opportunity). I&rsquo;ve had a few goals for my first release:</p>
@@ -43,9 +43,9 @@
   
   <entry>
     <title type="html"><![CDATA[Maven Versioning Strategy]]></title>
-    <link href="http://kylelieber.com/blog/2012/06/25/maven-versioning-strategy/"/>
+    <link href="http://klieber.github.io/blog/2012/06/25/maven-versioning-strategy/"/>
     <updated>2012-06-25T17:01:44-05:00</updated>
-    <id>http://kylelieber.com/blog/2012/06/25/maven-versioning-strategy</id>
+    <id>http://klieber.github.io/blog/2012/06/25/maven-versioning-strategy</id>
     <content type="html"><![CDATA[<p>I&rsquo;ve been having a lot of discussions with analysts in my organization about how to version software using Maven and I&rsquo;m finding there is a common misconception about what SNAPSHOT actually means. I&rsquo;ve been looking for a good blog to send them that helps explain versioning in Maven but unfortunately everything I&rsquo;ve found merely discusses version formats and not how to use them as you&rsquo;re developing an application. So, I decided I would take a stab at it. I welcome any comments and constructive criticism that will help me improve this document, so please feel free.</p>
 
 <p>First off, a SNAPSHOT is not the same thing as an alpha/beta/etc version. It is a special keyword that means it is the latest version of your code. This means it changes. If you pulled down someapp-1.0-SNAPSHOT yesterday and then you try to pull it down today it will most likely not be the same. This also means if you have a project dependent on a SNAPSHOT version, maven will need to check the remote repository for changes every time you run a build.</p>
@@ -109,9 +109,9 @@
   
   <entry>
     <title type="html"><![CDATA[Avoid Absolute File Path When Using the Cxf-codegen-plugin]]></title>
-    <link href="http://kylelieber.com/blog/2012/03/30/avoid-absolute-file-path-when-using-the-cxf-codegen-plugin/"/>
+    <link href="http://klieber.github.io/blog/2012/03/30/avoid-absolute-file-path-when-using-the-cxf-codegen-plugin/"/>
     <updated>2012-03-30T21:30:58-05:00</updated>
-    <id>http://kylelieber.com/blog/2012/03/30/avoid-absolute-file-path-when-using-the-cxf-codegen-plugin</id>
+    <id>http://klieber.github.io/blog/2012/03/30/avoid-absolute-file-path-when-using-the-cxf-codegen-plugin</id>
     <content type="html"><![CDATA[<p>I ran into this problem a few months ago and scoured the internet for solution but never found one until now. So hopefully this will be helpful to someone with the same problem. By default, the <a href="http://cxf.apache.org/docs/maven-cxf-codegen-plugin-wsdl-to-java.html">Apache CXF Codegen Maven plugin</a> generates code that will attempt to read your wsdl via the absolute path.</p>
 
 <p>So for instance:</p>
