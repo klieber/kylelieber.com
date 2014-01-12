@@ -4,7 +4,7 @@
   <title><![CDATA[Category: JavaScript | Kyle Lieber]]></title>
   <link href="http://kylelieber.com/blog/categories/javascript/atom.xml" rel="self"/>
   <link href="http://kylelieber.com/"/>
-  <updated>2014-01-12T01:17:18-06:00</updated>
+  <updated>2014-01-12T06:09:39-06:00</updated>
   <id>http://kylelieber.com/</id>
   <author>
     <name><![CDATA[Kyle Lieber]]></name>
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Jasmine Maven Plugin 1.3.1.0 - My First Release]]></title>
-    <link href="http://kylelieber.com/blog/2013/03/12/jasmine-maven-plugin-1-3-1-0-my-first-release/"/>
+    <link href="http://kylelieber.com/2013/03/jasmine-maven-plugin-1-3-1-0-my-first-release/"/>
     <updated>2013-03-12T23:57:41-05:00</updated>
-    <id>http://kylelieber.com/blog/2013/03/12/jasmine-maven-plugin-1-3-1-0-my-first-release</id>
+    <id>http://kylelieber.com/2013/03/jasmine-maven-plugin-1-3-1-0-my-first-release</id>
     <content type="html"><![CDATA[<p>I began using the the <a href="http://searls.github.com/jasmine-maven-plugin">Jasmine Maven Plugin</a> in June of 2012 and was immediately impressed with how well it worked and how easy it made automating my test execution. Soon after I discovered <a href="http://requirejs.org">require.js</a> and decided to begin using it in my applications. I learned quickly however that the require.js support in the Jasmine Maven Plugin had quite a few issues and so I decided to try and help fix some of them.</p>
 
 <p>Fast-forward to January of this year and I found myself a maintainer of the plugin with full commit access and a huge list of issues (thank you <a href="http://about.me/searls">Justin Searls</a> for the opportunity). I&rsquo;ve had a few goals for my first release:</p>
