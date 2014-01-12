@@ -2,6 +2,7 @@
 layout: post
 title: "Avoid absolute file path when using the cxf-codegen-plugin"
 date: 2012-03-30 21:30:58.000000000 -05:00
+comments: true
 categories:
 - Development
 tags:
@@ -10,32 +11,6 @@ tags:
 - web services
 - java
 - wsdl
-comments:
-- id: 3
-  author: Marc
-  author_email: marc.karou@gmail.com
-  author_url: ''
-  date: !binary |-
-    MjAxMi0wNC0yNyAwMjo0OToxMCAtMDUwMA==
-  date_gmt: !binary |-
-    MjAxMi0wNC0yNyAwNzo0OToxMCAtMDUwMA==
-  content: ! 'Very usefull post, I was looking for an elegant solution to do it !
-    I was forced to duplicate my wsdl file to make my ws work. The key was the cxf-codegen-plugin
-    version, thanks :)
-
-'
-- id: 609
-  author: James
-  author_email: james.a.hutton@gmail.com
-  author_url: ''
-  date: !binary |-
-    MjAxMy0wOS0xOSAwOToyODo1MSAtMDUwMA==
-  date_gmt: !binary |-
-    MjAxMy0wOS0xOSAxNDoyODo1MSAtMDUwMA==
-  content: ! 'Any thoughts on how one would apply this generically when using a glob
-    for a bunch of wsdls?  I''d appreciate not having to declare each wsdl.
-
-'
 ---
 I ran into this problem a few months ago and scoured the internet for solution but never found one until now. So hopefully this will be helpful to someone with the same problem. By default, the [Apache CXF Codegen Maven plugin][1] generates code that will attempt to read your wsdl via the absolute path.
 

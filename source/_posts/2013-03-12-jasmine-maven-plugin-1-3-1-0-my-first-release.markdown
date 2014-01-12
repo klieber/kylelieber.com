@@ -3,6 +3,7 @@ layout: post
 title: "Jasmine Maven Plugin 1.3.1.0 - My first release"
 author: klieber
 date: 2013-03-12 23:57:41.000000000 -05:00
+comments: true
 categories:
 - Development
 - JavaScript
@@ -12,28 +13,6 @@ tags:
 - testing
 - jasmine
 - open source
-comments:
-- id: 152
-  author: Jeremy Robin
-  author_email: jeremy@jrob.co
-  author_url: http://www.rolloco.com
-  date: !binary |-
-    MjAxMy0wNC0xNiAxNjo1NToyNiAtMDUwMA==
-  date_gmt: !binary |-
-    MjAxMy0wNC0xNiAyMTo1NToyNiAtMDUwMA==
-  content: ! 'Just wanted to thank you for the work you''ve been putting in to the
-    jasmine maven plugin.
-
-
-    i went to the github site today and saw that the new plugin version with phantomjs
-    was up.  BOOM.  100% of our tests passing from the command line (with htmlunit
-    it was about 50%).  we can now put our jasmine tests back in the test goal so
-    they run as part of our jenkins suite.
-
-
-    Great work!  Thanks again
-
-'
 ---
 I began using the the [Jasmine Maven Plugin][1] in June of 2012 and was immediately impressed with how well it worked and how easy it made automating my test execution. Soon after I discovered [require.js][2] and decided to begin using it in my applications. I learned quickly however that the require.js support in the Jasmine Maven Plugin had quite a few issues and so I decided to try and help fix some of them.
 
