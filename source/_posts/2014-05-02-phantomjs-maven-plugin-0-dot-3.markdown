@@ -5,7 +5,7 @@ date: 2014-05-02 22:50:41 -0500
 comments: true
 categories: 
 ---
-I've just release [version 0.3](https://github.com/klieber/phantomjs-maven-plugin/releases/tag/phantomjs-maven-plugin-0.3) of the [phantomjs-maven-plugin](http://kylelieber.com/phantomjs-maven-plugin) and I thought it was about time I wrote a blog post about this project.
+I just released [version 0.3](https://github.com/klieber/phantomjs-maven-plugin/releases/tag/phantomjs-maven-plugin-0.3) of the [phantomjs-maven-plugin](http://kylelieber.com/phantomjs-maven-plugin) and I thought it was about time I wrote a blog post about this project.
 
 [PhantomJS](http://phantomjs.org) is a headless WebKit implementation that is extremely useful for tasks like headless website testing, screen capture, page automation, network monitoring, and more. Much of my experience with PhantomJS comes from my work on the [jasmine-maven-plugin](http://searls.github.io/jasmine-maven-plugin).  In version `1.3.1.1` of the plugin we added support for using PhantomJS instead of [HtmlUnit](http://htmlunit.sourceforge.com) to execute [Jasmine](http://jasmine.github.io/) specs. The only downside to using PhantomJS with the plugin is that you had to have PhantomJS already installed on your system. For those of us in the Maven world that seems a little odd since Maven is suppose to download all of our dependencies for us. But of course, usually those dependencies are platform-independent java libraries. PhantomJS, on the other hand, requires install platform-dependent compiled binaries. 
 
