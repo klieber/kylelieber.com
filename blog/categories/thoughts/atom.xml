@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Thoughts | Kyle Lieber]]></title>
+  <link href="http://klieber.github.io/blog/categories/thoughts/atom.xml" rel="self"/>
+  <link href="http://klieber.github.io/"/>
+  <updated>2014-05-02T23:30:36-05:00</updated>
+  <id>http://klieber.github.io/</id>
+  <author>
+    <name><![CDATA[Kyle Lieber]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[The First Post]]></title>
+    <link href="http://klieber.github.io/2012/03/the-first-post/"/>
+    <updated>2012-03-05T02:39:00-06:00</updated>
+    <id>http://klieber.github.io/2012/03/the-first-post</id>
+    <content type="html"><![CDATA[<p>This is just the dreaded first blog entry.  I don&rsquo;t really have anything to say at this point and I&rsquo;m not even sure how I intend to use this blog yet.  I&rsquo;m thinking I&rsquo;ll be posting things I learned how to do and how I did it.  Hopefully, others will find something I learn useful but I really just want a central location for my own references so I guess it will be interesting to see if anyone actually reads this.</p>
+]]></content>
+  </entry>
+  
+</feed>
