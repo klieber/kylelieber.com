@@ -1,37 +1,37 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <urlset xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'>
     <url>
-        <loc>http://klieber.github.io/2012/03/the-first-post/</loc>
+        <loc>http://kylelieber.com/2012/03/the-first-post/</loc>
         <lastmod>2014-05-02T23:29:29-05:00</lastmod>
     </url>
     <url>
         <loc>
-            http://klieber.github.io/2012/03/avoid-absolute-file-path-when-using-the-cxf-codegen-plugin/
+            http://kylelieber.com/2012/03/avoid-absolute-file-path-when-using-the-cxf-codegen-plugin/
         </loc>
         <lastmod>2014-05-02T23:29:29-05:00</lastmod>
     </url>
     <url>
-        <loc>http://klieber.github.io/2012/06/maven-versioning-strategy/</loc>
+        <loc>http://kylelieber.com/2012/06/maven-versioning-strategy/</loc>
         <lastmod>2014-05-02T23:29:29-05:00</lastmod>
     </url>
     <url>
-        <loc>http://klieber.github.io/2013/03/jasmine-maven-plugin-1-3-1-0-my-first-release/</loc>
+        <loc>http://kylelieber.com/2013/03/jasmine-maven-plugin-1-3-1-0-my-first-release/</loc>
         <lastmod>2014-05-02T23:29:29-05:00</lastmod>
     </url>
     <url>
-        <loc>http://klieber.github.io/2014/05/phantomjs-maven-plugin-0-dot-3/</loc>
+        <loc>http://kylelieber.com/2014/05/phantomjs-maven-plugin-0-dot-3/</loc>
         <lastmod>2014-05-02T23:29:29-05:00</lastmod>
     </url>
     <url>
-        <loc>http://klieber.github.io/</loc>
+        <loc>http://kylelieber.com/</loc>
         <lastmod>2014-05-02T23:29:29-05:00</lastmod>
     </url>
     <url>
-        <loc>http://klieber.github.io/blog/archives/</loc>
+        <loc>http://kylelieber.com/blog/archives/</loc>
         <lastmod>2014-05-02T23:29:29-05:00</lastmod>
     </url>
     <url>
-        <loc>http://klieber.github.io/robots.txt</loc>
+        <loc>http://kylelieber.com/robots.txt</loc>
         <lastmod>2014-05-02T23:29:29-05:00</lastmod>
     </url>
 </urlset>
