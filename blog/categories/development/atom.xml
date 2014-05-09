@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Development | Kyle Lieber]]></title>
   <link href="http://kylelieber.com/blog/categories/development/atom.xml" rel="self"/>
   <link href="http://kylelieber.com/"/>
-  <updated>2014-05-02T23:31:59-05:00</updated>
+  <updated>2014-05-09T13:34:45-04:00</updated>
   <id>http://kylelieber.com/</id>
   <author>
     <name><![CDATA[Kyle Lieber]]></name>
@@ -16,7 +16,7 @@
   <entry>
     <title type="html"><![CDATA[Jasmine Maven Plugin 1.3.1.0 - My First Release]]></title>
     <link href="http://kylelieber.com/2013/03/jasmine-maven-plugin-1-3-1-0-my-first-release/"/>
-    <updated>2013-03-12T23:57:41-05:00</updated>
+    <updated>2013-03-13T00:57:41-04:00</updated>
     <id>http://kylelieber.com/2013/03/jasmine-maven-plugin-1-3-1-0-my-first-release</id>
     <content type="html"><![CDATA[<p>I began using the the <a href="http://searls.github.com/jasmine-maven-plugin">Jasmine Maven Plugin</a> in June of 2012 and was immediately impressed with how well it worked and how easy it made automating my test execution. Soon after I discovered <a href="http://requirejs.org">require.js</a> and decided to begin using it in my applications. I learned quickly however that the require.js support in the Jasmine Maven Plugin had quite a few issues and so I decided to try and help fix some of them.</p>
 
@@ -44,7 +44,7 @@
   <entry>
     <title type="html"><![CDATA[Maven Versioning Strategy]]></title>
     <link href="http://kylelieber.com/2012/06/maven-versioning-strategy/"/>
-    <updated>2012-06-25T17:01:44-05:00</updated>
+    <updated>2012-06-25T18:01:44-04:00</updated>
     <id>http://kylelieber.com/2012/06/maven-versioning-strategy</id>
     <content type="html"><![CDATA[<p>I&rsquo;ve been having a lot of discussions with analysts in my organization about how to version software using Maven and I&rsquo;m finding there is a common misconception about what SNAPSHOT actually means. I&rsquo;ve been looking for a good blog to send them that helps explain versioning in Maven but unfortunately everything I&rsquo;ve found merely discusses version formats and not how to use them as you&rsquo;re developing an application. So, I decided I would take a stab at it. I welcome any comments and constructive criticism that will help me improve this document, so please feel free.</p>
 
@@ -110,7 +110,7 @@
   <entry>
     <title type="html"><![CDATA[Avoid Absolute File Path When Using the Cxf-codegen-plugin]]></title>
     <link href="http://kylelieber.com/2012/03/avoid-absolute-file-path-when-using-the-cxf-codegen-plugin/"/>
-    <updated>2012-03-30T21:30:58-05:00</updated>
+    <updated>2012-03-30T22:30:58-04:00</updated>
     <id>http://kylelieber.com/2012/03/avoid-absolute-file-path-when-using-the-cxf-codegen-plugin</id>
     <content type="html"><![CDATA[<p>I ran into this problem a few months ago and scoured the internet for solution but never found one until now. So hopefully this will be helpful to someone with the same problem. By default, the <a href="http://cxf.apache.org/docs/maven-cxf-codegen-plugin-wsdl-to-java.html">Apache CXF Codegen Maven plugin</a> generates code that will attempt to read your wsdl via the absolute path.</p>
 
