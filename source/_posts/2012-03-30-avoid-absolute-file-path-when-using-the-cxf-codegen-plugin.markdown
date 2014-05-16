@@ -13,7 +13,7 @@ tags:
 - wsdl
 ---
 I ran into this problem a few months ago and scoured the internet for solution but never found one until now. So hopefully this will be helpful to someone with the same problem. By default, the [Apache CXF Codegen Maven plugin][1] generates code that will attempt to read your wsdl via the absolute path.
-
+<!-- more -->
 So for instance:
 
 ``` xml

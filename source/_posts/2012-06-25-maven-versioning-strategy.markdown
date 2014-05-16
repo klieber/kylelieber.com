@@ -11,10 +11,10 @@ tags:
 - best practice
 - versioning
 - release
-comments: []
+comments: true
 ---
 I've been having a lot of discussions with analysts in my organization about how to version software using Maven and I'm finding there is a common misconception about what SNAPSHOT actually means. I've been looking for a good blog to send them that helps explain versioning in Maven but unfortunately everything I've found merely discusses version formats and not how to use them as you're developing an application. So, I decided I would take a stab at it. I welcome any comments and constructive criticism that will help me improve this document, so please feel free.
-
+<!--more-->
 First off, a SNAPSHOT is not the same thing as an alpha/beta/etc version. It is a special keyword that means it is the latest version of your code. This means it changes. If you pulled down someapp-1.0-SNAPSHOT yesterday and then you try to pull it down today it will most likely not be the same. This also means if you have a project dependent on a SNAPSHOT version, maven will need to check the remote repository for changes every time you run a build.
 
 Next thing to understand is what a release is in Maven. A release does NOT mean that the version is ready for production. It means that the developer has decided he is at a point in his development that he wants to have the code locked down so it is not lost. He may also want to distribute that code to someone, maybe its a library a developer on another team needs to get started on their own applications development or maybe it's an application that will be installed on a test environment for testing. So this means a maven release can be an alpha, beta, release candidate, patch, production, or whatever else you want to categorize it as.

@@ -15,7 +15,7 @@ tags:
 - open source
 ---
 I began using the the [Jasmine Maven Plugin][1] in June of 2012 and was immediately impressed with how well it worked and how easy it made automating my test execution. Soon after I discovered [require.js][2] and decided to begin using it in my applications. I learned quickly however that the require.js support in the Jasmine Maven Plugin had quite a few issues and so I decided to try and help fix some of them.
-
+<!--more-->
 Fast-forward to January of this year and I found myself a maintainer of the plugin with full commit access and a huge list of issues (thank you [Justin Searls][3] for the opportunity). I've had a few goals for my first release:
 
 *   don't break anything (still crossing my fingers on this one) 
