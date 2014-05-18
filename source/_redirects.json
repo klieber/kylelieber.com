@@ -2,6 +2,7 @@
     "category/thoughts/" : "/blog/categories/thoughts",
     "category/development/" : "/",
     "category/Development/" : "/",
+    "category/javascript/" : "/blog/categories/javascript",
     "blog/categories/Thoughts/" : "thoughts",
     "blog/categories/Development/" : "/",
     "blog/categories/JavaScript/" : "javascript",
