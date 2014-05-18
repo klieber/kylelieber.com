@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: Javascript | Kyle Lieber]]></title>
-  <link href="http://kylelieber.com/blog/categories/javascript/atom.xml" rel="self"/>
+  <title><![CDATA[Category: Open Source | Kyle Lieber]]></title>
+  <link href="http://kylelieber.com/blog/categories/open-source/atom.xml" rel="self"/>
   <link href="http://kylelieber.com/"/>
   <updated>2014-05-18T02:30:04-05:00</updated>
   <id>http://kylelieber.com/</id>
