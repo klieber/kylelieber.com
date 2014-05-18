@@ -52,8 +52,8 @@ desc "Generate jekyll site"
 task :generate do
   raise "### You haven't set anything up yet. First run `rake install` to set up an Octopress theme." unless File.directory?(source_dir)
   puts "## Generating Site with Jekyll"
-  system "compass compile --css-dir #{source_dir}/stylesheets"
-  system "jekyll"
+  system "compass compile --css-dir #{source_dir}/stylesheets" or exit 1
+  system "jekyll" or exit 1
 end
 
 desc "Watch the site and regenerate when it changes"
@@ -249,19 +249,19 @@ multitask :push do
   puts "## Deploying branch to Github Pages "
   puts "## Pulling any updates from Github Pages "
   cd "#{deploy_dir}" do 
-    system "git pull"
+    system "git pull" or exit 1
   end
   (Dir["#{deploy_dir}/*"]).each { |f| rm_rf(f) }
   Rake::Task[:copydot].invoke(public_dir, deploy_dir)
   puts "\n## Copying #{public_dir} to #{deploy_dir}"
   cp_r "#{public_dir}/.", deploy_dir
   cd "#{deploy_dir}" do
-    system "git add -A"
+    system "git add -A" or exit 1
     puts "\n## Committing: Site updated at #{Time.now.utc}"
     message = "Site updated at #{Time.now.utc}"
-    system "git commit -m \"#{message}\""
+    system "git commit -m \"#{message}\"" or exit 1
     puts "\n## Pushing generated #{deploy_dir} website"
-    system "git push origin #{deploy_branch}"
+    system "git push origin #{deploy_branch}" or exit 1
     puts "\n## Github Pages deploy complete"
   end
 end
