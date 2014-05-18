@@ -4,8 +4,6 @@ title: "Avoid absolute file path when using the cxf-codegen-plugin"
 date: 2012-03-30 21:30:58.000000000 -05:00
 comments: true
 categories:
-- Development
-tags:
 - maven
 - apache cxf
 - web services

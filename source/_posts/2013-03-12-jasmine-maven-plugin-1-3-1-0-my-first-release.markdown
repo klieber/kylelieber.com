@@ -5,11 +5,7 @@ author: klieber
 date: 2013-03-12 23:57:41.000000000 -05:00
 comments: true
 categories:
-- Development
-- JavaScript
-- Maven
-tags:
-- JavaScript
+- javascript
 - maven
 - testing
 - jasmine

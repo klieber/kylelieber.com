@@ -3,15 +3,13 @@ layout: post
 title: "maven versioning strategy"
 author: klieber
 date: 2012-06-25 17:01:44.000000000 -05:00
+comments: true
 categories:
-- Thoughts
-- Development
-tags:
+- thoughts
 - maven
 - best practice
 - versioning
 - release
-comments: true
 ---
 I've been having a lot of discussions with analysts in my organization about how to version software using Maven and I'm finding there is a common misconception about what SNAPSHOT actually means. I've been looking for a good blog to send them that helps explain versioning in Maven but unfortunately everything I've found merely discusses version formats and not how to use them as you're developing an application. So, I decided I would take a stab at it. I welcome any comments and constructive criticism that will help me improve this document, so please feel free.
 <!--more-->

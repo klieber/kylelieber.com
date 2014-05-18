@@ -4,11 +4,7 @@ title: "PhantomJS Maven Plugin 0.3"
 date: 2014-05-02 22:50:41 -0500
 comments: true
 categories:
-- Development
-- JavaScript
-- Maven
-tags:
-- JavaScript
+- javascript
 - maven
 - open source
 ---
