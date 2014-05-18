@@ -1,0 +1,23 @@
+#!/bin/bash
+
+# configure the ruby environment
+rbenvbin=$(find $HOME -type f -name 'rbenv' -executable | grep libexec | sed 's/libexec\/rbenv$/bin/')
+export PATH="$rbenvbin:$PATH"
+eval "$(rbenv init -)"
+
+git fetch origin
+if ! git diff-index --quiet origin/source --; then
+  echo Changes since last deployment:
+  git --no-pager  log --oneline   HEAD..origin/source
+
+  echo "Deploying changes now!"
+  git stash save -u "backing up uncommitted changes" &&
+  git reset --hard origin/source &&
+  bundle install && bundle exec rake gen_deploy &&
+  git tag -f deployed
+
+  echo Resetting to last deployed
+  git reset --hard deployed
+else
+  echo No changes since last deployment
+fi
