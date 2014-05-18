@@ -3,7 +3,13 @@ layout: post
 title: "PhantomJS Maven Plugin 0.3"
 date: 2014-05-02 22:50:41 -0500
 comments: true
-categories: 
+categories:
+- Development
+- JavaScript
+tags:
+- JavaScript
+- maven
+- open source
 ---
 I just released [version 0.3](https://github.com/klieber/phantomjs-maven-plugin/releases/tag/phantomjs-maven-plugin-0.3) of the [phantomjs-maven-plugin](http://kylelieber.com/phantomjs-maven-plugin) and I thought it was about time I wrote a blog post about this project.
 
