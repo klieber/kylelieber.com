@@ -7,6 +7,7 @@ comments: true
 categories:
 - Development
 - JavaScript
+- Maven
 tags:
 - JavaScript
 - maven
