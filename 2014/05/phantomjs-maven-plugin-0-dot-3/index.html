@@ -113,9 +113,9 @@
 <!--more-->
 
 
-<p>Well after a few months of explaining to users and friends that they needed to have the plugin installed and there was no good way to have it installed automatically, I decided I need to fix that. So, I took some inspiration from the work done on the <a href="https://github.com/qa/arquillian-phantom-driver">Arquillian Phantom Driver</a> and wrote the phantomjs-maven-plugin.</p>
+<p>Well after a few months of explaining to users and friends that they needed to have PhantomJS pre-installed and there was no good way to have it installed automatically, I decided I need to fix that. So, I took some inspiration from the work done on the <a href="https://github.com/qa/arquillian-phantom-driver">Arquillian Phantom Driver</a> and wrote the <a href="http://kylelieber.com/phantomjs-maven-plugin">phantomjs-maven-plugin</a>.</p>
 
-<p>The plugin works by first determining the current OS and architecture type that it is running on and then downloading the appropriate version of the PhantomJS binaries and set a property indicating the location of the executable.  The versions of the plugin prior to <code>0.3</code> would download the binaries directly from either googlecode or bitbucket where PhantomJS hosts them.  This latest version now downloads them via maven&rsquo;s central repository (downloading directly is still an option) which is great because it helps avoid firewall issues and allows for easy caching.</p>
+<p>The plugin works by first determining the current OS and architecture type that it is running on and then downloading the appropriate version of the PhantomJS binaries. It also sets a property indicating the location of the executable.  The versions of the plugin prior to <code>0.3</code> would download the binaries directly from either googlecode or bitbucket where PhantomJS hosts them.  This latest version now downloads them via maven&rsquo;s central repository (downloading directly is still an option) which is great because it helps avoid firewall issues and allows for easy caching.</p>
 
 <p>The plugin also features a <a href="http://kylelieber.com/phantomjs-maven-plugin/exec-mojo.html">goal for executing</a> PhantomJS scripts so you can easily install and execute PhantomJS scripts inside your maven build.</p>
 
