@@ -1,0 +1,494 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Kyle Lieber]]></title>
+  <link href="http://kylelieber.com/atom.xml" rel="self"/>
+  <link href="http://kylelieber.com/"/>
+  <updated>2014-10-21T22:33:20-05:00</updated>
+  <id>http://kylelieber.com/</id>
+  <author>
+    <name><![CDATA[Kyle Lieber]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[PhantomJS Maven Plugin 0.3]]></title>
+    <link href="http://kylelieber.com/2014/05/phantomjs-maven-plugin-0-dot-3/"/>
+    <updated>2014-05-02T22:50:41-05:00</updated>
+    <id>http://kylelieber.com/2014/05/phantomjs-maven-plugin-0-dot-3</id>
+    <content type="html"><![CDATA[<p>I just released <a href="https://github.com/klieber/phantomjs-maven-plugin/releases/tag/phantomjs-maven-plugin-0.3">version 0.3</a> of the <a href="http://kylelieber.com/phantomjs-maven-plugin">phantomjs-maven-plugin</a> and I thought it was about time I wrote a blog post about this project.</p>
+
+<p><a href="http://phantomjs.org">PhantomJS</a> is a headless WebKit implementation that is extremely useful for tasks like headless website testing, screen capture, page automation, network monitoring, and more. Much of my experience with PhantomJS comes from my work on the <a href="http://searls.github.io/jasmine-maven-plugin">jasmine-maven-plugin</a>.  In version <code>1.3.1.1</code> of the plugin we added support for using PhantomJS instead of <a href="http://htmlunit.sourceforge.com">HtmlUnit</a> to execute <a href="http://jasmine.github.io/">Jasmine</a> specs. The only downside to using PhantomJS with the plugin is that you had to have PhantomJS already installed on your system. For those of us in the Maven world that seems a little odd since Maven is suppose to download all of our dependencies for us. But of course, usually those dependencies are platform-independent java libraries. PhantomJS, on the other hand, requires install platform-dependent compiled binaries.</p>
+
+<!--more-->
+
+
+<p>Well after a few months of explaining to users and friends that they needed to have PhantomJS pre-installed and there was no good way to have it installed automatically, I decided I need to fix that. So, I took some inspiration from the work done on the <a href="https://github.com/qa/arquillian-phantom-driver">Arquillian Phantom Driver</a> and wrote the <a href="http://kylelieber.com/phantomjs-maven-plugin">phantomjs-maven-plugin</a>.</p>
+
+<p>The plugin works by first determining the current OS and architecture type that it is running on and then downloading the appropriate version of the PhantomJS binaries. It also sets a property indicating the location of the executable.  The versions of the plugin prior to <code>0.3</code> would download the binaries directly from either googlecode or bitbucket where PhantomJS hosts them.  This latest version now downloads them via maven&rsquo;s central repository (downloading directly is still an option) which is great because it helps avoid firewall issues and allows for easy caching.</p>
+
+<p>The plugin also features a <a href="http://kylelieber.com/phantomjs-maven-plugin/exec-mojo.html">goal for executing</a> PhantomJS scripts so you can easily install and execute PhantomJS scripts inside your maven build.</p>
+
+<p>You can see an example usage of the plugin with the jasmine-maven-plugin <a href="http://kylelieber.com/phantomjs-maven-plugin/">here</a>.  I&rsquo;m working on getting more documentation out there so until then you can also look at the <a href="https://github.com/klieber/phantomjs-maven-plugin/tree/master/src/it">sample projects</a> I use for the plugins integration tests.</p>
+
+<p>I&rsquo;ve been having a hard time keeping up on this and the jasmine-maven-plugin lately (partly because I need a new laptop terribly) but I hope to begin making regular commits again soon. Thank you for your patience.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Jasmine Maven Plugin 1.3.1.0 - My First Release]]></title>
+    <link href="http://kylelieber.com/2013/03/jasmine-maven-plugin-1-3-1-0-my-first-release/"/>
+    <updated>2013-03-12T23:57:41-05:00</updated>
+    <id>http://kylelieber.com/2013/03/jasmine-maven-plugin-1-3-1-0-my-first-release</id>
+    <content type="html"><![CDATA[<p>I began using the the <a href="http://searls.github.com/jasmine-maven-plugin">Jasmine Maven Plugin</a> in June of 2012 and was immediately impressed with how well it worked and how easy it made automating my test execution. Soon after I discovered <a href="http://requirejs.org">require.js</a> and decided to begin using it in my applications. I learned quickly however that the require.js support in the Jasmine Maven Plugin had quite a few issues and so I decided to try and help fix some of them.</p>
+
+<!--more-->
+
+
+<p>Fast-forward to January of this year and I found myself a maintainer of the plugin with full commit access and a huge list of issues (thank you <a href="http://about.me/searls">Justin Searls</a> for the opportunity). I&rsquo;ve had a few goals for my first release:</p>
+
+<ul>
+<li>don&rsquo;t break anything (still crossing my fingers on this one)</li>
+<li>make spec runner templates more useful by providing more variables</li>
+<li>merge the require.js specific code into the default code</li>
+<li>make the behavior of the <code>jasmine:bdd</code> goal and the <code>jasmine:test</code> goal consistent</li>
+<li>improve overall code quality and setup checks to monitor and measure code quality</li>
+</ul>
+
+
+<p>I&rsquo;m happy to say that version 1.3.1.0 is out and while only time will tell if I didn&rsquo;t break anything and improving code quality is ongoing, I am confident that I achieved my goals. For a full list of bug fixes and enhancements in 1.3.1.0 go <a href="http://searls.github.com/jasmine-maven-plugin/github-report.html">here</a></p>
+
+<p>Please check out the <a href="http://searls.github.com/jasmine-maven-plugin/">new site</a> for information on usage of the plugin and post any <a href="https://github.com/searls/jasmine-maven-plugin/issues">issues you find on github</a>.</p>
+
+<p>The <a href="https://github.com/searls/jasmine-maven-plugin/issues?milestone=2">next release</a> is planned for a little over a month from now and will have some new exciting features including support for using <a href="http://phantomjs.org/">PhantomJS</a> rather than HtmlUnit for headless test execution.</p>
+
+<p>Enjoy!</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Maven Versioning Strategy]]></title>
+    <link href="http://kylelieber.com/2012/06/maven-versioning-strategy/"/>
+    <updated>2012-06-25T17:01:44-05:00</updated>
+    <id>http://kylelieber.com/2012/06/maven-versioning-strategy</id>
+    <content type="html"><![CDATA[<p>I&rsquo;ve been having a lot of discussions with analysts in my organization about how to version software using Maven and I&rsquo;m finding there is a common misconception about what SNAPSHOT actually means. I&rsquo;ve been looking for a good blog to send them that helps explain versioning in Maven but unfortunately everything I&rsquo;ve found merely discusses version formats and not how to use them as you&rsquo;re developing an application. So, I decided I would take a stab at it. I welcome any comments and constructive criticism that will help me improve this document, so please feel free.</p>
+
+<!--more-->
+
+
+<p>First off, a SNAPSHOT is not the same thing as an alpha/beta/etc version. It is a special keyword that means it is the latest version of your code. This means it changes. If you pulled down someapp-1.0-SNAPSHOT yesterday and then you try to pull it down today it will most likely not be the same. This also means if you have a project dependent on a SNAPSHOT version, maven will need to check the remote repository for changes every time you run a build.</p>
+
+<p>Next thing to understand is what a release is in Maven. A release does NOT mean that the version is ready for production. It means that the developer has decided he is at a point in his development that he wants to have the code locked down so it is not lost. He may also want to distribute that code to someone, maybe its a library a developer on another team needs to get started on their own applications development or maybe it&rsquo;s an application that will be installed on a test environment for testing. So this means a maven release can be an alpha, beta, release candidate, patch, production, or whatever else you want to categorize it as.</p>
+
+<p>Make sense? Well, maybe walking through a scenario of how i handle this would help you. First lets look at the versioning strategy I use:</p>
+
+<h2>Versioning Strategy</h2>
+
+<p>The syntax for this strategy is based off of the format in <a href="http://www.sonatype.com/books/mvnref-book/reference/pom-relationships-sect-pom-syntax.html">Maven: The Complete Reference</a>. The differences are I&rsquo;m renaming &ldquo;incremental version&rdquo; to &ldquo;patch&rdquo; and breaking up the optional &ldquo;qualifier&rdquo; into &ldquo;type&rdquo; and an &ldquo;attempt&rdquo; simply for clarity.</p>
+
+<p><code>&lt;major&gt;.&lt;minor&gt;.&lt;patch&gt;[-&lt;type&gt;-&lt;attempt&gt;]</code></p>
+
+<ul>
+<li><code>&lt;major&gt;</code> &ndash; This is a number indicating a significant change in the application. A major version might possibly be a complete rewrite of the previous major version and/or break backwards compatibility with older versions.</li>
+<li><code>&lt;minor&gt;</code> &ndash; This is a number that indicates a small set of changes from the previous minor version. A minor version usually consists of an even set of bug fixes and new features and should always be backwards compatible.</li>
+<li><code>&lt;patch&gt;</code> &ndash; This is a number that indicates some bugs were fixed that couldn&rsquo;t wait until the next minor release. A patch version should only include bug fixes and never include new features. It should also always be backwards compatible. Security fixes are an example of a typical patch.</li>
+<li><code>[&lt;type&gt;-&lt;attempt&gt;]</code> &ndash; This is last part is optional and only used to identify that this version is not necessarily stable. The type is a keyword and can be anything but I usually stick to alpha, beta, and RC. The attempt is just a number to indicate which attempt at this type is this. So for example, beta-01, RC-02, RC-05, ect. For a stable version, I leave off this part, however, I&rsquo;ve seen other projects that like to use the keyword of RELEASE to indicate the stable version (you leave off the attempt because that wouldn&rsquo;t make sense, use RC (release candidate) for that).</li>
+</ul>
+
+
+<h2>Example Scenerio</h2>
+
+<p>So now for the scenario. Let&rsquo;s say I&rsquo;m working on the foobar application. My organization is expecting me to deliver foobar version <code>1.0</code> at the end of the quarter. (Notice I say <code>1.0</code> which means I&rsquo;m only using the first two numbers to refer to the version. That is because major and minor version are really the only versions anyone will care about other than your development team. Also, there&rsquo;s no way for me to know what the final version will be but I do know the major and minor will stay the same.) I&rsquo;m working on an agile team so I am going to be deploying whatever I have done at the end of each sprint to my test environment so my testers can validate everything. So, here&rsquo;s what I might do:</p>
+
+<p>I will start with version <code>1.0.0-SNAPSHOT</code> in my pom.xml at the beginning of the Sprint #1. At the end of Sprint #1, I will use the maven-release-plugin to create the <code>foobar-1.0.0-RC-01</code> release of the foobar application. The plugin will change the version from <code>1.0.0-SNAPSHOT</code> to <code>1.0.0-RC-01</code>, tag the code in scm with <code>foobar-1.0.0-RC-01</code>, and then finally build that release. Then plugin will then update the trunk to be the next development version of the application which we will leave at <code>1.0.0-SNAPSHOT</code>. Then I will deploy <code>foobar-1.0.0-RC-01</code> to the test environment. This process will continue for the next couple sprints until we get to a phase where we are to a point where we think we are complete.</p>
+
+<p>So let&rsquo;s say we are now at Sprint #5. We&rsquo;ve released four release candidate versions of the application, fixing bugs and adding features along the way. Now we feel <code>foobar-1.0.0-RC-04</code> is ready for production use. Now I run the maven-release-plugin again to create the <code>foobar-1.0.0</code> version of my application. Again, the plugin will tag the current version of the code in scm with <code>foobar-1.0.0</code> and then build that release. The plugin will then update the trunk to be the next development version of the application which this time I choose to be <code>1.1.0-SNAPSHOT</code>.</p>
+
+<p>Notice, I increment the minor version and not the patch version. In a perfect world, I would be done with the <code>1.0</code> version but of course this isn&rsquo;t a perfect world and most likely I&rsquo;ll have to patch my <code>1.0.0</code> version at some point. Since I don&rsquo;t know when that will be I&rsquo;m going to just move on with life and start working on the next version of the application, <code>1.1</code>.</p>
+
+<p>A few weeks later my QA team informs me that a bug was found in release testing that needs to be fixed. What am I going to do now? I&rsquo;ve moved on and have new <code>1.1</code> code in the trunk that can&rsquo;t go into release <code>1.0</code>. No worries, I remember that the release plugin tags each of my releases for me. So, I create a branch from the <code>foobar-1.0.0</code> tag and call it <code>foobar-1.0.X</code>. Then I checkout that new branch and increment the patch version to <code>1.0.1-SNAPSHOT</code>. This new branch is now my patching branch. I will fix the bug reported to me by the QA team and use the release plugin to produce patch version <code>foobar-1.0.1</code>. Then immediately after producing <code>foobar-1.0.1</code> I will merge the <code>1.0.1</code> changes into the trunk so that the fix is present in version <code>1.1</code> (which has yet to be released).</p>
+
+<p>Then I take a deep breath and go back to working on <code>1.1</code>. If another bug comes up, maybe even after we go out to production, I will just continue going back to my <code>foobar-1.0.X</code> patching branch to make the fix and merge the changes back in to the trunk.</p>
+
+<h2>Simplified Strategy</h2>
+
+<p>I don&rsquo;t always use the above strategy. In fact, a lot of the time I use what I would call a simplified version of this strategy. Essentially, it&rsquo;s the same thing except I remove the <code>-&lt;type&gt;-&lt;attempt&gt;</code> completely and instead of a <code>&lt;patch&gt;</code>, I have a more generic <code>&lt;incrementalVersion&gt;</code> (just like in the maven book). So it looks like this:</p>
+
+<p><code>&lt;major&gt;.&lt;minor&gt;.&lt;incrementalVersion&gt;</code></p>
+
+<p>Let&rsquo;s go back to the example scenario above and compare the full strategy with this simplified strategy:</p>
+
+<pre><code>| Iteration    | Full Strategy  | Simplified Strategy |
+|--------------|----------------|---------------------|
+| Sprint #1    | 1.0.0-RC-01    | 1.0.0               |
+| Sprint #2    | 1.0.0-RC-02    | 1.0.1               |
+| Sprint #3    | 1.0.0-RC-03    | 1.0.2               |
+| Sprint #4    | 1.0.0-RC-04    | 1.0.3               |
+| Production   | 1.0.0          | 1.0.3               |
+| First Patch  | 1.0.1          | 1.0.4               |
+| Next Version | 1.1.0          | 1.1.0               |
+</code></pre>
+
+<p>As you can see the simplified strategy loses some of the verbosity of the full strategy which can be a good and a bad thing. It&rsquo;s not going to be obvious whether a version is ready for production or just a release candidate. However, it does mean you don&rsquo;t have to test the accepted release candidate twice. If you noticed the version delivered by Sprint #4 is also the production version. There&rsquo;s no need to rebuild it just to remove the <code>-RC-04</code>.</p>
+
+<p>For a smaller team or a team that doesn&rsquo;t really have their artifacts consumed by many other areas this may be a better solution because there is a lot less versioning to manage. You just need to make sure you are communicating clearly with your team so everyone knows what is going on.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Avoid Absolute File Path When Using the Cxf-codegen-plugin]]></title>
+    <link href="http://kylelieber.com/2012/03/avoid-absolute-file-path-when-using-the-cxf-codegen-plugin/"/>
+    <updated>2012-03-30T21:30:58-05:00</updated>
+    <id>http://kylelieber.com/2012/03/avoid-absolute-file-path-when-using-the-cxf-codegen-plugin</id>
+    <content type="html"><![CDATA[<p>I ran into this problem a few months ago and scoured the internet for solution but never found one until now. So hopefully this will be helpful to someone with the same problem. By default, the <a href="http://cxf.apache.org/docs/maven-cxf-codegen-plugin-wsdl-to-java.html">Apache CXF Codegen Maven plugin</a> generates code that will attempt to read your wsdl via the absolute path.</p>
+
+<!-- more -->
+
+
+<p>So for instance:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+</pre></td><td class='code'><pre><code class='xml'><span class='line'><span class="nt">&lt;plugin&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;groupId&gt;</span>org.apache.cxf<span class="nt">&lt;/groupId&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;artifactId&gt;</span>cxf-codegen-plugin<span class="nt">&lt;/artifactId&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;version&gt;</span>${cxf.version}<span class="nt">&lt;/version&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;executions&gt;</span>
+</span><span class='line'>    <span class="nt">&lt;execution&gt;</span>
+</span><span class='line'>      <span class="nt">&lt;id&gt;</span>generate-sources<span class="nt">&lt;/id&gt;</span>
+</span><span class='line'>      <span class="nt">&lt;phase&gt;</span>generate-sources<span class="nt">&lt;/phase&gt;</span>
+</span><span class='line'>      <span class="nt">&lt;configuration&gt;</span>
+</span><span class='line'>        <span class="nt">&lt;sourceRoot&gt;</span>${project.build.directory}/generated-sources/cxf<span class="nt">&lt;/sourceRoot&gt;</span>
+</span><span class='line'>        <span class="nt">&lt;wsdlOptions&gt;</span>
+</span><span class='line'>          <span class="nt">&lt;wsdlOption&gt;</span>
+</span><span class='line'>            <span class="nt">&lt;wsdl&gt;</span>${project.basedir}/src/main/resources/wsdl/FooService.wsdl<span class="nt">&lt;/wsdl&gt;</span>
+</span><span class='line'>          <span class="nt">&lt;/wsdlOption&gt;</span>
+</span><span class='line'>        <span class="nt">&lt;/wsdlOptions&gt;</span>
+</span><span class='line'>      <span class="nt">&lt;/configuration&gt;</span>
+</span><span class='line'>      <span class="nt">&lt;goals&gt;</span>
+</span><span class='line'>        <span class="nt">&lt;goal&gt;</span>wsdl2java<span class="nt">&lt;/goal&gt;</span>
+</span><span class='line'>      <span class="nt">&lt;/goals&gt;</span>
+</span><span class='line'>    <span class="nt">&lt;/execution&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;/executions&gt;</span>
+</span><span class='line'><span class="nt">&lt;/plugin&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p></p>
+
+<p>Will produce the following:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="nd">@WebServiceClient</span><span class="o">(</span><span class="n">name</span> <span class="o">=</span> <span class="s">&quot;Foo_Service&quot;</span><span class="o">,</span>
+</span><span class='line'>                  <span class="n">wsdlLocation</span> <span class="o">=</span> <span class="s">&quot;file:/home/user/sandbox/example/src/main/resources/wsdl/FooService.wsdl&quot;</span><span class="o">,</span>
+</span><span class='line'>                  <span class="n">targetNamespace</span> <span class="o">=</span> <span class="s">&quot;http://www.examples.com/wsdl/FooService.wsdl&quot;</span><span class="o">)</span>
+</span><span class='line'><span class="kd">public</span> <span class="kd">class</span> <span class="nc">FooService</span> <span class="kd">extends</span> <span class="n">Service</span> <span class="o">{</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="kd">public</span> <span class="kd">final</span> <span class="kd">static</span> <span class="n">URL</span> <span class="n">WSDL_LOCATION</span><span class="o">;</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="kd">public</span> <span class="kd">final</span> <span class="kd">static</span> <span class="n">QName</span> <span class="n">SERVICE</span> <span class="o">=</span> <span class="k">new</span> <span class="n">QName</span><span class="o">(</span><span class="s">&quot;http://www.examples.com/wsdl/FooService.wsdl&quot;</span><span class="o">,</span> <span class="s">&quot;Foo_Service&quot;</span><span class="o">);</span>
+</span><span class='line'>  <span class="kd">public</span> <span class="kd">final</span> <span class="kd">static</span> <span class="n">QName</span> <span class="n">FooPort</span> <span class="o">=</span> <span class="k">new</span> <span class="n">QName</span><span class="o">(</span><span class="s">&quot;http://www.examples.com/wsdl/FooService.wsdl&quot;</span><span class="o">,</span> <span class="s">&quot;Foo_Port&quot;</span><span class="o">);</span>
+</span><span class='line'>  <span class="kd">static</span> <span class="o">{</span>
+</span><span class='line'>    <span class="n">URL</span> <span class="n">url</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+</span><span class='line'>    <span class="k">try</span> <span class="o">{</span>
+</span><span class='line'>      <span class="n">url</span> <span class="o">=</span> <span class="k">new</span> <span class="n">URL</span><span class="o">(</span><span class="s">&quot;file:/home/user/sandbox/example/src/main/resources/wsdl/FooService.wsdl&quot;</span><span class="o">);</span>
+</span><span class='line'>    <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">MalformedURLException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+</span><span class='line'>       <span class="n">java</span><span class="o">.</span><span class="na">util</span><span class="o">.</span><span class="na">logging</span><span class="o">.</span><span class="na">Logger</span><span class="o">.</span><span class="na">getLogger</span><span class="o">(</span><span class="n">FooService</span><span class="o">.</span><span class="na">class</span><span class="o">.</span><span class="na">getName</span><span class="o">())</span>
+</span><span class='line'>           <span class="o">.</span><span class="na">log</span><span class="o">(</span><span class="n">java</span><span class="o">.</span><span class="na">util</span><span class="o">.</span><span class="na">logging</span><span class="o">.</span><span class="na">Level</span><span class="o">.</span><span class="na">INFO</span><span class="o">,</span>
+</span><span class='line'>                <span class="s">&quot;Can not initialize the default wsdl from {0}&quot;</span><span class="o">,</span> <span class="s">&quot;file:/home/user/sandbox/example/src/main/resources/wsdl/FooService.wsdl&quot;</span><span class="o">);</span>
+</span><span class='line'>    <span class="o">}</span>
+</span><span class='line'>    <span class="n">WSDL_LOCATION</span> <span class="o">=</span> <span class="n">url</span><span class="o">;</span>
+</span><span class='line'>  <span class="o">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p></p>
+
+<p>As you can see its trying to read the wsdl from an absolute path, which really doesn&rsquo;t make this code very portable. So the first thought you might have is just use the <code>&lt;wsdlLocation /&gt;</code> tag to set the location to a relative path like this:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+</pre></td><td class='code'><pre><code class='xml'><span class='line'><span class="nt">&lt;plugin&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;groupId&gt;</span>org.apache.cxf<span class="nt">&lt;/groupId&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;artifactId&gt;</span>cxf-codegen-plugin<span class="nt">&lt;/artifactId&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;version&gt;</span>${cxf.version}<span class="nt">&lt;/version&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;executions&gt;</span>
+</span><span class='line'>    <span class="nt">&lt;execution&gt;</span>
+</span><span class='line'>      <span class="nt">&lt;id&gt;</span>generate-sources<span class="nt">&lt;/id&gt;</span>
+</span><span class='line'>      <span class="nt">&lt;phase&gt;</span>generate-sources<span class="nt">&lt;/phase&gt;</span>
+</span><span class='line'>      <span class="nt">&lt;configuration&gt;</span>
+</span><span class='line'>        <span class="nt">&lt;sourceRoot&gt;</span>${project.build.directory}/generated-sources/cxf<span class="nt">&lt;/sourceRoot&gt;</span>
+</span><span class='line'>        <span class="nt">&lt;wsdlOptions&gt;</span>
+</span><span class='line'>          <span class="nt">&lt;wsdlOption&gt;</span>
+</span><span class='line'>            <span class="nt">&lt;wsdl&gt;</span>${project.basedir}/src/main/resources/wsdl/FooService.wsdl<span class="nt">&lt;/wsdl&gt;</span>
+</span><span class='line'>            <span class="nt">&lt;wsdlLocation&gt;</span>wsdl/FooService.wsdl<span class="nt">&lt;/wsdlLocation&gt;</span>
+</span><span class='line'>          <span class="nt">&lt;/wsdlOption&gt;</span>
+</span><span class='line'>        <span class="nt">&lt;/wsdlOptions&gt;</span>
+</span><span class='line'>      <span class="nt">&lt;/configuration&gt;</span>
+</span><span class='line'>      <span class="nt">&lt;goals&gt;</span>
+</span><span class='line'>        <span class="nt">&lt;goal&gt;</span>wsdl2java<span class="nt">&lt;/goal&gt;</span>
+</span><span class='line'>      <span class="nt">&lt;/goals&gt;</span>
+</span><span class='line'>    <span class="nt">&lt;/execution&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;/executions&gt;</span>
+</span><span class='line'><span class="nt">&lt;/plugin&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p></p>
+
+<p>However, if you&rsquo;re using a version of cxf-codegen-plugin prior to 2.4.6, you&rsquo;ll find that it won&rsquo;t work because it generates invalid code that will result in a <code>MalformedURLException</code> since you can&rsquo;t instantiate a URL with a relative path:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="nd">@WebServiceClient</span><span class="o">(</span><span class="n">name</span> <span class="o">=</span> <span class="s">&quot;Foo_Service&quot;</span><span class="o">,</span>
+</span><span class='line'>                  <span class="n">wsdlLocation</span> <span class="o">=</span> <span class="s">&quot;wsdl/FooService.wsdl&quot;</span><span class="o">,</span>
+</span><span class='line'>                  <span class="n">targetNamespace</span> <span class="o">=</span> <span class="s">&quot;http://www.examples.com/wsdl/FooService.wsdl&quot;</span><span class="o">)</span>
+</span><span class='line'><span class="kd">public</span> <span class="kd">class</span> <span class="nc">FooService</span> <span class="kd">extends</span> <span class="n">Service</span> <span class="o">{</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="kd">public</span> <span class="kd">final</span> <span class="kd">static</span> <span class="n">URL</span> <span class="n">WSDL_LOCATION</span><span class="o">;</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="kd">public</span> <span class="kd">final</span> <span class="kd">static</span> <span class="n">QName</span> <span class="n">SERVICE</span> <span class="o">=</span> <span class="k">new</span> <span class="n">QName</span><span class="o">(</span><span class="s">&quot;http://www.examples.com/wsdl/FooService.wsdl&quot;</span><span class="o">,</span> <span class="s">&quot;Foo_Service&quot;</span><span class="o">);</span>
+</span><span class='line'>  <span class="kd">public</span> <span class="kd">final</span> <span class="kd">static</span> <span class="n">QName</span> <span class="n">FooPort</span> <span class="o">=</span> <span class="k">new</span> <span class="n">QName</span><span class="o">(</span><span class="s">&quot;http://www.examples.com/wsdl/FooService.wsdl&quot;</span><span class="o">,</span> <span class="s">&quot;Foo_Port&quot;</span><span class="o">);</span>
+</span><span class='line'>  <span class="kd">static</span> <span class="o">{</span>
+</span><span class='line'>    <span class="n">URL</span> <span class="n">url</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+</span><span class='line'>    <span class="k">try</span> <span class="o">{</span>
+</span><span class='line'>      <span class="n">url</span> <span class="o">=</span> <span class="k">new</span> <span class="n">URL</span><span class="o">(</span><span class="s">&quot;wsdl/FooService.wsdl&quot;</span><span class="o">);</span>
+</span><span class='line'>    <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">MalformedURLException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+</span><span class='line'>      <span class="n">java</span><span class="o">.</span><span class="na">util</span><span class="o">.</span><span class="na">logging</span><span class="o">.</span><span class="na">Logger</span><span class="o">.</span><span class="na">getLogger</span><span class="o">(</span><span class="n">FooService</span><span class="o">.</span><span class="na">class</span><span class="o">.</span><span class="na">getName</span><span class="o">())</span>
+</span><span class='line'>          <span class="o">.</span><span class="na">log</span><span class="o">(</span><span class="n">java</span><span class="o">.</span><span class="na">util</span><span class="o">.</span><span class="na">logging</span><span class="o">.</span><span class="na">Level</span><span class="o">.</span><span class="na">INFO</span><span class="o">,</span>
+</span><span class='line'>               <span class="s">&quot;Can not initialize the default wsdl from {0}&quot;</span><span class="o">,</span> <span class="s">&quot;wsdl/FooService.wsdl&quot;</span><span class="o">);</span>
+</span><span class='line'>    <span class="o">}</span>
+</span><span class='line'>    <span class="n">WSDL_LOCATION</span> <span class="o">=</span> <span class="n">url</span><span class="o">;</span>
+</span><span class='line'>  <span class="o">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>I recently found that starting with 2.4.6 though it will actually generate somewhat more reasonable code:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="nd">@WebServiceClient</span><span class="o">(</span><span class="n">name</span> <span class="o">=</span> <span class="s">&quot;Foo_Service&quot;</span><span class="o">,</span>
+</span><span class='line'>                  <span class="n">wsdlLocation</span> <span class="o">=</span> <span class="s">&quot;wsdl/FooService.wsdl&quot;</span><span class="o">,</span>
+</span><span class='line'>                  <span class="n">targetNamespace</span> <span class="o">=</span> <span class="s">&quot;http://www.examples.com/wsdl/FooService.wsdl&quot;</span><span class="o">)</span>
+</span><span class='line'><span class="kd">public</span> <span class="kd">class</span> <span class="nc">FooService</span> <span class="kd">extends</span> <span class="n">Service</span> <span class="o">{</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="kd">public</span> <span class="kd">final</span> <span class="kd">static</span> <span class="n">URL</span> <span class="n">WSDL_LOCATION</span><span class="o">;</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="kd">public</span> <span class="kd">final</span> <span class="kd">static</span> <span class="n">QName</span> <span class="n">SERVICE</span> <span class="o">=</span> <span class="k">new</span> <span class="n">QName</span><span class="o">(</span><span class="s">&quot;http://www.examples.com/wsdl/FooService.wsdl&quot;</span><span class="o">,</span> <span class="s">&quot;Foo_Service&quot;</span><span class="o">);</span>
+</span><span class='line'>  <span class="kd">public</span> <span class="kd">final</span> <span class="kd">static</span> <span class="n">QName</span> <span class="n">FooPort</span> <span class="o">=</span> <span class="k">new</span> <span class="n">QName</span><span class="o">(</span><span class="s">&quot;http://www.examples.com/wsdl/FooService.wsdl&quot;</span><span class="o">,</span> <span class="s">&quot;Foo_Port&quot;</span><span class="o">);</span>
+</span><span class='line'>  <span class="kd">static</span> <span class="o">{</span>
+</span><span class='line'>    <span class="n">URL</span> <span class="n">url</span> <span class="o">=</span> <span class="n">FooService</span><span class="o">.</span><span class="na">class</span><span class="o">.</span><span class="na">getResource</span><span class="o">(</span><span class="s">&quot;wsdl/FooService.wsdl&quot;</span><span class="o">);</span>
+</span><span class='line'>    <span class="k">if</span> <span class="o">(</span><span class="n">url</span> <span class="o">==</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+</span><span class='line'>      <span class="n">java</span><span class="o">.</span><span class="na">util</span><span class="o">.</span><span class="na">logging</span><span class="o">.</span><span class="na">Logger</span><span class="o">.</span><span class="na">getLogger</span><span class="o">(</span><span class="n">FooService</span><span class="o">.</span><span class="na">class</span><span class="o">.</span><span class="na">getName</span><span class="o">())</span>
+</span><span class='line'>          <span class="o">.</span><span class="na">log</span><span class="o">(</span><span class="n">java</span><span class="o">.</span><span class="na">util</span><span class="o">.</span><span class="na">logging</span><span class="o">.</span><span class="na">Level</span><span class="o">.</span><span class="na">INFO</span><span class="o">,</span>
+</span><span class='line'>               <span class="s">&quot;Can not initialize the default wsdl from {0}&quot;</span><span class="o">,</span> <span class="s">&quot;wsdl/FooService.wsdl&quot;</span><span class="o">);</span>
+</span><span class='line'>    <span class="o">}</span>
+</span><span class='line'>    <span class="n">WSDL_LOCATION</span> <span class="o">=</span> <span class="n">url</span><span class="o">;</span>
+</span><span class='line'>  <span class="o">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Note the use of <code>FooService.class.getResource("wsdl/FooService.wsdl")</code>. This is actually a big improvement over the way the previous version of the plugin worked, however it still doesn&rsquo;t work in my situation because the getResource method on a class looks for a resource relative to the package the class belongs too. So I would need to have my wsdl in <code>src/main/resources/com/examples/wsdl/fooservice_wsdl/wsdl/FooService.wsdl</code>. It might not be a terrible way to organize my wsdls by package but that&rsquo;s not what I&rsquo;m looking for. What I really want is a way so that the code uses <code>FooService.class.getClassLoader().getResource("wsdl/FooService.wsdl")</code> and until now my solution was to use an ant build with a ReplaceRegExp task to change the code CXF generates to look this way. However, there is a much simpler and better way built in to the plugin starting with version 2.4.1 that is apparently not documented very well:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+</pre></td><td class='code'><pre><code class='xml'><span class='line'><span class="nt">&lt;plugin&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;groupId&gt;</span>org.apache.cxf<span class="nt">&lt;/groupId&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;artifactId&gt;</span>cxf-codegen-plugin<span class="nt">&lt;/artifactId&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;version&gt;</span>${cxf.version}<span class="nt">&lt;/version&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;executions&gt;</span>
+</span><span class='line'>    <span class="nt">&lt;execution&gt;</span>
+</span><span class='line'>      <span class="nt">&lt;id&gt;</span>generate-sources<span class="nt">&lt;/id&gt;</span>
+</span><span class='line'>      <span class="nt">&lt;phase&gt;</span>generate-sources<span class="nt">&lt;/phase&gt;</span>
+</span><span class='line'>      <span class="nt">&lt;configuration&gt;</span>
+</span><span class='line'>        <span class="nt">&lt;sourceRoot&gt;</span>${project.build.directory}/generated-sources/cxf<span class="nt">&lt;/sourceRoot&gt;</span>
+</span><span class='line'>        <span class="nt">&lt;wsdlOptions&gt;</span>
+</span><span class='line'>          <span class="nt">&lt;wsdlOption&gt;</span>
+</span><span class='line'>            <span class="nt">&lt;wsdl&gt;</span>${project.basedir}/src/main/resources/wsdl/FooService.wsdl<span class="nt">&lt;/wsdl&gt;</span>
+</span><span class='line'>            <span class="nt">&lt;wsdlLocation&gt;</span>classpath:wsdl/FooService.wsdl<span class="nt">&lt;/wsdlLocation&gt;</span>
+</span><span class='line'>          <span class="nt">&lt;/wsdlOption&gt;</span>
+</span><span class='line'>        <span class="nt">&lt;/wsdlOptions&gt;</span>
+</span><span class='line'>      <span class="nt">&lt;/configuration&gt;</span>
+</span><span class='line'>      <span class="nt">&lt;goals&gt;</span>
+</span><span class='line'>        <span class="nt">&lt;goal&gt;</span>wsdl2java<span class="nt">&lt;/goal&gt;</span>
+</span><span class='line'>      <span class="nt">&lt;/goals&gt;</span>
+</span><span class='line'>    <span class="nt">&lt;/execution&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;/executions&gt;</span>
+</span><span class='line'><span class="nt">&lt;/plugin&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p></p>
+
+<p>Yep, that&rsquo;s it. Just prefix the value of the wsdlLocation with &ldquo;classpath:&rdquo; and it will generate code the reads the resource from the classpath using the classloader:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="nd">@WebServiceClient</span><span class="o">(</span><span class="n">name</span> <span class="o">=</span> <span class="s">&quot;Foo_Service&quot;</span><span class="o">,</span>
+</span><span class='line'>                  <span class="n">wsdlLocation</span> <span class="o">=</span> <span class="s">&quot;classpath:wsdl/FooService.wsdl&quot;</span><span class="o">,</span>
+</span><span class='line'>                  <span class="n">targetNamespace</span> <span class="o">=</span> <span class="s">&quot;http://www.examples.com/wsdl/FooService.wsdl&quot;</span><span class="o">)</span>
+</span><span class='line'><span class="kd">public</span> <span class="kd">class</span> <span class="nc">FooService</span> <span class="kd">extends</span> <span class="n">Service</span> <span class="o">{</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="kd">public</span> <span class="kd">final</span> <span class="kd">static</span> <span class="n">URL</span> <span class="n">WSDL_LOCATION</span><span class="o">;</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="kd">public</span> <span class="kd">final</span> <span class="kd">static</span> <span class="n">QName</span> <span class="n">SERVICE</span> <span class="o">=</span> <span class="k">new</span> <span class="n">QName</span><span class="o">(</span><span class="s">&quot;http://www.examples.com/wsdl/FooService.wsdl&quot;</span><span class="o">,</span> <span class="s">&quot;Foo_Service&quot;</span><span class="o">);</span>
+</span><span class='line'>  <span class="kd">public</span> <span class="kd">final</span> <span class="kd">static</span> <span class="n">QName</span> <span class="n">FooPort</span> <span class="o">=</span> <span class="k">new</span> <span class="n">QName</span><span class="o">(</span><span class="s">&quot;http://www.examples.com/wsdl/FooService.wsdl&quot;</span><span class="o">,</span> <span class="s">&quot;Foo_Port&quot;</span><span class="o">);</span>
+</span><span class='line'>  <span class="kd">static</span> <span class="o">{</span>
+</span><span class='line'>    <span class="n">URL</span> <span class="n">url</span> <span class="o">=</span> <span class="n">FooService</span><span class="o">.</span><span class="na">class</span><span class="o">.</span><span class="na">getClassLoader</span><span class="o">().</span><span class="na">getResource</span><span class="o">(</span><span class="s">&quot;wsdl/FooService.wsdl&quot;</span><span class="o">);</span>
+</span><span class='line'>    <span class="k">if</span> <span class="o">(</span><span class="n">url</span> <span class="o">==</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+</span><span class='line'>      <span class="n">java</span><span class="o">.</span><span class="na">util</span><span class="o">.</span><span class="na">logging</span><span class="o">.</span><span class="na">Logger</span><span class="o">.</span><span class="na">getLogger</span><span class="o">(</span><span class="n">FooService</span><span class="o">.</span><span class="na">class</span><span class="o">.</span><span class="na">getName</span><span class="o">())</span>
+</span><span class='line'>          <span class="o">.</span><span class="na">log</span><span class="o">(</span><span class="n">java</span><span class="o">.</span><span class="na">util</span><span class="o">.</span><span class="na">logging</span><span class="o">.</span><span class="na">Level</span><span class="o">.</span><span class="na">INFO</span><span class="o">,</span>
+</span><span class='line'>               <span class="s">&quot;Can not initialize the default wsdl from {0}&quot;</span><span class="o">,</span> <span class="s">&quot;classpath:wsdl/FooService.wsdl&quot;</span><span class="o">);</span>
+</span><span class='line'>    <span class="o">}</span>
+</span><span class='line'>    <span class="n">WSDL_LOCATION</span> <span class="o">=</span> <span class="n">url</span><span class="o">;</span>
+</span><span class='line'>  <span class="o">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[The First Post]]></title>
+    <link href="http://kylelieber.com/2012/03/the-first-post/"/>
+    <updated>2012-03-05T02:39:00-06:00</updated>
+    <id>http://kylelieber.com/2012/03/the-first-post</id>
+    <content type="html"><![CDATA[<p>This is just the dreaded first blog entry.  I don&rsquo;t really have anything to say at this point and I&rsquo;m not even sure how I intend to use this blog yet.  I&rsquo;m thinking I&rsquo;ll be posting things I learned how to do and how I did it.  Hopefully, others will find something I learn useful but I really just want a central location for my own references so I guess it will be interesting to see if anyone actually reads this.</p>
+]]></content>
+  </entry>
+  
+</feed>
