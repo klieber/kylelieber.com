@@ -1,0 +1,57 @@
+baseurl = "http://kylelieber.com"
+languageCode = "en-us"
+title = "Kyle Lieber"
+canonifyurls = true
+
+[permalinks]
+  post = "/:year/:month/:slug"
+
+[[menu.main]]
+  Name = "Blog"
+  URL = "/"
+  weight = 1
+
+[[menu.main]]
+  Name = "Development"
+  URL = "/categories/development/"
+  weight = 2
+
+[[menu.main]]
+  Name = "Thoughts"
+  URL = "/categories/thoughts"
+  weight = 3
+
+[[menu.main]]
+  Name = "Resume"
+  URL = "https://www.linkedin.com/in/kylelieber"
+  weight = 4
+
+[[menu.main]]
+  Name = "PhantomJS Maven Plugin"
+  URL = "/phantomjs-maven-plugin"
+  weight = 5
+
+[params]
+  author = "Kyle Lieber"
+  subtitle = "some things I felt like writing about..."
+
+  github = "https://github.com/klieber/"
+  bitbucket = "https://bitbucket.org/klieber/"
+  twitter = "https://twitter.com/kylelieber/"
+  stackoverflow = "http://stackoverflow.com/users/1190144/kyle"
+  linkedin = "https://www.linkedin.com/in/kylelieber"
+
+  disqusShortname = "kylelieber"
+
+  googleAnalytics = "UA-52118741-1"
+
+  search_engine_url = "https://www.google.com/search"
+
+  rss = true  # switch to true to enable RSS icon link
+
+  github_user = "klieber"
+  github_show_profile_link = true
+  github_repo_count = 5
+  github_skip_forks = false
+
+  hljsStyle = "solarized-dark"
