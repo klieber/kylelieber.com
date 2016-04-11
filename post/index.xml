@@ -1,0 +1,324 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on Kyle Lieber</title>
+    <link>http://kylelieber.com/post/</link>
+    <description>Recent content in Posts on Kyle Lieber</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 02 May 2014 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://kylelieber.com/post/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>PhantomJS Maven Plugin 0.3</title>
+      <link>http://kylelieber.com/2014/05/phantomjs-maven-plugin-0-dot-3</link>
+      <pubDate>Fri, 02 May 2014 00:00:00 +0000</pubDate>
+      
+      <guid>http://kylelieber.com/2014/05/phantomjs-maven-plugin-0-dot-3</guid>
+      <description>&lt;p&gt;I just released &lt;a href=&#34;https://github.com/klieber/phantomjs-maven-plugin/releases/tag/phantomjs-maven-plugin-0.3&#34;&gt;version 0.3&lt;/a&gt; of the &lt;a href=&#34;http://kylelieber.com/phantomjs-maven-plugin&#34;&gt;phantomjs-maven-plugin&lt;/a&gt; and I thought it was about time I wrote a blog post about this project.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://phantomjs.org&#34;&gt;PhantomJS&lt;/a&gt; is a headless WebKit implementation that is extremely useful for tasks like headless website testing, screen capture, page automation, network monitoring, and more. Much of my experience with PhantomJS comes from my work on the &lt;a href=&#34;http://searls.github.io/jasmine-maven-plugin&#34;&gt;jasmine-maven-plugin&lt;/a&gt;.  In version &lt;code&gt;1.3.1.1&lt;/code&gt; of the plugin we added support for using PhantomJS instead of &lt;a href=&#34;http://htmlunit.sourceforge.com&#34;&gt;HtmlUnit&lt;/a&gt; to execute &lt;a href=&#34;http://jasmine.github.io/&#34;&gt;Jasmine&lt;/a&gt; specs. The only downside to using PhantomJS with the plugin is that you had to have PhantomJS already installed on your system. For those of us in the Maven world that seems a little odd since Maven is suppose to download all of our dependencies for us. But of course, usually those dependencies are platform-independent java libraries. PhantomJS, on the other hand, requires install platform-dependent compiled binaries.&lt;/p&gt;
+
+&lt;p&gt;``
+Well after a few months of explaining to users and friends that they needed to have PhantomJS pre-installed and there was no good way to have it installed automatically, I decided I need to fix that. So, I took some inspiration from the work done on the &lt;a href=&#34;https://github.com/qa/arquillian-phantom-driver&#34;&gt;Arquillian Phantom Driver&lt;/a&gt; and wrote the &lt;a href=&#34;http://kylelieber.com/phantomjs-maven-plugin&#34;&gt;phantomjs-maven-plugin&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;The plugin works by first determining the current OS and architecture type that it is running on and then downloading the appropriate version of the PhantomJS binaries. It also sets a property indicating the location of the executable.  The versions of the plugin prior to &lt;code&gt;0.3&lt;/code&gt; would download the binaries directly from either googlecode or bitbucket where PhantomJS hosts them.  This latest version now downloads them via maven&amp;rsquo;s central repository (downloading directly is still an option) which is great because it helps avoid firewall issues and allows for easy caching.&lt;/p&gt;
+
+&lt;p&gt;The plugin also features a &lt;a href=&#34;http://kylelieber.com/phantomjs-maven-plugin/exec-mojo.html&#34;&gt;goal for executing&lt;/a&gt; PhantomJS scripts so you can easily install and execute PhantomJS scripts inside your maven build.&lt;/p&gt;
+
+&lt;p&gt;You can see an example usage of the plugin with the jasmine-maven-plugin &lt;a href=&#34;http://kylelieber.com/phantomjs-maven-plugin/&#34;&gt;here&lt;/a&gt;.  I&amp;rsquo;m working on getting more documentation out there so until then you can also look at the &lt;a href=&#34;https://github.com/klieber/phantomjs-maven-plugin/tree/master/src/it&#34;&gt;sample projects&lt;/a&gt; I use for the plugins integration tests.&lt;/p&gt;
+
+&lt;p&gt;I&amp;rsquo;ve been having a hard time keeping up on this and the jasmine-maven-plugin lately (partly because I need a new laptop terribly) but I hope to begin making regular commits again soon. Thank you for your patience.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Jasmine Maven Plugin 1.3.1.0 - My First Release</title>
+      <link>http://kylelieber.com/2013/03/jasmine-maven-plugin-1-3-1-0-my-first-release</link>
+      <pubDate>Tue, 12 Mar 2013 00:00:00 +0000</pubDate>
+      
+      <guid>http://kylelieber.com/2013/03/jasmine-maven-plugin-1-3-1-0-my-first-release</guid>
+      <description>&lt;p&gt;I began using the the &lt;a href=&#34;http://searls.github.com/jasmine-maven-plugin&#34;&gt;Jasmine Maven Plugin&lt;/a&gt; in June of 2012 and was immediately impressed with how well it worked and how easy it made automating my test execution. Soon after I discovered &lt;a href=&#34;http://requirejs.org&#34;&gt;require.js&lt;/a&gt; and decided to begin using it in my applications. I learned quickly however that the require.js support in the Jasmine Maven Plugin had quite a few issues and so I decided to try and help fix some of them.&lt;/p&gt;
+
+&lt;p&gt;Fast-forward to January of this year and I found myself a maintainer of the plugin with full commit access and a huge list of issues (thank you &lt;a href=&#34;http://about.me/searls&#34;&gt;Justin Searls&lt;/a&gt; for the opportunity). I&amp;rsquo;ve had a few goals for my first release:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;don&amp;rsquo;t break anything (still crossing my fingers on this one)&lt;/li&gt;
+&lt;li&gt;make spec runner templates more useful by providing more variables&lt;/li&gt;
+&lt;li&gt;merge the require.js specific code into the default code&lt;/li&gt;
+&lt;li&gt;make the behavior of the &lt;code&gt;jasmine:bdd&lt;/code&gt; goal and the &lt;code&gt;jasmine:test&lt;/code&gt; goal consistent&lt;/li&gt;
+&lt;li&gt;improve overall code quality and setup checks to monitor and measure code quality&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;I&amp;rsquo;m happy to say that version 1.3.1.0 is out and while only time will tell if I didn&amp;rsquo;t break anything and improving code quality is ongoing, I am confident that I achieved my goals. For a full list of bug fixes and enhancements in 1.3.1.0 go &lt;a href=&#34;http://searls.github.com/jasmine-maven-plugin/github-report.html&#34;&gt;here&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Please check out the &lt;a href=&#34;http://searls.github.com/jasmine-maven-plugin/&#34;&gt;new site&lt;/a&gt; for information on usage of the plugin and post any &lt;a href=&#34;https://github.com/searls/jasmine-maven-plugin/issues&#34;&gt;issues you find on github&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;The &lt;a href=&#34;https://github.com/searls/jasmine-maven-plugin/issues?milestone=2&#34;&gt;next release&lt;/a&gt; is planned for a little over a month from now and will have some new exciting features including support for using &lt;a href=&#34;http://phantomjs.org/&#34;&gt;PhantomJS&lt;/a&gt; rather than HtmlUnit for headless test execution.&lt;/p&gt;
+
+&lt;p&gt;Enjoy!&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Maven Versioning Strategy</title>
+      <link>http://kylelieber.com/2012/06/maven-versioning-strategy</link>
+      <pubDate>Mon, 25 Jun 2012 00:00:00 +0000</pubDate>
+      
+      <guid>http://kylelieber.com/2012/06/maven-versioning-strategy</guid>
+      <description>
+
+&lt;p&gt;I&amp;rsquo;ve been having a lot of discussions with analysts in my organization about how to version software using Maven and I&amp;rsquo;m finding there is a common misconception about what SNAPSHOT actually means. I&amp;rsquo;ve been looking for a good blog to send them that helps explain versioning in Maven but unfortunately everything I&amp;rsquo;ve found merely discusses version formats and not how to use them as you&amp;rsquo;re developing an application. So, I decided I would take a stab at it. I welcome any comments and constructive criticism that will help me improve this document, so please feel free.&lt;/p&gt;
+
+&lt;p&gt;First off, a SNAPSHOT is not the same thing as an alpha/beta/etc version. It is a special keyword that means it is the latest version of your code. This means it changes. If you pulled down someapp-1.0-SNAPSHOT yesterday and then you try to pull it down today it will most likely not be the same. This also means if you have a project dependent on a SNAPSHOT version, maven will need to check the remote repository for changes every time you run a build.&lt;/p&gt;
+
+&lt;p&gt;Next thing to understand is what a release is in Maven. A release does NOT mean that the version is ready for production. It means that the developer has decided he is at a point in his development that he wants to have the code locked down so it is not lost. He may also want to distribute that code to someone, maybe its a library a developer on another team needs to get started on their own applications development or maybe it&amp;rsquo;s an application that will be installed on a test environment for testing. So this means a maven release can be an alpha, beta, release candidate, patch, production, or whatever else you want to categorize it as.&lt;/p&gt;
+
+&lt;p&gt;Make sense? Well, maybe walking through a scenario of how i handle this would help you. First lets look at the versioning strategy I use:&lt;/p&gt;
+
+&lt;h2 id=&#34;versioning-strategy:f8f51e308fe07346e4071d3255f89024&#34;&gt;Versioning Strategy&lt;/h2&gt;
+
+&lt;p&gt;The syntax for this strategy is based off of the format in &lt;a href=&#34;http://www.sonatype.com/books/mvnref-book/reference/pom-relationships-sect-pom-syntax.html&#34;&gt;Maven: The Complete Reference&lt;/a&gt;. The differences are I&amp;rsquo;m renaming &amp;ldquo;incremental version&amp;rdquo; to &amp;ldquo;patch&amp;rdquo; and breaking up the optional &amp;ldquo;qualifier&amp;rdquo; into &amp;ldquo;type&amp;rdquo; and an &amp;ldquo;attempt&amp;rdquo; simply for clarity.&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;&amp;lt;major&amp;gt;.&amp;lt;minor&amp;gt;.&amp;lt;patch&amp;gt;[-&amp;lt;type&amp;gt;-&amp;lt;attempt&amp;gt;]&lt;/code&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;&amp;lt;major&amp;gt;&lt;/code&gt; - This is a number indicating a significant change in the application. A major version might possibly be a complete rewrite of the previous major version and/or break backwards compatibility with older versions.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;&amp;lt;minor&amp;gt;&lt;/code&gt; - This is a number that indicates a small set of changes from the previous minor version. A minor version usually consists of an even set of bug fixes and new features and should always be backwards compatible.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;&amp;lt;patch&amp;gt;&lt;/code&gt; - This is a number that indicates some bugs were fixed that couldn&amp;rsquo;t wait until the next minor release. A patch version should only include bug fixes and never include new features. It should also always be backwards compatible. Security fixes are an example of a typical patch.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;[&amp;lt;type&amp;gt;-&amp;lt;attempt&amp;gt;]&lt;/code&gt; - This is last part is optional and only used to identify that this version is not necessarily stable. The type is a keyword and can be anything but I usually stick to alpha, beta, and RC. The attempt is just a number to indicate which attempt at this type is this. So for example, beta-01, RC-02, RC-05, ect. For a stable version, I leave off this part, however, I&amp;rsquo;ve seen other projects that like to use the keyword of RELEASE to indicate the stable version (you leave off the attempt because that wouldn&amp;rsquo;t make sense, use RC (release candidate) for that).&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;example-scenerio:f8f51e308fe07346e4071d3255f89024&#34;&gt;Example Scenerio&lt;/h2&gt;
+
+&lt;p&gt;So now for the scenario. Let&amp;rsquo;s say I&amp;rsquo;m working on the foobar application. My organization is expecting me to deliver foobar version &lt;code&gt;1.0&lt;/code&gt; at the end of the quarter. (Notice I say &lt;code&gt;1.0&lt;/code&gt; which means I&amp;rsquo;m only using the first two numbers to refer to the version. That is because major and minor version are really the only versions anyone will care about other than your development team. Also, there&amp;rsquo;s no way for me to know what the final version will be but I do know the major and minor will stay the same.) I&amp;rsquo;m working on an agile team so I am going to be deploying whatever I have done at the end of each sprint to my test environment so my testers can validate everything. So, here&amp;rsquo;s what I might do:&lt;/p&gt;
+
+&lt;p&gt;I will start with version &lt;code&gt;1.0.0-SNAPSHOT&lt;/code&gt; in my pom.xml at the beginning of the Sprint #1. At the end of Sprint #1, I will use the maven-release-plugin to create the &lt;code&gt;foobar-1.0.0-RC-01&lt;/code&gt; release of the foobar application. The plugin will change the version from &lt;code&gt;1.0.0-SNAPSHOT&lt;/code&gt; to &lt;code&gt;1.0.0-RC-01&lt;/code&gt;, tag the code in scm with &lt;code&gt;foobar-1.0.0-RC-01&lt;/code&gt;, and then finally build that release. Then plugin will then update the trunk to be the next development version of the application which we will leave at &lt;code&gt;1.0.0-SNAPSHOT&lt;/code&gt;. Then I will deploy &lt;code&gt;foobar-1.0.0-RC-01&lt;/code&gt; to the test environment. This process will continue for the next couple sprints until we get to a phase where we are to a point where we think we are complete.&lt;/p&gt;
+
+&lt;p&gt;So let&amp;rsquo;s say we are now at Sprint #5. We&amp;rsquo;ve released four release candidate versions of the application, fixing bugs and adding features along the way. Now we feel &lt;code&gt;foobar-1.0.0-RC-04&lt;/code&gt; is ready for production use. Now I run the maven-release-plugin again to create the &lt;code&gt;foobar-1.0.0&lt;/code&gt; version of my application. Again, the plugin will tag the current version of the code in scm with &lt;code&gt;foobar-1.0.0&lt;/code&gt; and then build that release. The plugin will then update the trunk to be the next development version of the application which this time I choose to be &lt;code&gt;1.1.0-SNAPSHOT&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;Notice, I increment the minor version and not the patch version. In a perfect world, I would be done with the &lt;code&gt;1.0&lt;/code&gt; version but of course this isn&amp;rsquo;t a perfect world and most likely I&amp;rsquo;ll have to patch my &lt;code&gt;1.0.0&lt;/code&gt; version at some point. Since I don&amp;rsquo;t know when that will be I&amp;rsquo;m going to just move on with life and start working on the next version of the application, &lt;code&gt;1.1&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;A few weeks later my QA team informs me that a bug was found in release testing that needs to be fixed. What am I going to do now? I&amp;rsquo;ve moved on and have new &lt;code&gt;1.1&lt;/code&gt; code in the trunk that can&amp;rsquo;t go into release &lt;code&gt;1.0&lt;/code&gt;. No worries, I remember that the release plugin tags each of my releases for me. So, I create a branch from the &lt;code&gt;foobar-1.0.0&lt;/code&gt; tag and call it &lt;code&gt;foobar-1.0.X&lt;/code&gt;. Then I checkout that new branch and increment the patch version to &lt;code&gt;1.0.1-SNAPSHOT&lt;/code&gt;. This new branch is now my patching branch. I will fix the bug reported to me by the QA team and use the release plugin to produce patch version &lt;code&gt;foobar-1.0.1&lt;/code&gt;. Then immediately after producing &lt;code&gt;foobar-1.0.1&lt;/code&gt; I will merge the &lt;code&gt;1.0.1&lt;/code&gt; changes into the trunk so that the fix is present in version &lt;code&gt;1.1&lt;/code&gt; (which has yet to be released).&lt;/p&gt;
+
+&lt;p&gt;Then I take a deep breath and go back to working on &lt;code&gt;1.1&lt;/code&gt;. If another bug comes up, maybe even after we go out to production, I will just continue going back to my &lt;code&gt;foobar-1.0.X&lt;/code&gt; patching branch to make the fix and merge the changes back in to the trunk.&lt;/p&gt;
+
+&lt;h2 id=&#34;simplified-strategy:f8f51e308fe07346e4071d3255f89024&#34;&gt;Simplified Strategy&lt;/h2&gt;
+
+&lt;p&gt;I don&amp;rsquo;t always use the above strategy. In fact, a lot of the time I use what I would call a simplified version of this strategy. Essentially, it&amp;rsquo;s the same thing except I remove the &lt;code&gt;-&amp;lt;type&amp;gt;-&amp;lt;attempt&amp;gt;&lt;/code&gt; completely and instead of a &lt;code&gt;&amp;lt;patch&amp;gt;&lt;/code&gt;, I have a more generic &lt;code&gt;&amp;lt;incrementalVersion&amp;gt;&lt;/code&gt; (just like in the maven book). So it looks like this:&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;&amp;lt;major&amp;gt;.&amp;lt;minor&amp;gt;.&amp;lt;incrementalVersion&amp;gt;&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Let&amp;rsquo;s go back to the example scenario above and compare the full strategy with this simplified strategy:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;| Iteration    | Full Strategy  | Simplified Strategy |
+|--------------|----------------|---------------------|
+| Sprint #1    | 1.0.0-RC-01    | 1.0.0               |
+| Sprint #2    | 1.0.0-RC-02    | 1.0.1               |
+| Sprint #3    | 1.0.0-RC-03    | 1.0.2               |
+| Sprint #4    | 1.0.0-RC-04    | 1.0.3               |
+| Production   | 1.0.0          | 1.0.3               |
+| First Patch  | 1.0.1          | 1.0.4               |
+| Next Version | 1.1.0          | 1.1.0               |
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;As you can see the simplified strategy loses some of the verbosity of the full strategy which can be a good and a bad thing. It&amp;rsquo;s not going to be obvious whether a version is ready for production or just a release candidate. However, it does mean you don&amp;rsquo;t have to test the accepted release candidate twice. If you noticed the version delivered by Sprint #4 is also the production version. There&amp;rsquo;s no need to rebuild it just to remove the &lt;code&gt;-RC-04&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;For a smaller team or a team that doesn&amp;rsquo;t really have their artifacts consumed by many other areas this may be a better solution because there is a lot less versioning to manage. You just need to make sure you are communicating clearly with your team so everyone knows what is going on.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Avoid Absolute File Path When Using the cxf-codegen-plugin</title>
+      <link>http://kylelieber.com/2012/03/avoid-absolute-file-path-when-using-the-cxf-codegen-plugin</link>
+      <pubDate>Fri, 30 Mar 2012 00:00:00 +0000</pubDate>
+      
+      <guid>http://kylelieber.com/2012/03/avoid-absolute-file-path-when-using-the-cxf-codegen-plugin</guid>
+      <description>&lt;p&gt;I ran into this problem a few months ago and scoured the internet for solution but never found one until now. So hopefully this will be helpful to someone with the same problem. By default, the &lt;a href=&#34;http://cxf.apache.org/docs/maven-cxf-codegen-plugin-wsdl-to-java.html&#34;&gt;Apache CXF Codegen Maven plugin&lt;/a&gt; generates code that will attempt to read your wsdl via the absolute path.&lt;/p&gt;
+
+&lt;p&gt;So for instance:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-xml&#34;&gt;&amp;lt;plugin&amp;gt;
+  &amp;lt;groupId&amp;gt;org.apache.cxf&amp;lt;/groupId&amp;gt;
+  &amp;lt;artifactId&amp;gt;cxf-codegen-plugin&amp;lt;/artifactId&amp;gt;
+  &amp;lt;version&amp;gt;${cxf.version}&amp;lt;/version&amp;gt;
+  &amp;lt;executions&amp;gt;
+    &amp;lt;execution&amp;gt;
+      &amp;lt;id&amp;gt;generate-sources&amp;lt;/id&amp;gt;
+      &amp;lt;phase&amp;gt;generate-sources&amp;lt;/phase&amp;gt;
+      &amp;lt;configuration&amp;gt;
+        &amp;lt;sourceRoot&amp;gt;${project.build.directory}/generated-sources/cxf&amp;lt;/sourceRoot&amp;gt;
+        &amp;lt;wsdlOptions&amp;gt;
+          &amp;lt;wsdlOption&amp;gt;
+            &amp;lt;wsdl&amp;gt;${project.basedir}/src/main/resources/wsdl/FooService.wsdl&amp;lt;/wsdl&amp;gt;
+          &amp;lt;/wsdlOption&amp;gt;
+        &amp;lt;/wsdlOptions&amp;gt;
+      &amp;lt;/configuration&amp;gt;
+      &amp;lt;goals&amp;gt;
+        &amp;lt;goal&amp;gt;wsdl2java&amp;lt;/goal&amp;gt;
+      &amp;lt;/goals&amp;gt;
+    &amp;lt;/execution&amp;gt;
+  &amp;lt;/executions&amp;gt;
+&amp;lt;/plugin&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Will produce the following:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;@WebServiceClient(name = &amp;quot;Foo_Service&amp;quot;,
+                  wsdlLocation = &amp;quot;file:/home/user/sandbox/example/src/main/resources/wsdl/FooService.wsdl&amp;quot;,
+                  targetNamespace = &amp;quot;http://www.examples.com/wsdl/FooService.wsdl&amp;quot;)
+public class FooService extends Service {
+
+  public final static URL WSDL_LOCATION;
+
+  public final static QName SERVICE = new QName(&amp;quot;http://www.examples.com/wsdl/FooService.wsdl&amp;quot;, &amp;quot;Foo_Service&amp;quot;);
+  public final static QName FooPort = new QName(&amp;quot;http://www.examples.com/wsdl/FooService.wsdl&amp;quot;, &amp;quot;Foo_Port&amp;quot;);
+  static {
+    URL url = null;
+    try {
+      url = new URL(&amp;quot;file:/home/user/sandbox/example/src/main/resources/wsdl/FooService.wsdl&amp;quot;);
+    } catch (MalformedURLException e) {
+       java.util.logging.Logger.getLogger(FooService.class.getName())
+           .log(java.util.logging.Level.INFO,
+                &amp;quot;Can not initialize the default wsdl from {0}&amp;quot;, &amp;quot;file:/home/user/sandbox/example/src/main/resources/wsdl/FooService.wsdl&amp;quot;);
+    }
+    WSDL_LOCATION = url;
+  }
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;As you can see its trying to read the wsdl from an absolute path, which really doesn&amp;rsquo;t make this code very portable. So the first thought you might have is just use the &lt;code&gt;&amp;lt;wsdlLocation /&amp;gt;&lt;/code&gt; tag to set the location to a relative path like this:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-xml&#34;&gt;&amp;lt;plugin&amp;gt;
+  &amp;lt;groupId&amp;gt;org.apache.cxf&amp;lt;/groupId&amp;gt;
+  &amp;lt;artifactId&amp;gt;cxf-codegen-plugin&amp;lt;/artifactId&amp;gt;
+  &amp;lt;version&amp;gt;${cxf.version}&amp;lt;/version&amp;gt;
+  &amp;lt;executions&amp;gt;
+    &amp;lt;execution&amp;gt;
+      &amp;lt;id&amp;gt;generate-sources&amp;lt;/id&amp;gt;
+      &amp;lt;phase&amp;gt;generate-sources&amp;lt;/phase&amp;gt;
+      &amp;lt;configuration&amp;gt;
+        &amp;lt;sourceRoot&amp;gt;${project.build.directory}/generated-sources/cxf&amp;lt;/sourceRoot&amp;gt;
+        &amp;lt;wsdlOptions&amp;gt;
+          &amp;lt;wsdlOption&amp;gt;
+            &amp;lt;wsdl&amp;gt;${project.basedir}/src/main/resources/wsdl/FooService.wsdl&amp;lt;/wsdl&amp;gt;
+            &amp;lt;wsdlLocation&amp;gt;wsdl/FooService.wsdl&amp;lt;/wsdlLocation&amp;gt;
+          &amp;lt;/wsdlOption&amp;gt;
+        &amp;lt;/wsdlOptions&amp;gt;
+      &amp;lt;/configuration&amp;gt;
+      &amp;lt;goals&amp;gt;
+        &amp;lt;goal&amp;gt;wsdl2java&amp;lt;/goal&amp;gt;
+      &amp;lt;/goals&amp;gt;
+    &amp;lt;/execution&amp;gt;
+  &amp;lt;/executions&amp;gt;
+&amp;lt;/plugin&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;However, if you&amp;rsquo;re using a version of cxf-codegen-plugin prior to 2.4.6, you&amp;rsquo;ll find that it won&amp;rsquo;t work because it generates invalid code that will result in a &lt;code&gt;MalformedURLException&lt;/code&gt; since you can&amp;rsquo;t instantiate a URL with a relative path:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;@WebServiceClient(name = &amp;quot;Foo_Service&amp;quot;,
+                  wsdlLocation = &amp;quot;wsdl/FooService.wsdl&amp;quot;,
+                  targetNamespace = &amp;quot;http://www.examples.com/wsdl/FooService.wsdl&amp;quot;)
+public class FooService extends Service {
+
+  public final static URL WSDL_LOCATION;
+
+  public final static QName SERVICE = new QName(&amp;quot;http://www.examples.com/wsdl/FooService.wsdl&amp;quot;, &amp;quot;Foo_Service&amp;quot;);
+  public final static QName FooPort = new QName(&amp;quot;http://www.examples.com/wsdl/FooService.wsdl&amp;quot;, &amp;quot;Foo_Port&amp;quot;);
+  static {
+    URL url = null;
+    try {
+      url = new URL(&amp;quot;wsdl/FooService.wsdl&amp;quot;);
+    } catch (MalformedURLException e) {
+      java.util.logging.Logger.getLogger(FooService.class.getName())
+          .log(java.util.logging.Level.INFO,
+               &amp;quot;Can not initialize the default wsdl from {0}&amp;quot;, &amp;quot;wsdl/FooService.wsdl&amp;quot;);
+    }
+    WSDL_LOCATION = url;
+  }
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;I recently found that starting with 2.4.6 though it will actually generate somewhat more reasonable code:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;@WebServiceClient(name = &amp;quot;Foo_Service&amp;quot;,
+                  wsdlLocation = &amp;quot;wsdl/FooService.wsdl&amp;quot;,
+                  targetNamespace = &amp;quot;http://www.examples.com/wsdl/FooService.wsdl&amp;quot;)
+public class FooService extends Service {
+
+  public final static URL WSDL_LOCATION;
+
+  public final static QName SERVICE = new QName(&amp;quot;http://www.examples.com/wsdl/FooService.wsdl&amp;quot;, &amp;quot;Foo_Service&amp;quot;);
+  public final static QName FooPort = new QName(&amp;quot;http://www.examples.com/wsdl/FooService.wsdl&amp;quot;, &amp;quot;Foo_Port&amp;quot;);
+  static {
+    URL url = FooService.class.getResource(&amp;quot;wsdl/FooService.wsdl&amp;quot;);
+    if (url == null) {
+      java.util.logging.Logger.getLogger(FooService.class.getName())
+          .log(java.util.logging.Level.INFO,
+               &amp;quot;Can not initialize the default wsdl from {0}&amp;quot;, &amp;quot;wsdl/FooService.wsdl&amp;quot;);
+    }
+    WSDL_LOCATION = url;
+  }
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Note the use of &lt;code&gt;FooService.class.getResource(&amp;quot;wsdl/FooService.wsdl&amp;quot;)&lt;/code&gt;. This is actually a big improvement over the way the previous version of the plugin worked, however it still doesn&amp;rsquo;t work in my situation because the getResource method on a class looks for a resource relative to the package the class belongs too. So I would need to have my wsdl in &lt;code&gt;src/main/resources/com/examples/wsdl/fooservice_wsdl/wsdl/FooService.wsdl&lt;/code&gt;. It might not be a terrible way to organize my wsdls by package but that&amp;rsquo;s not what I&amp;rsquo;m looking for. What I really want is a way so that the code uses &lt;code&gt;FooService.class.getClassLoader().getResource(&amp;quot;wsdl/FooService.wsdl&amp;quot;)&lt;/code&gt; and until now my solution was to use an ant build with a ReplaceRegExp task to change the code CXF generates to look this way. However, there is a much simpler and better way built in to the plugin starting with version 2.4.1 that is apparently not documented very well:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-xml&#34;&gt;&amp;lt;plugin&amp;gt;
+  &amp;lt;groupId&amp;gt;org.apache.cxf&amp;lt;/groupId&amp;gt;
+  &amp;lt;artifactId&amp;gt;cxf-codegen-plugin&amp;lt;/artifactId&amp;gt;
+  &amp;lt;version&amp;gt;${cxf.version}&amp;lt;/version&amp;gt;
+  &amp;lt;executions&amp;gt;
+    &amp;lt;execution&amp;gt;
+      &amp;lt;id&amp;gt;generate-sources&amp;lt;/id&amp;gt;
+      &amp;lt;phase&amp;gt;generate-sources&amp;lt;/phase&amp;gt;
+      &amp;lt;configuration&amp;gt;
+        &amp;lt;sourceRoot&amp;gt;${project.build.directory}/generated-sources/cxf&amp;lt;/sourceRoot&amp;gt;
+        &amp;lt;wsdlOptions&amp;gt;
+          &amp;lt;wsdlOption&amp;gt;
+            &amp;lt;wsdl&amp;gt;${project.basedir}/src/main/resources/wsdl/FooService.wsdl&amp;lt;/wsdl&amp;gt;
+            &amp;lt;wsdlLocation&amp;gt;classpath:wsdl/FooService.wsdl&amp;lt;/wsdlLocation&amp;gt;
+          &amp;lt;/wsdlOption&amp;gt;
+        &amp;lt;/wsdlOptions&amp;gt;
+      &amp;lt;/configuration&amp;gt;
+      &amp;lt;goals&amp;gt;
+        &amp;lt;goal&amp;gt;wsdl2java&amp;lt;/goal&amp;gt;
+      &amp;lt;/goals&amp;gt;
+    &amp;lt;/execution&amp;gt;
+  &amp;lt;/executions&amp;gt;
+&amp;lt;/plugin&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Yep, that&amp;rsquo;s it. Just prefix the value of the wsdlLocation with &amp;ldquo;classpath:&amp;rdquo; and it will generate code the reads the resource from the classpath using the classloader:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;@WebServiceClient(name = &amp;quot;Foo_Service&amp;quot;,
+                  wsdlLocation = &amp;quot;classpath:wsdl/FooService.wsdl&amp;quot;,
+                  targetNamespace = &amp;quot;http://www.examples.com/wsdl/FooService.wsdl&amp;quot;)
+public class FooService extends Service {
+
+  public final static URL WSDL_LOCATION;
+
+  public final static QName SERVICE = new QName(&amp;quot;http://www.examples.com/wsdl/FooService.wsdl&amp;quot;, &amp;quot;Foo_Service&amp;quot;);
+  public final static QName FooPort = new QName(&amp;quot;http://www.examples.com/wsdl/FooService.wsdl&amp;quot;, &amp;quot;Foo_Port&amp;quot;);
+  static {
+    URL url = FooService.class.getClassLoader().getResource(&amp;quot;wsdl/FooService.wsdl&amp;quot;);
+    if (url == null) {
+      java.util.logging.Logger.getLogger(FooService.class.getName())
+          .log(java.util.logging.Level.INFO,
+               &amp;quot;Can not initialize the default wsdl from {0}&amp;quot;, &amp;quot;classpath:wsdl/FooService.wsdl&amp;quot;);
+    }
+    WSDL_LOCATION = url;
+  }
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>The First Post</title>
+      <link>http://kylelieber.com/2012/03/the-first-post</link>
+      <pubDate>Mon, 05 Mar 2012 00:00:00 +0000</pubDate>
+      
+      <guid>http://kylelieber.com/2012/03/the-first-post</guid>
+      <description>&lt;p&gt;This is just the dreaded first blog entry.  I don&amp;rsquo;t really have anything to say at this point and I&amp;rsquo;m not even sure how I intend to use this blog yet.  I&amp;rsquo;m thinking I&amp;rsquo;ll be posting things I learned how to do and how I did it.  Hopefully, others will find something I learn useful but I really just want a central location for my own references so I guess it will be interesting to see if anyone actually reads this.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
