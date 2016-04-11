@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Best Practice | Kyle Lieber]]></title>
+  <link href="http://kylelieber.com/blog/categories/best-practice/atom.xml" rel="self"/>
+  <link href="http://kylelieber.com/"/>
+  <updated>2014-10-21T22:33:20-05:00</updated>
+  <id>http://kylelieber.com/</id>
+  <author>
+    <name><![CDATA[Kyle Lieber]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Maven Versioning Strategy]]></title>
+    <link href="http://kylelieber.com/2012/06/maven-versioning-strategy/"/>
+    <updated>2012-06-25T17:01:44-05:00</updated>
+    <id>http://kylelieber.com/2012/06/maven-versioning-strategy</id>
+    <content type="html"><![CDATA[<p>I&rsquo;ve been having a lot of discussions with analysts in my organization about how to version software using Maven and I&rsquo;m finding there is a common misconception about what SNAPSHOT actually means. I&rsquo;ve been looking for a good blog to send them that helps explain versioning in Maven but unfortunately everything I&rsquo;ve found merely discusses version formats and not how to use them as you&rsquo;re developing an application. So, I decided I would take a stab at it. I welcome any comments and constructive criticism that will help me improve this document, so please feel free.</p>
+
+<!--more-->
+
+
+<p>First off, a SNAPSHOT is not the same thing as an alpha/beta/etc version. It is a special keyword that means it is the latest version of your code. This means it changes. If you pulled down someapp-1.0-SNAPSHOT yesterday and then you try to pull it down today it will most likely not be the same. This also means if you have a project dependent on a SNAPSHOT version, maven will need to check the remote repository for changes every time you run a build.</p>
+
+<p>Next thing to understand is what a release is in Maven. A release does NOT mean that the version is ready for production. It means that the developer has decided he is at a point in his development that he wants to have the code locked down so it is not lost. He may also want to distribute that code to someone, maybe its a library a developer on another team needs to get started on their own applications development or maybe it&rsquo;s an application that will be installed on a test environment for testing. So this means a maven release can be an alpha, beta, release candidate, patch, production, or whatever else you want to categorize it as.</p>
+
+<p>Make sense? Well, maybe walking through a scenario of how i handle this would help you. First lets look at the versioning strategy I use:</p>
+
+<h2>Versioning Strategy</h2>
+
+<p>The syntax for this strategy is based off of the format in <a href="http://www.sonatype.com/books/mvnref-book/reference/pom-relationships-sect-pom-syntax.html">Maven: The Complete Reference</a>. The differences are I&rsquo;m renaming &ldquo;incremental version&rdquo; to &ldquo;patch&rdquo; and breaking up the optional &ldquo;qualifier&rdquo; into &ldquo;type&rdquo; and an &ldquo;attempt&rdquo; simply for clarity.</p>
+
+<p><code>&lt;major&gt;.&lt;minor&gt;.&lt;patch&gt;[-&lt;type&gt;-&lt;attempt&gt;]</code></p>
+
+<ul>
+<li><code>&lt;major&gt;</code> &ndash; This is a number indicating a significant change in the application. A major version might possibly be a complete rewrite of the previous major version and/or break backwards compatibility with older versions.</li>
+<li><code>&lt;minor&gt;</code> &ndash; This is a number that indicates a small set of changes from the previous minor version. A minor version usually consists of an even set of bug fixes and new features and should always be backwards compatible.</li>
+<li><code>&lt;patch&gt;</code> &ndash; This is a number that indicates some bugs were fixed that couldn&rsquo;t wait until the next minor release. A patch version should only include bug fixes and never include new features. It should also always be backwards compatible. Security fixes are an example of a typical patch.</li>
+<li><code>[&lt;type&gt;-&lt;attempt&gt;]</code> &ndash; This is last part is optional and only used to identify that this version is not necessarily stable. The type is a keyword and can be anything but I usually stick to alpha, beta, and RC. The attempt is just a number to indicate which attempt at this type is this. So for example, beta-01, RC-02, RC-05, ect. For a stable version, I leave off this part, however, I&rsquo;ve seen other projects that like to use the keyword of RELEASE to indicate the stable version (you leave off the attempt because that wouldn&rsquo;t make sense, use RC (release candidate) for that).</li>
+</ul>
+
+
+<h2>Example Scenerio</h2>
+
+<p>So now for the scenario. Let&rsquo;s say I&rsquo;m working on the foobar application. My organization is expecting me to deliver foobar version <code>1.0</code> at the end of the quarter. (Notice I say <code>1.0</code> which means I&rsquo;m only using the first two numbers to refer to the version. That is because major and minor version are really the only versions anyone will care about other than your development team. Also, there&rsquo;s no way for me to know what the final version will be but I do know the major and minor will stay the same.) I&rsquo;m working on an agile team so I am going to be deploying whatever I have done at the end of each sprint to my test environment so my testers can validate everything. So, here&rsquo;s what I might do:</p>
+
+<p>I will start with version <code>1.0.0-SNAPSHOT</code> in my pom.xml at the beginning of the Sprint #1. At the end of Sprint #1, I will use the maven-release-plugin to create the <code>foobar-1.0.0-RC-01</code> release of the foobar application. The plugin will change the version from <code>1.0.0-SNAPSHOT</code> to <code>1.0.0-RC-01</code>, tag the code in scm with <code>foobar-1.0.0-RC-01</code>, and then finally build that release. Then plugin will then update the trunk to be the next development version of the application which we will leave at <code>1.0.0-SNAPSHOT</code>. Then I will deploy <code>foobar-1.0.0-RC-01</code> to the test environment. This process will continue for the next couple sprints until we get to a phase where we are to a point where we think we are complete.</p>
+
+<p>So let&rsquo;s say we are now at Sprint #5. We&rsquo;ve released four release candidate versions of the application, fixing bugs and adding features along the way. Now we feel <code>foobar-1.0.0-RC-04</code> is ready for production use. Now I run the maven-release-plugin again to create the <code>foobar-1.0.0</code> version of my application. Again, the plugin will tag the current version of the code in scm with <code>foobar-1.0.0</code> and then build that release. The plugin will then update the trunk to be the next development version of the application which this time I choose to be <code>1.1.0-SNAPSHOT</code>.</p>
+
+<p>Notice, I increment the minor version and not the patch version. In a perfect world, I would be done with the <code>1.0</code> version but of course this isn&rsquo;t a perfect world and most likely I&rsquo;ll have to patch my <code>1.0.0</code> version at some point. Since I don&rsquo;t know when that will be I&rsquo;m going to just move on with life and start working on the next version of the application, <code>1.1</code>.</p>
+
+<p>A few weeks later my QA team informs me that a bug was found in release testing that needs to be fixed. What am I going to do now? I&rsquo;ve moved on and have new <code>1.1</code> code in the trunk that can&rsquo;t go into release <code>1.0</code>. No worries, I remember that the release plugin tags each of my releases for me. So, I create a branch from the <code>foobar-1.0.0</code> tag and call it <code>foobar-1.0.X</code>. Then I checkout that new branch and increment the patch version to <code>1.0.1-SNAPSHOT</code>. This new branch is now my patching branch. I will fix the bug reported to me by the QA team and use the release plugin to produce patch version <code>foobar-1.0.1</code>. Then immediately after producing <code>foobar-1.0.1</code> I will merge the <code>1.0.1</code> changes into the trunk so that the fix is present in version <code>1.1</code> (which has yet to be released).</p>
+
+<p>Then I take a deep breath and go back to working on <code>1.1</code>. If another bug comes up, maybe even after we go out to production, I will just continue going back to my <code>foobar-1.0.X</code> patching branch to make the fix and merge the changes back in to the trunk.</p>
+
+<h2>Simplified Strategy</h2>
+
+<p>I don&rsquo;t always use the above strategy. In fact, a lot of the time I use what I would call a simplified version of this strategy. Essentially, it&rsquo;s the same thing except I remove the <code>-&lt;type&gt;-&lt;attempt&gt;</code> completely and instead of a <code>&lt;patch&gt;</code>, I have a more generic <code>&lt;incrementalVersion&gt;</code> (just like in the maven book). So it looks like this:</p>
+
+<p><code>&lt;major&gt;.&lt;minor&gt;.&lt;incrementalVersion&gt;</code></p>
+
+<p>Let&rsquo;s go back to the example scenario above and compare the full strategy with this simplified strategy:</p>
+
+<pre><code>| Iteration    | Full Strategy  | Simplified Strategy |
+|--------------|----------------|---------------------|
+| Sprint #1    | 1.0.0-RC-01    | 1.0.0               |
+| Sprint #2    | 1.0.0-RC-02    | 1.0.1               |
+| Sprint #3    | 1.0.0-RC-03    | 1.0.2               |
+| Sprint #4    | 1.0.0-RC-04    | 1.0.3               |
+| Production   | 1.0.0          | 1.0.3               |
+| First Patch  | 1.0.1          | 1.0.4               |
+| Next Version | 1.1.0          | 1.1.0               |
+</code></pre>
+
+<p>As you can see the simplified strategy loses some of the verbosity of the full strategy which can be a good and a bad thing. It&rsquo;s not going to be obvious whether a version is ready for production or just a release candidate. However, it does mean you don&rsquo;t have to test the accepted release candidate twice. If you noticed the version delivered by Sprint #4 is also the production version. There&rsquo;s no need to rebuild it just to remove the <code>-RC-04</code>.</p>
+
+<p>For a smaller team or a team that doesn&rsquo;t really have their artifacts consumed by many other areas this may be a better solution because there is a lot less versioning to manage. You just need to make sure you are communicating clearly with your team so everyone knows what is going on.</p>
+]]></content>
+  </entry>
+  
+</feed>
