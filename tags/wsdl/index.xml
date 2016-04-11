@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Wsdl on Kyle Lieber</title>
+    <link>http://kylelieber.com/tags/wsdl/</link>
+    <description>Recent content in Wsdl on Kyle Lieber</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 30 Mar 2012 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://kylelieber.com/tags/wsdl/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Avoid Absolute File Path When Using the cxf-codegen-plugin</title>
+      <link>http://kylelieber.com/2012/03/avoid-absolute-file-path-when-using-the-cxf-codegen-plugin</link>
+      <pubDate>Fri, 30 Mar 2012 00:00:00 +0000</pubDate>
+      
+      <guid>http://kylelieber.com/2012/03/avoid-absolute-file-path-when-using-the-cxf-codegen-plugin</guid>
+      <description>&lt;p&gt;I ran into this problem a few months ago and scoured the internet for solution but never found one until now. So hopefully this will be helpful to someone with the same problem. By default, the &lt;a href=&#34;http://cxf.apache.org/docs/maven-cxf-codegen-plugin-wsdl-to-java.html&#34;&gt;Apache CXF Codegen Maven plugin&lt;/a&gt; generates code that will attempt to read your wsdl via the absolute path.&lt;/p&gt;
+
+&lt;p&gt;So for instance:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-xml&#34;&gt;&amp;lt;plugin&amp;gt;
+  &amp;lt;groupId&amp;gt;org.apache.cxf&amp;lt;/groupId&amp;gt;
+  &amp;lt;artifactId&amp;gt;cxf-codegen-plugin&amp;lt;/artifactId&amp;gt;
+  &amp;lt;version&amp;gt;${cxf.version}&amp;lt;/version&amp;gt;
+  &amp;lt;executions&amp;gt;
+    &amp;lt;execution&amp;gt;
+      &amp;lt;id&amp;gt;generate-sources&amp;lt;/id&amp;gt;
+      &amp;lt;phase&amp;gt;generate-sources&amp;lt;/phase&amp;gt;
+      &amp;lt;configuration&amp;gt;
+        &amp;lt;sourceRoot&amp;gt;${project.build.directory}/generated-sources/cxf&amp;lt;/sourceRoot&amp;gt;
+        &amp;lt;wsdlOptions&amp;gt;
+          &amp;lt;wsdlOption&amp;gt;
+            &amp;lt;wsdl&amp;gt;${project.basedir}/src/main/resources/wsdl/FooService.wsdl&amp;lt;/wsdl&amp;gt;
+          &amp;lt;/wsdlOption&amp;gt;
+        &amp;lt;/wsdlOptions&amp;gt;
+      &amp;lt;/configuration&amp;gt;
+      &amp;lt;goals&amp;gt;
+        &amp;lt;goal&amp;gt;wsdl2java&amp;lt;/goal&amp;gt;
+      &amp;lt;/goals&amp;gt;
+    &amp;lt;/execution&amp;gt;
+  &amp;lt;/executions&amp;gt;
+&amp;lt;/plugin&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Will produce the following:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;@WebServiceClient(name = &amp;quot;Foo_Service&amp;quot;,
+                  wsdlLocation = &amp;quot;file:/home/user/sandbox/example/src/main/resources/wsdl/FooService.wsdl&amp;quot;,
+                  targetNamespace = &amp;quot;http://www.examples.com/wsdl/FooService.wsdl&amp;quot;)
+public class FooService extends Service {
+
+  public final static URL WSDL_LOCATION;
+
+  public final static QName SERVICE = new QName(&amp;quot;http://www.examples.com/wsdl/FooService.wsdl&amp;quot;, &amp;quot;Foo_Service&amp;quot;);
+  public final static QName FooPort = new QName(&amp;quot;http://www.examples.com/wsdl/FooService.wsdl&amp;quot;, &amp;quot;Foo_Port&amp;quot;);
+  static {
+    URL url = null;
+    try {
+      url = new URL(&amp;quot;file:/home/user/sandbox/example/src/main/resources/wsdl/FooService.wsdl&amp;quot;);
+    } catch (MalformedURLException e) {
+       java.util.logging.Logger.getLogger(FooService.class.getName())
+           .log(java.util.logging.Level.INFO,
+                &amp;quot;Can not initialize the default wsdl from {0}&amp;quot;, &amp;quot;file:/home/user/sandbox/example/src/main/resources/wsdl/FooService.wsdl&amp;quot;);
+    }
+    WSDL_LOCATION = url;
+  }
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;As you can see its trying to read the wsdl from an absolute path, which really doesn&amp;rsquo;t make this code very portable. So the first thought you might have is just use the &lt;code&gt;&amp;lt;wsdlLocation /&amp;gt;&lt;/code&gt; tag to set the location to a relative path like this:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-xml&#34;&gt;&amp;lt;plugin&amp;gt;
+  &amp;lt;groupId&amp;gt;org.apache.cxf&amp;lt;/groupId&amp;gt;
+  &amp;lt;artifactId&amp;gt;cxf-codegen-plugin&amp;lt;/artifactId&amp;gt;
+  &amp;lt;version&amp;gt;${cxf.version}&amp;lt;/version&amp;gt;
+  &amp;lt;executions&amp;gt;
+    &amp;lt;execution&amp;gt;
+      &amp;lt;id&amp;gt;generate-sources&amp;lt;/id&amp;gt;
+      &amp;lt;phase&amp;gt;generate-sources&amp;lt;/phase&amp;gt;
+      &amp;lt;configuration&amp;gt;
+        &amp;lt;sourceRoot&amp;gt;${project.build.directory}/generated-sources/cxf&amp;lt;/sourceRoot&amp;gt;
+        &amp;lt;wsdlOptions&amp;gt;
+          &amp;lt;wsdlOption&amp;gt;
+            &amp;lt;wsdl&amp;gt;${project.basedir}/src/main/resources/wsdl/FooService.wsdl&amp;lt;/wsdl&amp;gt;
+            &amp;lt;wsdlLocation&amp;gt;wsdl/FooService.wsdl&amp;lt;/wsdlLocation&amp;gt;
+          &amp;lt;/wsdlOption&amp;gt;
+        &amp;lt;/wsdlOptions&amp;gt;
+      &amp;lt;/configuration&amp;gt;
+      &amp;lt;goals&amp;gt;
+        &amp;lt;goal&amp;gt;wsdl2java&amp;lt;/goal&amp;gt;
+      &amp;lt;/goals&amp;gt;
+    &amp;lt;/execution&amp;gt;
+  &amp;lt;/executions&amp;gt;
+&amp;lt;/plugin&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;However, if you&amp;rsquo;re using a version of cxf-codegen-plugin prior to 2.4.6, you&amp;rsquo;ll find that it won&amp;rsquo;t work because it generates invalid code that will result in a &lt;code&gt;MalformedURLException&lt;/code&gt; since you can&amp;rsquo;t instantiate a URL with a relative path:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;@WebServiceClient(name = &amp;quot;Foo_Service&amp;quot;,
+                  wsdlLocation = &amp;quot;wsdl/FooService.wsdl&amp;quot;,
+                  targetNamespace = &amp;quot;http://www.examples.com/wsdl/FooService.wsdl&amp;quot;)
+public class FooService extends Service {
+
+  public final static URL WSDL_LOCATION;
+
+  public final static QName SERVICE = new QName(&amp;quot;http://www.examples.com/wsdl/FooService.wsdl&amp;quot;, &amp;quot;Foo_Service&amp;quot;);
+  public final static QName FooPort = new QName(&amp;quot;http://www.examples.com/wsdl/FooService.wsdl&amp;quot;, &amp;quot;Foo_Port&amp;quot;);
+  static {
+    URL url = null;
+    try {
+      url = new URL(&amp;quot;wsdl/FooService.wsdl&amp;quot;);
+    } catch (MalformedURLException e) {
+      java.util.logging.Logger.getLogger(FooService.class.getName())
+          .log(java.util.logging.Level.INFO,
+               &amp;quot;Can not initialize the default wsdl from {0}&amp;quot;, &amp;quot;wsdl/FooService.wsdl&amp;quot;);
+    }
+    WSDL_LOCATION = url;
+  }
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;I recently found that starting with 2.4.6 though it will actually generate somewhat more reasonable code:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;@WebServiceClient(name = &amp;quot;Foo_Service&amp;quot;,
+                  wsdlLocation = &amp;quot;wsdl/FooService.wsdl&amp;quot;,
+                  targetNamespace = &amp;quot;http://www.examples.com/wsdl/FooService.wsdl&amp;quot;)
+public class FooService extends Service {
+
+  public final static URL WSDL_LOCATION;
+
+  public final static QName SERVICE = new QName(&amp;quot;http://www.examples.com/wsdl/FooService.wsdl&amp;quot;, &amp;quot;Foo_Service&amp;quot;);
+  public final static QName FooPort = new QName(&amp;quot;http://www.examples.com/wsdl/FooService.wsdl&amp;quot;, &amp;quot;Foo_Port&amp;quot;);
+  static {
+    URL url = FooService.class.getResource(&amp;quot;wsdl/FooService.wsdl&amp;quot;);
+    if (url == null) {
+      java.util.logging.Logger.getLogger(FooService.class.getName())
+          .log(java.util.logging.Level.INFO,
+               &amp;quot;Can not initialize the default wsdl from {0}&amp;quot;, &amp;quot;wsdl/FooService.wsdl&amp;quot;);
+    }
+    WSDL_LOCATION = url;
+  }
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Note the use of &lt;code&gt;FooService.class.getResource(&amp;quot;wsdl/FooService.wsdl&amp;quot;)&lt;/code&gt;. This is actually a big improvement over the way the previous version of the plugin worked, however it still doesn&amp;rsquo;t work in my situation because the getResource method on a class looks for a resource relative to the package the class belongs too. So I would need to have my wsdl in &lt;code&gt;src/main/resources/com/examples/wsdl/fooservice_wsdl/wsdl/FooService.wsdl&lt;/code&gt;. It might not be a terrible way to organize my wsdls by package but that&amp;rsquo;s not what I&amp;rsquo;m looking for. What I really want is a way so that the code uses &lt;code&gt;FooService.class.getClassLoader().getResource(&amp;quot;wsdl/FooService.wsdl&amp;quot;)&lt;/code&gt; and until now my solution was to use an ant build with a ReplaceRegExp task to change the code CXF generates to look this way. However, there is a much simpler and better way built in to the plugin starting with version 2.4.1 that is apparently not documented very well:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-xml&#34;&gt;&amp;lt;plugin&amp;gt;
+  &amp;lt;groupId&amp;gt;org.apache.cxf&amp;lt;/groupId&amp;gt;
+  &amp;lt;artifactId&amp;gt;cxf-codegen-plugin&amp;lt;/artifactId&amp;gt;
+  &amp;lt;version&amp;gt;${cxf.version}&amp;lt;/version&amp;gt;
+  &amp;lt;executions&amp;gt;
+    &amp;lt;execution&amp;gt;
+      &amp;lt;id&amp;gt;generate-sources&amp;lt;/id&amp;gt;
+      &amp;lt;phase&amp;gt;generate-sources&amp;lt;/phase&amp;gt;
+      &amp;lt;configuration&amp;gt;
+        &amp;lt;sourceRoot&amp;gt;${project.build.directory}/generated-sources/cxf&amp;lt;/sourceRoot&amp;gt;
+        &amp;lt;wsdlOptions&amp;gt;
+          &amp;lt;wsdlOption&amp;gt;
+            &amp;lt;wsdl&amp;gt;${project.basedir}/src/main/resources/wsdl/FooService.wsdl&amp;lt;/wsdl&amp;gt;
+            &amp;lt;wsdlLocation&amp;gt;classpath:wsdl/FooService.wsdl&amp;lt;/wsdlLocation&amp;gt;
+          &amp;lt;/wsdlOption&amp;gt;
+        &amp;lt;/wsdlOptions&amp;gt;
+      &amp;lt;/configuration&amp;gt;
+      &amp;lt;goals&amp;gt;
+        &amp;lt;goal&amp;gt;wsdl2java&amp;lt;/goal&amp;gt;
+      &amp;lt;/goals&amp;gt;
+    &amp;lt;/execution&amp;gt;
+  &amp;lt;/executions&amp;gt;
+&amp;lt;/plugin&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Yep, that&amp;rsquo;s it. Just prefix the value of the wsdlLocation with &amp;ldquo;classpath:&amp;rdquo; and it will generate code the reads the resource from the classpath using the classloader:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;@WebServiceClient(name = &amp;quot;Foo_Service&amp;quot;,
+                  wsdlLocation = &amp;quot;classpath:wsdl/FooService.wsdl&amp;quot;,
+                  targetNamespace = &amp;quot;http://www.examples.com/wsdl/FooService.wsdl&amp;quot;)
+public class FooService extends Service {
+
+  public final static URL WSDL_LOCATION;
+
+  public final static QName SERVICE = new QName(&amp;quot;http://www.examples.com/wsdl/FooService.wsdl&amp;quot;, &amp;quot;Foo_Service&amp;quot;);
+  public final static QName FooPort = new QName(&amp;quot;http://www.examples.com/wsdl/FooService.wsdl&amp;quot;, &amp;quot;Foo_Port&amp;quot;);
+  static {
+    URL url = FooService.class.getClassLoader().getResource(&amp;quot;wsdl/FooService.wsdl&amp;quot;);
+    if (url == null) {
+      java.util.logging.Logger.getLogger(FooService.class.getName())
+          .log(java.util.logging.Level.INFO,
+               &amp;quot;Can not initialize the default wsdl from {0}&amp;quot;, &amp;quot;classpath:wsdl/FooService.wsdl&amp;quot;);
+    }
+    WSDL_LOCATION = url;
+  }
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
