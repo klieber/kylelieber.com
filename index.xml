@@ -414,15 +414,5 @@ public class FooService extends Service {
 </description>
     </item>
     
-    <item>
-      <title>The First Post</title>
-      <link>http://kylelieber.com/2012/03/the-first-post</link>
-      <pubDate>Mon, 05 Mar 2012 00:00:00 +0000</pubDate>
-      
-      <guid>http://kylelieber.com/2012/03/the-first-post</guid>
-      <description>&lt;p&gt;This is just the dreaded first blog entry.  I don&amp;rsquo;t really have anything to say at this point and I&amp;rsquo;m not even sure how I intend to use this blog yet.  I&amp;rsquo;m thinking I&amp;rsquo;ll be posting things I learned how to do and how I did it.  Hopefully, others will find something I learn useful but I really just want a central location for my own references so I guess it will be interesting to see if anyone actually reads this.&lt;/p&gt;
-</description>
-    </item>
-    
   </channel>
 </rss>
