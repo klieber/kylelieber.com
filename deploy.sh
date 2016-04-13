@@ -3,7 +3,7 @@
 echo -e "\033[0;32mDeploying updates to GitHub...\033[0m"
 
 # Clean public directory
-find public/* -path public/.git -prune -o -exec rm -rf {} \;
+find public/* -path public/.git -prune -o -exec rm -rf {} \; 2>/dev/null
 
 # Build the project.
 hugo --theme=hugo-octopress
