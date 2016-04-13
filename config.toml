@@ -17,19 +17,14 @@ canonifyurls = true
   weight = 2
 
 [[menu.main]]
-  Name = "Thoughts"
-  URL = "/categories/thoughts"
-  weight = 3
-
-[[menu.main]]
   Name = "Resume"
   URL = "https://www.linkedin.com/in/kylelieber"
-  weight = 4
+  weight = 3
 
 [[menu.main]]
   Name = "PhantomJS Maven Plugin"
   URL = "/phantomjs-maven-plugin"
-  weight = 5
+  weight = 4
 
 [params]
   author = "Kyle Lieber"
