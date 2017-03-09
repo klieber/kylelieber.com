@@ -2,11 +2,10 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Angular on Kyle Lieber</title>
-    <link>http://kylelieber.com/tags/angular/</link>
+    <link>http://kylelieber.com/tags/angular/index.xml</link>
     <description>Recent content in Angular on Kyle Lieber</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 11 Apr 2016 18:20:52 -0500</lastBuildDate>
     <atom:link href="http://kylelieber.com/tags/angular/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
@@ -15,7 +14,8 @@
       <pubDate>Mon, 11 Apr 2016 18:20:52 -0500</pubDate>
       
       <guid>http://kylelieber.com/2016/04/angular-transclude-directive-and-ng-if</guid>
-      <description>&lt;p&gt;As I continue to dive further and further into Angular development it never ceases to amaze me how quickly I can get tripped up by directives.  This is just something I learned last week about using a custom transclude function and an &lt;code&gt;ng-if&lt;/code&gt; on a directive.&lt;/p&gt;
+      <description>&lt;p&gt;As I continue to dive further and further into Angular development it never ceases to amaze me how quickly I can get tripped up by directives.  This is just something I learned last week about using a custom transclude function and an &lt;code&gt;ng-if&lt;/code&gt; on a directive.
+&lt;/p&gt;
 
 &lt;p&gt;Originally, I had a directive that look something like this:&lt;/p&gt;
 
@@ -109,8 +109,7 @@
     };
   }
 );
-&lt;/code&gt;&lt;/pre&gt;
-</description>
+&lt;/code&gt;&lt;/pre&gt;</description>
     </item>
     
   </channel>
