@@ -2,6 +2,7 @@ baseurl = "http://kylelieber.com"
 languageCode = "en-us"
 title = "Kyle Lieber"
 canonifyurls = true
+theme = "hugo-octopress"
 
 [permalinks]
   post = "/:year/:month/:slug"
