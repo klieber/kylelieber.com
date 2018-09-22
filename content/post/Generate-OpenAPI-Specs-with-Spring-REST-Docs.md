@@ -1,7 +1,6 @@
 +++
 categories = ["Development"]
 date = "2018-09-21T23:59:43-05:00"
-draft = true
 slug = "restdocs-spec"
 tags = ["java", "rest", "spring", "spring-restdocs", "openapi", "maven"]
 title = "Generate OpenAPI Specs with Spring REST Docs"
