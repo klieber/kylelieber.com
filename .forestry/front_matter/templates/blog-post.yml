@@ -29,6 +29,7 @@ fields:
   hidden: false
   default: ''
 pages:
+- content/post/Generate-OpenAPI-Specs-with-Spring-REST-Docs.md
 - content/post/angular-transclude-and-ngif.md
 - content/post/maven-versioning-strategy.md
 - content/post/phantomjs-maven-plugin-0-dot-3.md
