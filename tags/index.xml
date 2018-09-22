@@ -50,7 +50,7 @@
     <item>
       <title>Java</title>
       <link>http://kylelieber.com/tags/java/</link>
-      <pubDate>Fri, 30 Mar 2012 00:00:00 +0000</pubDate>
+      <pubDate>Fri, 21 Sep 2018 23:59:43 -0500</pubDate>
       
       <guid>http://kylelieber.com/tags/java/</guid>
       <description></description>
@@ -68,7 +68,7 @@
     <item>
       <title>Maven</title>
       <link>http://kylelieber.com/tags/maven/</link>
-      <pubDate>Fri, 02 May 2014 00:00:00 +0000</pubDate>
+      <pubDate>Fri, 21 Sep 2018 23:59:43 -0500</pubDate>
       
       <guid>http://kylelieber.com/tags/maven/</guid>
       <description></description>
@@ -84,11 +84,47 @@
     </item>
     
     <item>
+      <title>Openapi</title>
+      <link>http://kylelieber.com/tags/openapi/</link>
+      <pubDate>Fri, 21 Sep 2018 23:59:43 -0500</pubDate>
+      
+      <guid>http://kylelieber.com/tags/openapi/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Release</title>
       <link>http://kylelieber.com/tags/release/</link>
       <pubDate>Mon, 25 Jun 2012 00:00:00 +0000</pubDate>
       
       <guid>http://kylelieber.com/tags/release/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Rest</title>
+      <link>http://kylelieber.com/tags/rest/</link>
+      <pubDate>Fri, 21 Sep 2018 23:59:43 -0500</pubDate>
+      
+      <guid>http://kylelieber.com/tags/rest/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Spring</title>
+      <link>http://kylelieber.com/tags/spring/</link>
+      <pubDate>Fri, 21 Sep 2018 23:59:43 -0500</pubDate>
+      
+      <guid>http://kylelieber.com/tags/spring/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Spring Restdocs</title>
+      <link>http://kylelieber.com/tags/spring-restdocs/</link>
+      <pubDate>Fri, 21 Sep 2018 23:59:43 -0500</pubDate>
+      
+      <guid>http://kylelieber.com/tags/spring-restdocs/</guid>
       <description></description>
     </item>
     

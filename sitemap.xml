@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>http://kylelieber.com/2018/09/restdocs-spec/</loc>
+    <lastmod>2018-09-21T23:59:43-05:00</lastmod>
+  </url>
+  
+  <url>
     <loc>http://kylelieber.com/2016/04/angular-transclude-directive-and-ng-if/</loc>
     <lastmod>2016-04-11T18:20:52-05:00</lastmod>
   </url>
@@ -52,7 +57,7 @@
   
   <url>
     <loc>http://kylelieber.com/categories/development/</loc>
-    <lastmod>2016-04-11T18:20:52-05:00</lastmod>
+    <lastmod>2018-09-21T23:59:43-05:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -64,7 +69,7 @@
   
   <url>
     <loc>http://kylelieber.com/tags/java/</loc>
-    <lastmod>2012-03-30T00:00:00+00:00</lastmod>
+    <lastmod>2018-09-21T23:59:43-05:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -76,13 +81,13 @@
   
   <url>
     <loc>http://kylelieber.com/</loc>
-    <lastmod>2016-04-11T18:20:52-05:00</lastmod>
+    <lastmod>2018-09-21T23:59:43-05:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>http://kylelieber.com/tags/maven/</loc>
-    <lastmod>2014-05-02T00:00:00+00:00</lastmod>
+    <lastmod>2018-09-21T23:59:43-05:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -93,14 +98,38 @@
   </url>
   
   <url>
+    <loc>http://kylelieber.com/tags/openapi/</loc>
+    <lastmod>2018-09-21T23:59:43-05:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>http://kylelieber.com/post/</loc>
-    <lastmod>2016-04-11T18:20:52-05:00</lastmod>
+    <lastmod>2018-09-21T23:59:43-05:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>http://kylelieber.com/tags/release/</loc>
     <lastmod>2012-06-25T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://kylelieber.com/tags/rest/</loc>
+    <lastmod>2018-09-21T23:59:43-05:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://kylelieber.com/tags/spring/</loc>
+    <lastmod>2018-09-21T23:59:43-05:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://kylelieber.com/tags/spring-restdocs/</loc>
+    <lastmod>2018-09-21T23:59:43-05:00</lastmod>
     <priority>0</priority>
   </url>
   

@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Java on Kyle Lieber</title>
-    <link>http://kylelieber.com/tags/java/</link>
-    <description>Recent content in Java on Kyle Lieber</description>
+    <title>Spring Restdocs on Kyle Lieber</title>
+    <link>http://kylelieber.com/tags/spring-restdocs/</link>
+    <description>Recent content in Spring Restdocs on Kyle Lieber</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Fri, 21 Sep 2018 23:59:43 -0500</lastBuildDate>
     
-	<atom:link href="http://kylelieber.com/tags/java/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://kylelieber.com/tags/spring-restdocs/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -18,16 +18,6 @@
       
       <guid>http://kylelieber.com/2018/09/restdocs-spec/</guid>
       <description>Many of the teams at my organization began using Spring REST Docs to document our REST APIs over the last couple of years. We really like the freedom it gives you to design your documentation as you wish while still giving you reliable snippets that are validated through tests. Of course, the only thing its missing is the ability to generate an API specification document like OpenAPI. This recently became a requirement that we are able to provide such a document so many thought we would need to abandon Spring REST Docs.</description>
-    </item>
-    
-    <item>
-      <title>Avoid Absolute File Path When Using the cxf-codegen-plugin</title>
-      <link>http://kylelieber.com/2012/03/avoid-absolute-file-path-when-using-the-cxf-codegen-plugin/</link>
-      <pubDate>Fri, 30 Mar 2012 00:00:00 +0000</pubDate>
-      
-      <guid>http://kylelieber.com/2012/03/avoid-absolute-file-path-when-using-the-cxf-codegen-plugin/</guid>
-      <description>&lt;p&gt;I ran into this problem a few months ago and scoured the internet for solution but never found one until now. So hopefully this will be helpful to someone with the same problem. By default, the &lt;a href=&#34;http://cxf.apache.org/docs/maven-cxf-codegen-plugin-wsdl-to-java.html&#34;&gt;Apache CXF Codegen Maven plugin&lt;/a&gt; generates code that will attempt to read your wsdl via the absolute path.
-&lt;/p&gt;</description>
     </item>
     
   </channel>

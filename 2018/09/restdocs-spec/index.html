@@ -1,6 +1,3 @@
-
-
-
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
 <head>
@@ -17,7 +14,7 @@
   <link href="//fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
 
   
-  <title>Testing</title>
+  <title>Generate OpenAPI Specs with Spring REST Docs</title>
 
   
   <link rel="stylesheet" href="http://kylelieber.com/css/hugo-octopress.css">
@@ -41,7 +38,7 @@
 
   
 
-  <link href="http://kylelieber.com/tags/testing/index.xml" rel="alternate" type="application/rss+xml" title="Kyle Lieber" />
+  
 
   <meta name="description" content="">
   <meta name="keywords" content="">
@@ -122,44 +119,96 @@ ga('send', 'pageview');
 <div id="main">
   <div id="content">
     <div>
-      <article role="article">
+      <article class="hentry" role="article">
         <header>
           <h1 class="entry-title">
-            Tag: Testing
+            Generate OpenAPI Specs with Spring REST Docs 
           </h1>
+          <p class="meta">Sep 21, 2018 - 3 minute read -  <a href="http://kylelieber.com/2018/09/restdocs-spec/#disqus_thread">Comments</a>
+
+          
+
+          
+          
+          <a class="label" href="http://kylelieber.com/categories/development">Development</a>
+          </p>
         </header>
-        <div id="blog-archives" class="category">
-          
-          <h2>
-            2013
-          </h2>
-          <article>
-            <h1>
-              <a href="http://kylelieber.com/2013/03/jasmine-maven-plugin-1-3-1-0-my-first-release/" title="Jasmine Maven Plugin 1.3.1.0 - My First Release">Jasmine Maven Plugin 1.3.1.0 - My First Release</a>
-            </h1>
-            <time>
-              <span class="month">Mar</span>
-              <span class="day">12</span>
-            </time>
-            <footer>
-              <span class="categories"> 
-                posted in:
-                
-                 <a class="category" href="http://kylelieber.com/categories/development">Development</a>
-                
-              </br>
-                tags:
-                
-                 <a class="category" href="http://kylelieber.com/tags/javascript">javascript</a> <a class="category" href="http://kylelieber.com/tags/maven">maven</a> <a class="category" href="http://kylelieber.com/tags/testing">testing</a> <a class="category" href="http://kylelieber.com/tags/jasmine">jasmine</a> <a class="category" href="http://kylelieber.com/tags/open-source">open source</a>
-                
-              </span>
-            </footer>
-          </article>
-          
+        <div class="entry-content">
+          <p>Many of the teams at my organization began using Spring REST Docs to document our REST APIs over the last couple of years.  We really like the freedom it gives you to design your documentation as you wish while still giving you reliable snippets that are validated through tests.  Of course, the only thing its missing is the ability to generate an API specification document like OpenAPI.  This recently became a requirement that we are able to provide such a document so many thought we would need to abandon Spring REST Docs.</p>
+
+<p>Fortunately, we have been having regular &ldquo;hack days&rdquo; to take some time away from our day-to-day work and attack problems we would otherwise never get to work on.  Last month, a couple of us decided to tackle the challenge of coming up with a way to generate OpenAPI specs using Spring REST Docs.</p>
+
+<p>Our approach was simple.  Basically, we decided the easiest thing to do would be to follow the same model Spring REST Docs already uses for generating HTML sites.  It&rsquo;s a two step process:</p>
+
+<ol>
+<li>Generate snippet files during the run of your tests.  Usually asciidoc files.</li>
+<li>After the test run, use a maven plugin to join all those snippet files into an HTML site.  Usually the asciidoctor-maven-plugin.</li>
+</ol>
+
+<p>So, we would follow that same process only instead of generate asciidoc files for our snippets we would generate a json file that contained all the information about the resource.  The instead of using the asciidoctor-maven-plugin to join everything together we would create our own plugin that would read in all the json files and spit out an OpenAPI spec.</p>
+
+<p>At the end of the hack we had a working snippet and plugin that produced a valid OpenAPI spec.  However, we still had a lot of work to do because we were not getting any of the field or parameter documentation in our json snippets so the OpenAPI file that was generated was pretty bare.</p>
+
+<p>Of course, as I&rsquo;ve learned time and time again over my career as a software engineer, you can rarely have a unique idea.  Only a few days after our hack a comment showed up on the <a href="https://github.com/spring-projects/spring-restdocs/issues/213">Spring REST Docs issue</a> that has been open for over two years requesting OpenAPI support. Someone had built a solution to the problem and their solution followed the same basic idea as ours.  The only real difference was that they built a gradle plugin rather than a maven plugin.  The other difference is that they had been working on it for quite a few months now so their snippet was much more advanced than what we had wrote at that point.</p>
+
+<p>So, after getting over my frustration that my cool unique idea was not at all unique I decided that this was really a great thing.  This developer had a snippet that could generate everything we needed and we had a maven plugin which they did not have.  So, we decided best thing to do was to work together to help improve their project and contribute a maven plugin that was compatible with it.</p>
+
+<p>The end result is the <a href="https://github.com/BerkleyTechnologyServices/restdocs-spec">restdocs-spec-maven-plugin</a>.  This plugin works in conjuction with the <a href="https://github.com/ePages-de/restdocs-openapi">restdocs-openapi</a> which is maintained by <a href="https://github.com/mduesterhoeft">Mathias Düsterhöft</a> and his organization.  I won&rsquo;t get into the specifics of how to use them both here in this blog post because both projects have that information in their respective README files.</p>
+
+<p>I also want to thank Mathias for being so friendly and open to my contributions.  That is what the open source community is all about!</p>
+
         </div>
+        
+
+<footer>
+  <p class="meta">
+    <span class="byline author vcard">Posted by <span class="fn">Kyle Lieber</span></span>
+    
+    <time>Sep 21, 2018</time>
+    <span class="categories">
+      Tags: 
+        
+        
+          <a class="category" href="http://kylelieber.com/tags/java">java</a>  <a class="category" href="http://kylelieber.com/tags/rest">rest</a>  <a class="category" href="http://kylelieber.com/tags/spring">spring</a>  <a class="category" href="http://kylelieber.com/tags/spring-restdocs">spring-restdocs</a>  <a class="category" href="http://kylelieber.com/tags/openapi">openapi</a>  <a class="category" href="http://kylelieber.com/tags/maven">maven</a>  
+        
+    </span>
+  </p>
+    
+  
+  
+
+  
+
+  <p class="meta">
+    
+        <a class="basic-alignment left" href="http://kylelieber.com/2016/04/angular-transclude-directive-and-ng-if/" title="Angular transclude directive and ng-if">Angular transclude directive and ng-if</a>
+    
+
+    
+  </p>
+
+  <div id="disqus_thread"></div>
+<script type="text/javascript">
+
+(function() {
+    
+    
+    
+    
+
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    var disqus_shortname = 'kylelieber';
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</footer>
+
+ 
       </article>
     </div>
-
     
 
 
@@ -362,4 +411,5 @@ ga('send', 'pageview');
 
 </body>
 </html>
+
 

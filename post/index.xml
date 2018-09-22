@@ -6,10 +6,19 @@
     <description>Recent content in Posts on Kyle Lieber</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 11 Apr 2016 18:20:52 -0500</lastBuildDate>
+    <lastBuildDate>Fri, 21 Sep 2018 23:59:43 -0500</lastBuildDate>
     
 	<atom:link href="http://kylelieber.com/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Generate OpenAPI Specs with Spring REST Docs</title>
+      <link>http://kylelieber.com/2018/09/restdocs-spec/</link>
+      <pubDate>Fri, 21 Sep 2018 23:59:43 -0500</pubDate>
+      
+      <guid>http://kylelieber.com/2018/09/restdocs-spec/</guid>
+      <description>Many of the teams at my organization began using Spring REST Docs to document our REST APIs over the last couple of years. We really like the freedom it gives you to design your documentation as you wish while still giving you reliable snippets that are validated through tests. Of course, the only thing its missing is the ability to generate an API specification document like OpenAPI. This recently became a requirement that we are able to provide such a document so many thought we would need to abandon Spring REST Docs.</description>
+    </item>
     
     <item>
       <title>Angular transclude directive and ng-if</title>
