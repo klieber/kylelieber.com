@@ -29,5 +29,6 @@ fields:
   hidden: false
   default: ''
 pages:
+- content/post/phantomjs-maven-plugin-0-dot-3.md
 - content/post/maven-versioning-strategy.md
 - content/post/angular-transclude-and-ngif.md

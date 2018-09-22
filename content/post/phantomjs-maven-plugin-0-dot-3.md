@@ -1,9 +1,10 @@
 +++
-title = "PhantomJS Maven Plugin 0.3"
+categories = ["Development"]
 date = "2014-05-02"
 slug = "phantomjs-maven-plugin-0-dot-3"
-categories = ["Development"]
 tags = ["javascript", "maven", "open source"]
+title = "PhantomJS Maven Plugin 0.3"
+
 +++
 I just released [version 0.3](https://github.com/klieber/phantomjs-maven-plugin/releases/tag/phantomjs-maven-plugin-0.3) of the [phantomjs-maven-plugin](http://kylelieber.com/phantomjs-maven-plugin) and I thought it was about time I wrote a blog post about this project.
 
