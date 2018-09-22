@@ -1,9 +1,10 @@
 +++
-title = "Avoid Absolute File Path When Using the cxf-codegen-plugin"
+categories = ["Development"]
 date = "2012-03-30"
 slug = "avoid-absolute-file-path-when-using-the-cxf-codegen-plugin"
-categories = ["Development"]
 tags = ["maven", "apache cxf", "web services", "java", "wsdl"]
+title = "Avoid Absolute File Path When Using the cxf-codegen-plugin"
+
 +++
 I ran into this problem a few months ago and scoured the internet for solution but never found one until now. So hopefully this will be helpful to someone with the same problem. By default, the [Apache CXF Codegen Maven plugin](http://cxf.apache.org/docs/maven-cxf-codegen-plugin-wsdl-to-java.html) generates code that will attempt to read your wsdl via the absolute path.
 <!--more-->
