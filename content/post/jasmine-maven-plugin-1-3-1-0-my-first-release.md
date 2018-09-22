@@ -1,9 +1,10 @@
 +++
-title = "Jasmine Maven Plugin 1.3.1.0 - My First Release"
+categories = ["Development"]
 date = "2013-03-12"
 slug = "jasmine-maven-plugin-1-3-1-0-my-first-release"
-categories = ["Development"]
 tags = ["javascript", "maven", "testing", "jasmine", "open source"]
+title = "Jasmine Maven Plugin 1.3.1.0 - My First Release"
+
 +++
 I began using the the [Jasmine Maven Plugin][1] in June of 2012 and was immediately impressed with how well it worked and how easy it made automating my test execution. Soon after I discovered [require.js][2] and decided to begin using it in my applications. I learned quickly however that the require.js support in the Jasmine Maven Plugin had quite a few issues and so I decided to try and help fix some of them.
 <!--more-->
