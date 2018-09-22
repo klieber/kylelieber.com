@@ -4,9 +4,13 @@ languageCode = "en-us"
 theme = "hugo-octopress"
 title = "Kyle Lieber"
 [[menu.main]]
+name = "Restdocs Spec Maven Plugin"
+url = "https://github.com/BerkleyTechnologyServices/restdocs-spec"
+weight = 4
+[[menu.main]]
 name = "PhantomJS Maven Plugin"
 url = "http://kylelieber.com/phantomjs-maven-plugin"
-weight = 4
+weight = 5
 [[menu.main]]
 name = "Resume"
 url = "https://www.linkedin.com/in/kylelieber"
