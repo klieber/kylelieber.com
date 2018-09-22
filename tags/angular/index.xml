@@ -7,110 +7,18 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Mon, 11 Apr 2016 18:20:52 -0500</lastBuildDate>
-    <atom:link href="http://kylelieber.com/tags/angular/index.xml" rel="self" type="application/rss+xml" />
+    
+	<atom:link href="http://kylelieber.com/tags/angular/index.xml" rel="self" type="application/rss+xml" />
+    
     
     <item>
       <title>Angular transclude directive and ng-if</title>
-      <link>http://kylelieber.com/2016/04/angular-transclude-directive-and-ng-if</link>
+      <link>http://kylelieber.com/2016/04/angular-transclude-directive-and-ng-if/</link>
       <pubDate>Mon, 11 Apr 2016 18:20:52 -0500</pubDate>
       
-      <guid>http://kylelieber.com/2016/04/angular-transclude-directive-and-ng-if</guid>
-      <description>&lt;p&gt;As I continue to dive further and further into Angular development it never ceases to amaze me how quickly I can get tripped up by directives.  This is just something I learned last week about using a custom transclude function and an &lt;code&gt;ng-if&lt;/code&gt; on a directive.&lt;/p&gt;
-
-&lt;p&gt;Originally, I had a directive that look something like this:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;angular.module(&#39;app&#39;)
-  .directive(&#39;uiField&#39;, function(UiFieldService) {
-    return {
-      restrict: &#39;EA&#39;,
-      template:
-      `&amp;lt;div ng-show=&amp;quot;field.render&amp;quot;&amp;gt;
-        &amp;lt;label for=&amp;quot;{{field.code}}&amp;quot; ng-bind=&amp;quot;field.label&amp;quot;&amp;gt;&amp;lt;/label&amp;gt;
-        &amp;lt;div ng-transclude&amp;gt;&amp;lt;/div&amp;gt;
-       &amp;lt;/div&amp;gt;`,
-      transclude: true,
-      scope: {
-        code: &#39;@&#39;
-      },
-      link: function(scope) {
-        scope.field = UiFieldService.getField(scope.code);
-      }
-    };
-  }
-);
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;However, I wanted to make my &lt;code&gt;field&lt;/code&gt; object available to the transcluded element so I can do something like this:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-html&#34;&gt;&amp;lt;ui-field code=&amp;quot;name&amp;quot;&amp;gt;
-  &amp;lt;input name=&amp;quot;{{field.code}}&amp;quot; type=&amp;quot;text&amp;quot; ng-model=&amp;quot;person.name&amp;quot; /&amp;gt;
-&amp;lt;/ui-field&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;So, I changed it to use a custom transclude function like this:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;angular.module(&#39;app&#39;)
-  .directive(&#39;uiField&#39;, function(UiFieldService) {
-    return {
-      restrict: &#39;EA&#39;,
-      template:
-      `&amp;lt;div ng-show=&amp;quot;field.render&amp;quot;&amp;gt;
-        &amp;lt;label for=&amp;quot;{{field.code}}&amp;quot; ng-bind=&amp;quot;field.label&amp;quot;&amp;gt;&amp;lt;/label&amp;gt;
-        &amp;lt;div ui-field-transclude&amp;gt;&amp;lt;/div&amp;gt;
-       &amp;lt;/div&amp;gt;`,
-      transclude: true,
-      scope: {
-        code: &#39;@&#39;
-      },
-      link: function(scope, element, attrs, ctrl, transclude) {
-        scope.field = UiFieldService.getField(scope.code);
-
-        transclude(function(clone, transcludeScope) {
-          transcludeScope.field = scope.field;
-          element.find(&#39;*[ui-field-transclude]&#39;).append(clone);
-        });
-      }
-    };
-  }
-);
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;This worked fine.  I wanted to change the &lt;code&gt;ng-show&lt;/code&gt; in the template to an &lt;code&gt;ng-if&lt;/code&gt; so that any fields not rendered are not generated at all.  Of course, after making that change then my &lt;code&gt;input&lt;/code&gt; element was no longer being rendered. The problem with it is that the &lt;code&gt;ng-if&lt;/code&gt; causes it&amp;rsquo;s child elements to be removed so when I try to find the element with the &lt;code&gt;ui-field-tranclude&lt;/code&gt; attribute, nothing is there.&lt;/p&gt;
-
-&lt;p&gt;After, struggling to find a solution I realized that if I was still using &lt;code&gt;ng-transclude&lt;/code&gt; instead of my custom transclude function then the &lt;code&gt;ng-if&lt;/code&gt; worked just fine.  So I decided to take a look at the source code for &lt;code&gt;ng-tranclude&lt;/code&gt;. It turns out that if you have &lt;code&gt;transclude: true&lt;/code&gt; on your directive the transclude function is available in the linking function of any child directive in your template. So, I just needed a second directive:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;angular.module(&#39;app&#39;)
-  .directive(&#39;uiField&#39;, function(UiFieldService) {
-    return {
-      restrict: &#39;EA&#39;,
-      template:
-      `&amp;lt;div ng-if=&amp;quot;field.render&amp;quot;&amp;gt;
-        &amp;lt;label for=&amp;quot;{{field.code}}&amp;quot; ng-bind=&amp;quot;field.label&amp;quot;&amp;gt;&amp;lt;/label&amp;gt;
-        &amp;lt;div ui-field-transclude&amp;gt;&amp;lt;/div&amp;gt;
-       &amp;lt;/div&amp;gt;`,
-      transclude: true,
-      scope: {
-        code: &#39;@&#39;
-      },
-      link: function(scope, element, attrs, ctrl, transclude) {
-        scope.field = UiFieldService.getField(scope.code);
-      }
-    };
-  }
-  .directive(&#39;uiFieldTransclude&#39;, function() {
-    return {
-      restrict: &#39;EA&#39;,
-      link: function(scope, element, attrs, ctrl, transclude) {
-        transclude(function(clone, transcludeScope) {
-          transcludeScope.field = scope.field;
-          element.append(clone);
-        });
-      }
-    };
-  }
-);
-&lt;/code&gt;&lt;/pre&gt;
-</description>
+      <guid>http://kylelieber.com/2016/04/angular-transclude-directive-and-ng-if/</guid>
+      <description>&lt;p&gt;As I continue to dive further and further into Angular development it never ceases to amaze me how quickly I can get tripped up by directives.  This is just something I learned last week about using a custom transclude function and an &lt;code&gt;ng-if&lt;/code&gt; on a directive.
+&lt;/p&gt;</description>
     </item>
     
   </channel>

@@ -50,6 +50,16 @@
 
   
   
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-52118741-1', 'auto');
+ga('send', 'pageview');
+</script>
+
 
 </head>
 <body>
@@ -81,7 +91,7 @@
     
   
     
-      <li><a href="http://kylelieber.com/phantomjs-maven-plugin/" title="PhantomJS Maven Plugin">PhantomJS Maven Plugin</a></li>
+      <li><a href="http://kylelieber.com/phantomjs-maven-plugin" title="PhantomJS Maven Plugin">PhantomJS Maven Plugin</a></li>
     
   
 </ul>
@@ -114,7 +124,7 @@
           <h1 class="entry-title">
             PhantomJS Maven Plugin 0.3 
           </h1>
-          <p class="meta">May 2, 2014 - 2 minute read -  <a href="http://kylelieber.com/2014/05/phantomjs-maven-plugin-0-dot-3#disqus_thread">Comments</a>
+          <p class="meta">May 2, 2014 - 2 minute read -  <a href="http://kylelieber.com/2014/05/phantomjs-maven-plugin-0-dot-3/#disqus_thread">Comments</a>
 
           
 
@@ -126,9 +136,9 @@
         <div class="entry-content">
           <p>I just released <a href="https://github.com/klieber/phantomjs-maven-plugin/releases/tag/phantomjs-maven-plugin-0.3">version 0.3</a> of the <a href="http://kylelieber.com/phantomjs-maven-plugin">phantomjs-maven-plugin</a> and I thought it was about time I wrote a blog post about this project.</p>
 
-<p><a href="http://phantomjs.org">PhantomJS</a> is a headless WebKit implementation that is extremely useful for tasks like headless website testing, screen capture, page automation, network monitoring, and more. Much of my experience with PhantomJS comes from my work on the <a href="http://searls.github.io/jasmine-maven-plugin">jasmine-maven-plugin</a>.  In version <code>1.3.1.1</code> of the plugin we added support for using PhantomJS instead of <a href="http://htmlunit.sourceforge.com">HtmlUnit</a> to execute <a href="http://jasmine.github.io/">Jasmine</a> specs. The only downside to using PhantomJS with the plugin is that you had to have PhantomJS already installed on your system. For those of us in the Maven world that seems a little odd since Maven is suppose to download all of our dependencies for us. But of course, usually those dependencies are platform-independent java libraries. PhantomJS, on the other hand, requires install platform-dependent compiled binaries.</p>
+<p><a href="http://phantomjs.org">PhantomJS</a> is a headless WebKit implementation that is extremely useful for tasks like headless website testing, screen capture, page automation, network monitoring, and more. Much of my experience with PhantomJS comes from my work on the <a href="http://searls.github.io/jasmine-maven-plugin">jasmine-maven-plugin</a>.  In version <code>1.3.1.1</code> of the plugin we added support for using PhantomJS instead of <a href="http://htmlunit.sourceforge.com">HtmlUnit</a> to execute <a href="http://jasmine.github.io/">Jasmine</a> specs. The only downside to using PhantomJS with the plugin is that you had to have PhantomJS already installed on your system. For those of us in the Maven world that seems a little odd since Maven is suppose to download all of our dependencies for us. But of course, usually those dependencies are platform-independent java libraries. PhantomJS, on the other hand, requires install platform-dependent compiled binaries.
 
-<p>``
+``
 Well after a few months of explaining to users and friends that they needed to have PhantomJS pre-installed and there was no good way to have it installed automatically, I decided I need to fix that. So, I took some inspiration from the work done on the <a href="https://github.com/qa/arquillian-phantom-driver">Arquillian Phantom Driver</a> and wrote the <a href="http://kylelieber.com/phantomjs-maven-plugin">phantomjs-maven-plugin</a>.</p>
 
 <p>The plugin works by first determining the current OS and architecture type that it is running on and then downloading the appropriate version of the PhantomJS binaries. It also sets a property indicating the location of the executable.  The versions of the plugin prior to <code>0.3</code> would download the binaries directly from either googlecode or bitbucket where PhantomJS hosts them.  This latest version now downloads them via maven&rsquo;s central repository (downloading directly is still an option) which is great because it helps avoid firewall issues and allows for easy caching.</p>
@@ -138,7 +148,6 @@ Well after a few months of explaining to users and friends that they needed to h
 <p>You can see an example usage of the plugin with the jasmine-maven-plugin <a href="http://kylelieber.com/phantomjs-maven-plugin/">here</a>.  I&rsquo;m working on getting more documentation out there so until then you can also look at the <a href="https://github.com/klieber/phantomjs-maven-plugin/tree/master/src/it">sample projects</a> I use for the plugins integration tests.</p>
 
 <p>I&rsquo;ve been having a hard time keeping up on this and the jasmine-maven-plugin lately (partly because I need a new laptop terribly) but I hope to begin making regular commits again soon. Thank you for your patience.</p>
-
         </div>
         
 
@@ -163,11 +172,11 @@ Well after a few months of explaining to users and friends that they needed to h
 
   <p class="meta">
     
-        <a class="basic-alignment left" href="http://kylelieber.com/2013/03/jasmine-maven-plugin-1-3-1-0-my-first-release" title="Jasmine Maven Plugin 1.3.1.0 - My First Release">Jasmine Maven Plugin 1.3.1.0 - My First Release</a>
+        <a class="basic-alignment left" href="http://kylelieber.com/2013/03/jasmine-maven-plugin-1-3-1-0-my-first-release/" title="Jasmine Maven Plugin 1.3.1.0 - My First Release">Jasmine Maven Plugin 1.3.1.0 - My First Release</a>
     
 
      
-      <a class="basic-alignment right" href="http://kylelieber.com/2016/04/angular-transclude-directive-and-ng-if" title="Angular transclude directive and ng-if">Angular transclude directive and ng-if</a>
+      <a class="basic-alignment right" href="http://kylelieber.com/2016/04/angular-transclude-directive-and-ng-if/" title="Angular transclude directive and ng-if">Angular transclude directive and ng-if</a>
     
   </p>
 
@@ -273,23 +282,23 @@ Well after a few months of explaining to users and friends that they needed to h
       
       
       <li class="post">
-        <a href="http://kylelieber.com/2016/04/angular-transclude-directive-and-ng-if">Angular transclude directive and ng-if</a>
+        <a href="http://kylelieber.com/2016/04/angular-transclude-directive-and-ng-if/">Angular transclude directive and ng-if</a>
       </li>
       
       <li class="post">
-        <a href="http://kylelieber.com/2014/05/phantomjs-maven-plugin-0-dot-3">PhantomJS Maven Plugin 0.3</a>
+        <a href="http://kylelieber.com/2014/05/phantomjs-maven-plugin-0-dot-3/">PhantomJS Maven Plugin 0.3</a>
       </li>
       
       <li class="post">
-        <a href="http://kylelieber.com/2013/03/jasmine-maven-plugin-1-3-1-0-my-first-release">Jasmine Maven Plugin 1.3.1.0 - My First Release</a>
+        <a href="http://kylelieber.com/2013/03/jasmine-maven-plugin-1-3-1-0-my-first-release/">Jasmine Maven Plugin 1.3.1.0 - My First Release</a>
       </li>
       
       <li class="post">
-        <a href="http://kylelieber.com/2012/06/maven-versioning-strategy">Maven Versioning Strategy</a>
+        <a href="http://kylelieber.com/2012/06/maven-versioning-strategy/">Maven Versioning Strategy</a>
       </li>
       
       <li class="post">
-        <a href="http://kylelieber.com/2012/03/avoid-absolute-file-path-when-using-the-cxf-codegen-plugin">Avoid Absolute File Path When Using the cxf-codegen-plugin</a>
+        <a href="http://kylelieber.com/2012/03/avoid-absolute-file-path-when-using-the-cxf-codegen-plugin/">Avoid Absolute File Path When Using the cxf-codegen-plugin</a>
       </li>
       
     </ul>
@@ -301,31 +310,31 @@ Well after a few months of explaining to users and friends that they needed to h
     <span id="tag-cloud">
       
       
-        <a style="font-size: 73%" href="http://kylelieber.com/tags/angular">angular</a>
+        <a style="font-size: 55%" href="http://kylelieber.com/tags/angular">angular</a>
       
-        <a style="font-size: 73%" href="http://kylelieber.com/tags/apache-cxf">apache-cxf</a>
+        <a style="font-size: 55%" href="http://kylelieber.com/tags/apache-cxf">apache-cxf</a>
       
-        <a style="font-size: 73%" href="http://kylelieber.com/tags/best-practice">best-practice</a>
+        <a style="font-size: 55%" href="http://kylelieber.com/tags/best-practice">best-practice</a>
       
-        <a style="font-size: 73%" href="http://kylelieber.com/tags/jasmine">jasmine</a>
+        <a style="font-size: 55%" href="http://kylelieber.com/tags/jasmine">jasmine</a>
       
-        <a style="font-size: 73%" href="http://kylelieber.com/tags/java">java</a>
+        <a style="font-size: 55%" href="http://kylelieber.com/tags/java">java</a>
       
-        <a style="font-size: 119%" href="http://kylelieber.com/tags/javascript">javascript</a>
+        <a style="font-size: 65%" href="http://kylelieber.com/tags/javascript">javascript</a>
       
-        <a style="font-size: 142%" href="http://kylelieber.com/tags/maven">maven</a>
+        <a style="font-size: 70%" href="http://kylelieber.com/tags/maven">maven</a>
       
-        <a style="font-size: 96%" href="http://kylelieber.com/tags/open-source">open-source</a>
+        <a style="font-size: 60%" href="http://kylelieber.com/tags/open-source">open-source</a>
       
-        <a style="font-size: 73%" href="http://kylelieber.com/tags/release">release</a>
+        <a style="font-size: 55%" href="http://kylelieber.com/tags/release">release</a>
       
-        <a style="font-size: 73%" href="http://kylelieber.com/tags/testing">testing</a>
+        <a style="font-size: 55%" href="http://kylelieber.com/tags/testing">testing</a>
       
-        <a style="font-size: 73%" href="http://kylelieber.com/tags/versioning">versioning</a>
+        <a style="font-size: 55%" href="http://kylelieber.com/tags/versioning">versioning</a>
       
-        <a style="font-size: 73%" href="http://kylelieber.com/tags/web-services">web-services</a>
+        <a style="font-size: 55%" href="http://kylelieber.com/tags/web-services">web-services</a>
       
-        <a style="font-size: 73%" href="http://kylelieber.com/tags/wsdl">wsdl</a>
+        <a style="font-size: 55%" href="http://kylelieber.com/tags/wsdl">wsdl</a>
       
     </span>
   </section>
@@ -371,7 +380,7 @@ Well after a few months of explaining to users and friends that they needed to h
 
 
 <footer role="contentinfo">
-  <p>Copyright &copy; 2016 Kyle Lieber - <a href="http://kylelieber.com/license/">License</a> -
+  <p>Copyright &copy; 2018 Kyle Lieber - <a href="http://kylelieber.com/license/">License</a> -
   <span class="credit">Powered by <a target="_blank" href="https://gohugo.io">Hugo</a> and <a target="_blank" href="https://github.com/parsiya/hugo-octopress/">Hugo-Octopress</a> theme.
 </p>
 

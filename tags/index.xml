@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tags on Kyle Lieber</title>
+    <link>http://kylelieber.com/tags/</link>
+    <description>Recent content in Tags on Kyle Lieber</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 11 Apr 2016 18:20:52 -0500</lastBuildDate>
+    
+	<atom:link href="http://kylelieber.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Angular</title>
+      <link>http://kylelieber.com/tags/angular/</link>
+      <pubDate>Mon, 11 Apr 2016 18:20:52 -0500</pubDate>
+      
+      <guid>http://kylelieber.com/tags/angular/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Apache Cxf</title>
+      <link>http://kylelieber.com/tags/apache-cxf/</link>
+      <pubDate>Fri, 30 Mar 2012 00:00:00 +0000</pubDate>
+      
+      <guid>http://kylelieber.com/tags/apache-cxf/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Best Practice</title>
+      <link>http://kylelieber.com/tags/best-practice/</link>
+      <pubDate>Mon, 25 Jun 2012 00:00:00 +0000</pubDate>
+      
+      <guid>http://kylelieber.com/tags/best-practice/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Jasmine</title>
+      <link>http://kylelieber.com/tags/jasmine/</link>
+      <pubDate>Tue, 12 Mar 2013 00:00:00 +0000</pubDate>
+      
+      <guid>http://kylelieber.com/tags/jasmine/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Java</title>
+      <link>http://kylelieber.com/tags/java/</link>
+      <pubDate>Fri, 30 Mar 2012 00:00:00 +0000</pubDate>
+      
+      <guid>http://kylelieber.com/tags/java/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Javascript</title>
+      <link>http://kylelieber.com/tags/javascript/</link>
+      <pubDate>Mon, 11 Apr 2016 18:20:52 -0500</pubDate>
+      
+      <guid>http://kylelieber.com/tags/javascript/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Maven</title>
+      <link>http://kylelieber.com/tags/maven/</link>
+      <pubDate>Fri, 02 May 2014 00:00:00 +0000</pubDate>
+      
+      <guid>http://kylelieber.com/tags/maven/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Open Source</title>
+      <link>http://kylelieber.com/tags/open-source/</link>
+      <pubDate>Fri, 02 May 2014 00:00:00 +0000</pubDate>
+      
+      <guid>http://kylelieber.com/tags/open-source/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Release</title>
+      <link>http://kylelieber.com/tags/release/</link>
+      <pubDate>Mon, 25 Jun 2012 00:00:00 +0000</pubDate>
+      
+      <guid>http://kylelieber.com/tags/release/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Testing</title>
+      <link>http://kylelieber.com/tags/testing/</link>
+      <pubDate>Tue, 12 Mar 2013 00:00:00 +0000</pubDate>
+      
+      <guid>http://kylelieber.com/tags/testing/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Versioning</title>
+      <link>http://kylelieber.com/tags/versioning/</link>
+      <pubDate>Mon, 25 Jun 2012 00:00:00 +0000</pubDate>
+      
+      <guid>http://kylelieber.com/tags/versioning/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Web Services</title>
+      <link>http://kylelieber.com/tags/web-services/</link>
+      <pubDate>Fri, 30 Mar 2012 00:00:00 +0000</pubDate>
+      
+      <guid>http://kylelieber.com/tags/web-services/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Wsdl</title>
+      <link>http://kylelieber.com/tags/wsdl/</link>
+      <pubDate>Fri, 30 Mar 2012 00:00:00 +0000</pubDate>
+      
+      <guid>http://kylelieber.com/tags/wsdl/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

@@ -7,57 +7,33 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Fri, 02 May 2014 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://kylelieber.com/tags/open-source/index.xml" rel="self" type="application/rss+xml" />
+    
+	<atom:link href="http://kylelieber.com/tags/open-source/index.xml" rel="self" type="application/rss+xml" />
+    
     
     <item>
       <title>PhantomJS Maven Plugin 0.3</title>
-      <link>http://kylelieber.com/2014/05/phantomjs-maven-plugin-0-dot-3</link>
+      <link>http://kylelieber.com/2014/05/phantomjs-maven-plugin-0-dot-3/</link>
       <pubDate>Fri, 02 May 2014 00:00:00 +0000</pubDate>
       
-      <guid>http://kylelieber.com/2014/05/phantomjs-maven-plugin-0-dot-3</guid>
+      <guid>http://kylelieber.com/2014/05/phantomjs-maven-plugin-0-dot-3/</guid>
       <description>&lt;p&gt;I just released &lt;a href=&#34;https://github.com/klieber/phantomjs-maven-plugin/releases/tag/phantomjs-maven-plugin-0.3&#34;&gt;version 0.3&lt;/a&gt; of the &lt;a href=&#34;http://kylelieber.com/phantomjs-maven-plugin&#34;&gt;phantomjs-maven-plugin&lt;/a&gt; and I thought it was about time I wrote a blog post about this project.&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&#34;http://phantomjs.org&#34;&gt;PhantomJS&lt;/a&gt; is a headless WebKit implementation that is extremely useful for tasks like headless website testing, screen capture, page automation, network monitoring, and more. Much of my experience with PhantomJS comes from my work on the &lt;a href=&#34;http://searls.github.io/jasmine-maven-plugin&#34;&gt;jasmine-maven-plugin&lt;/a&gt;.  In version &lt;code&gt;1.3.1.1&lt;/code&gt; of the plugin we added support for using PhantomJS instead of &lt;a href=&#34;http://htmlunit.sourceforge.com&#34;&gt;HtmlUnit&lt;/a&gt; to execute &lt;a href=&#34;http://jasmine.github.io/&#34;&gt;Jasmine&lt;/a&gt; specs. The only downside to using PhantomJS with the plugin is that you had to have PhantomJS already installed on your system. For those of us in the Maven world that seems a little odd since Maven is suppose to download all of our dependencies for us. But of course, usually those dependencies are platform-independent java libraries. PhantomJS, on the other hand, requires install platform-dependent compiled binaries.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;http://phantomjs.org&#34;&gt;PhantomJS&lt;/a&gt; is a headless WebKit implementation that is extremely useful for tasks like headless website testing, screen capture, page automation, network monitoring, and more. Much of my experience with PhantomJS comes from my work on the &lt;a href=&#34;http://searls.github.io/jasmine-maven-plugin&#34;&gt;jasmine-maven-plugin&lt;/a&gt;.  In version &lt;code&gt;1.3.1.1&lt;/code&gt; of the plugin we added support for using PhantomJS instead of &lt;a href=&#34;http://htmlunit.sourceforge.com&#34;&gt;HtmlUnit&lt;/a&gt; to execute &lt;a href=&#34;http://jasmine.github.io/&#34;&gt;Jasmine&lt;/a&gt; specs. The only downside to using PhantomJS with the plugin is that you had to have PhantomJS already installed on your system. For those of us in the Maven world that seems a little odd since Maven is suppose to download all of our dependencies for us. But of course, usually those dependencies are platform-independent java libraries. PhantomJS, on the other hand, requires install platform-dependent compiled binaries.
 
-&lt;p&gt;``
-Well after a few months of explaining to users and friends that they needed to have PhantomJS pre-installed and there was no good way to have it installed automatically, I decided I need to fix that. So, I took some inspiration from the work done on the &lt;a href=&#34;https://github.com/qa/arquillian-phantom-driver&#34;&gt;Arquillian Phantom Driver&lt;/a&gt; and wrote the &lt;a href=&#34;http://kylelieber.com/phantomjs-maven-plugin&#34;&gt;phantomjs-maven-plugin&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;The plugin works by first determining the current OS and architecture type that it is running on and then downloading the appropriate version of the PhantomJS binaries. It also sets a property indicating the location of the executable.  The versions of the plugin prior to &lt;code&gt;0.3&lt;/code&gt; would download the binaries directly from either googlecode or bitbucket where PhantomJS hosts them.  This latest version now downloads them via maven&amp;rsquo;s central repository (downloading directly is still an option) which is great because it helps avoid firewall issues and allows for easy caching.&lt;/p&gt;
-
-&lt;p&gt;The plugin also features a &lt;a href=&#34;http://kylelieber.com/phantomjs-maven-plugin/exec-mojo.html&#34;&gt;goal for executing&lt;/a&gt; PhantomJS scripts so you can easily install and execute PhantomJS scripts inside your maven build.&lt;/p&gt;
-
-&lt;p&gt;You can see an example usage of the plugin with the jasmine-maven-plugin &lt;a href=&#34;http://kylelieber.com/phantomjs-maven-plugin/&#34;&gt;here&lt;/a&gt;.  I&amp;rsquo;m working on getting more documentation out there so until then you can also look at the &lt;a href=&#34;https://github.com/klieber/phantomjs-maven-plugin/tree/master/src/it&#34;&gt;sample projects&lt;/a&gt; I use for the plugins integration tests.&lt;/p&gt;
-
-&lt;p&gt;I&amp;rsquo;ve been having a hard time keeping up on this and the jasmine-maven-plugin lately (partly because I need a new laptop terribly) but I hope to begin making regular commits again soon. Thank you for your patience.&lt;/p&gt;
-</description>
+``
+Well after a few months of explaining to users and friends that they needed to have PhantomJS pre-installed and there was no good way to have it installed automatically, I decided I need to fix that. So, I took some inspiration from the work done on the &lt;a href=&#34;https://github.com/qa/arquillian-phantom-driver&#34;&gt;Arquillian Phantom Driver&lt;/a&gt; and wrote the &lt;a href=&#34;http://kylelieber.com/phantomjs-maven-plugin&#34;&gt;phantomjs-maven-plugin&lt;/a&gt;.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Jasmine Maven Plugin 1.3.1.0 - My First Release</title>
-      <link>http://kylelieber.com/2013/03/jasmine-maven-plugin-1-3-1-0-my-first-release</link>
+      <link>http://kylelieber.com/2013/03/jasmine-maven-plugin-1-3-1-0-my-first-release/</link>
       <pubDate>Tue, 12 Mar 2013 00:00:00 +0000</pubDate>
       
-      <guid>http://kylelieber.com/2013/03/jasmine-maven-plugin-1-3-1-0-my-first-release</guid>
-      <description>&lt;p&gt;I began using the the &lt;a href=&#34;http://searls.github.com/jasmine-maven-plugin&#34;&gt;Jasmine Maven Plugin&lt;/a&gt; in June of 2012 and was immediately impressed with how well it worked and how easy it made automating my test execution. Soon after I discovered &lt;a href=&#34;http://requirejs.org&#34;&gt;require.js&lt;/a&gt; and decided to begin using it in my applications. I learned quickly however that the require.js support in the Jasmine Maven Plugin had quite a few issues and so I decided to try and help fix some of them.&lt;/p&gt;
+      <guid>http://kylelieber.com/2013/03/jasmine-maven-plugin-1-3-1-0-my-first-release/</guid>
+      <description>&lt;p&gt;I began using the the &lt;a href=&#34;http://searls.github.com/jasmine-maven-plugin&#34;&gt;Jasmine Maven Plugin&lt;/a&gt; in June of 2012 and was immediately impressed with how well it worked and how easy it made automating my test execution. Soon after I discovered &lt;a href=&#34;http://requirejs.org&#34;&gt;require.js&lt;/a&gt; and decided to begin using it in my applications. I learned quickly however that the require.js support in the Jasmine Maven Plugin had quite a few issues and so I decided to try and help fix some of them.
 
-&lt;p&gt;Fast-forward to January of this year and I found myself a maintainer of the plugin with full commit access and a huge list of issues (thank you &lt;a href=&#34;http://about.me/searls&#34;&gt;Justin Searls&lt;/a&gt; for the opportunity). I&amp;rsquo;ve had a few goals for my first release:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;don&amp;rsquo;t break anything (still crossing my fingers on this one)&lt;/li&gt;
-&lt;li&gt;make spec runner templates more useful by providing more variables&lt;/li&gt;
-&lt;li&gt;merge the require.js specific code into the default code&lt;/li&gt;
-&lt;li&gt;make the behavior of the &lt;code&gt;jasmine:bdd&lt;/code&gt; goal and the &lt;code&gt;jasmine:test&lt;/code&gt; goal consistent&lt;/li&gt;
-&lt;li&gt;improve overall code quality and setup checks to monitor and measure code quality&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;I&amp;rsquo;m happy to say that version 1.3.1.0 is out and while only time will tell if I didn&amp;rsquo;t break anything and improving code quality is ongoing, I am confident that I achieved my goals. For a full list of bug fixes and enhancements in 1.3.1.0 go &lt;a href=&#34;http://searls.github.com/jasmine-maven-plugin/github-report.html&#34;&gt;here&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;Please check out the &lt;a href=&#34;http://searls.github.com/jasmine-maven-plugin/&#34;&gt;new site&lt;/a&gt; for information on usage of the plugin and post any &lt;a href=&#34;https://github.com/searls/jasmine-maven-plugin/issues&#34;&gt;issues you find on github&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;The &lt;a href=&#34;https://github.com/searls/jasmine-maven-plugin/issues?milestone=2&#34;&gt;next release&lt;/a&gt; is planned for a little over a month from now and will have some new exciting features including support for using &lt;a href=&#34;http://phantomjs.org/&#34;&gt;PhantomJS&lt;/a&gt; rather than HtmlUnit for headless test execution.&lt;/p&gt;
-
-&lt;p&gt;Enjoy!&lt;/p&gt;
-</description>
+Fast-forward to January of this year and I found myself a maintainer of the plugin with full commit access and a huge list of issues (thank you &lt;a href=&#34;http://about.me/searls&#34;&gt;Justin Searls&lt;/a&gt; for the opportunity). I&amp;rsquo;ve had a few goals for my first release:&lt;/p&gt;</description>
     </item>
     
   </channel>
