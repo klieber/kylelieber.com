@@ -1,7 +1,7 @@
 ---
-label: Maven Versioning Strategy
-hide_body: 
-is_partial: 
+label: Blog Post 2
+hide_body: false
+is_partial: false
 fields:
 - name: title
   label: Title
