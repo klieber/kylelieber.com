@@ -1,8 +1,9 @@
 +++
-date = "2016-04-11T18:20:52-05:00"
-title = "Angular transclude directive and ng-if"
 categories = ["Development"]
+date = "2016-04-11T18:20:52-05:00"
 tags = ["angular", "javascript"]
+title = "Angular transclude directive and ng-if"
+
 +++
 As I continue to dive further and further into Angular development it never ceases to amaze me how quickly I can get tripped up by directives.  This is just something I learned last week about using a custom transclude function and an `ng-if` on a directive.
 <!--more-->
