@@ -10,34 +10,30 @@
   <meta name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=1">
 
   
-  <link href="//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
-  <link href="//fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+    
+    
+      <link href="http://kylelieber.com/css/fonts.css" rel="stylesheet" type="text/css">
+    
+  
 
   
   <title>PhantomJS Maven Plugin 0.3</title>
 
   
+  
   <link rel="stylesheet" href="http://kylelieber.com/css/hugo-octopress.css">
-  <link rel="stylesheet" href="http://kylelieber.com/css/gravatar-infobox.css">
-  <link rel="stylesheet" href="http://kylelieber.com/highlight/styles/solarized-dark.css">
-  <script src="http://kylelieber.com/highlight/highlight.pack.js"></script>
-  <script>hljs.initHighlightingOnLoad();</script>
 
   
-  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  
 
   
+    <link rel="stylesheet" href="http://kylelieber.com/css/fork-awesome.min.css">
   
 
   
   <link href="http://kylelieber.com/favicon.png" rel="icon">
 
   
-  
-  
-
-  
-
   
 
   <meta name="description" content="">
@@ -46,7 +42,10 @@
   <meta name="author" content="Kyle Lieber">
 
   
-  <meta name="generator" content="Hugo 0.15" />
+  <meta name="generator" content="Hugo 0.48" />
+
+  
+  
 
   
   
@@ -55,7 +54,8 @@
 <body>
 
 
-<header role="banner"><hgroup>
+<header role="banner">
+<hgroup>
   
   <h1><a href="http://kylelieber.com/">Kyle Lieber</a></h1>
     <h2>some things I felt like writing about...</h2>
@@ -63,6 +63,23 @@
 
 
 <nav role="navigation">
+<fieldset class="mobile-nav">
+  
+  <select onchange="location = this.value;">
+    <option value="">Navigate…</option>
+      
+        <option value="http://kylelieber.com/">» Blog</option>
+      
+        <option value="http://kylelieber.com/categories/development">» Development</option>
+      
+        <option value="https://www.linkedin.com/in/kylelieber">» Resume</option>
+      
+        <option value="https://github.com/BerkleyTechnologyServices/restdocs-spec">» Restdocs Spec Maven Plugin</option>
+      
+        <option value="http://kylelieber.com/phantomjs-maven-plugin">» PhantomJS Maven Plugin</option>
+      
+  </select>
+</fieldset>
 
 
 <ul class="main-navigation">
@@ -73,39 +90,32 @@
     
   
     
-      <li><a href="http://kylelieber.com/categories/development" title="Development">Development</a></li>
+      <li><a href="http://kylelieber.com/categories/development" title="Development" >Development</a></li>
     
   
     
-      <li><a href="https://www.linkedin.com/in/kylelieber" target="_blank" title="Resume">Resume</a></li>
+      <li><a href="https://www.linkedin.com/in/kylelieber" title="Resume" >Resume</a></li>
     
   
     
-      <li><a href="https://github.com/BerkleyTechnologyServices/restdocs-spec" target="_blank" title="Restdocs Spec Maven Plugin">Restdocs Spec Maven Plugin</a></li>
+      <li><a href="https://github.com/BerkleyTechnologyServices/restdocs-spec" title="Restdocs Spec Maven Plugin" >Restdocs Spec Maven Plugin</a></li>
     
   
     
-      <li><a href="http://kylelieber.com/phantomjs-maven-plugin" target="_blank" title="PhantomJS Maven Plugin">PhantomJS Maven Plugin</a></li>
+      <li><a href="http://kylelieber.com/phantomjs-maven-plugin" title="PhantomJS Maven Plugin" >PhantomJS Maven Plugin</a></li>
     
   
 </ul>
-
 
 <ul class="subscription">
-  <a href="http://kylelieber.com/index.xml" target="_blank" type="application/rss+xml" title="RSS"><i class="fa fa-rss-square fa-lg"></i></a>
-
   
+    
+        <a href="http://kylelieber.com/index.xml" target="_blank" type="application/rss+xml" title="RSS"><i class="fa fa-rss-square fa-lg"></i></a>
+    
   
 
 </ul>
 
-
-<form style="padding-top: 4px" action="https://www.google.com/search" method="get" target="_blank">
-  <fieldset role="search">
-  	<input class="search" type="text" name="q" results="0" placeholder="Search"/>
-    <input type="hidden" name="q" value="site:http://kylelieber.com/" />
-  </fieldset>
-</form>
 
 </nav>
 
@@ -114,20 +124,30 @@
   <div id="content">
     <div>
       <article class="hentry" role="article">
-        <header>
-          <h1 class="entry-title">
-            PhantomJS Maven Plugin 0.3 
-          </h1>
-          <p class="meta">May 2, 2014 - 2 minute read -  <a href="http://kylelieber.com/2014/05/phantomjs-maven-plugin-0-dot-3/#disqus_thread">Comments</a>
 
-          
+        
+        
 
-          
-          
-          <a class="label" href="http://kylelieber.com/categories/development">Development</a>
-          </p>
-        </header>
+<header>
+    <p class="meta">May 2, 2014
+         - 2 minute read 
+        
+
+        
+        
+            - <a class="label" href="http://kylelieber.com/categories/development/">Development </a>
+        
+    </p>
+    <h1 class="entry-title">
+         PhantomJS Maven Plugin 0.3 
+    </h1>
+</header>
+
+
         <div class="entry-content">
+          
+          
+          
           <p>I just released <a href="https://github.com/klieber/phantomjs-maven-plugin/releases/tag/phantomjs-maven-plugin-0.3">version 0.3</a> of the <a href="http://kylelieber.com/phantomjs-maven-plugin">phantomjs-maven-plugin</a> and I thought it was about time I wrote a blog post about this project.</p>
 
 <p><a href="http://phantomjs.org">PhantomJS</a> is a headless WebKit implementation that is extremely useful for tasks like headless website testing, screen capture, page automation, network monitoring, and more. Much of my experience with PhantomJS comes from my work on the <a href="http://searls.github.io/jasmine-maven-plugin">jasmine-maven-plugin</a>.  In version <code>1.3.1.1</code> of the plugin we added support for using PhantomJS instead of <a href="http://htmlunit.sourceforge.com">HtmlUnit</a> to execute <a href="http://jasmine.github.io/">Jasmine</a> specs. The only downside to using PhantomJS with the plugin is that you had to have PhantomJS already installed on your system. For those of us in the Maven world that seems a little odd since Maven is suppose to download all of our dependencies for us. But of course, usually those dependencies are platform-independent java libraries. PhantomJS, on the other hand, requires install platform-dependent compiled binaries.
@@ -150,17 +170,14 @@ Well after a few months of explaining to users and friends that they needed to h
     <span class="byline author vcard">Posted by <span class="fn">Kyle Lieber</span></span>
     
     <time>May 2, 2014</time>
-    <span class="categories">
-      Tags: 
-        
+    
+      <span class="categories">
+        Tags:
         
           <a class="category" href="http://kylelieber.com/tags/javascript">javascript</a>  <a class="category" href="http://kylelieber.com/tags/maven">maven</a>  <a class="category" href="http://kylelieber.com/tags/open-source">open source</a>  
-        
+    
     </span>
   </p>
-    
-  
-  
 
   
 
@@ -169,97 +186,46 @@ Well after a few months of explaining to users and friends that they needed to h
         <a class="basic-alignment left" href="http://kylelieber.com/2013/03/jasmine-maven-plugin-1-3-1-0-my-first-release/" title="Jasmine Maven Plugin 1.3.1.0 - My First Release">Jasmine Maven Plugin 1.3.1.0 - My First Release</a>
     
 
-     
+    
       <a class="basic-alignment right" href="http://kylelieber.com/2016/04/angular-transclude-directive-and-ng-if/" title="Angular transclude directive and ng-if">Angular transclude directive and ng-if</a>
     
   </p>
-
-  <div id="disqus_thread"></div>
-<script type="text/javascript">
-
-(function() {
-    
-    
-    
-    
-
-    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-    var disqus_shortname = 'kylelieber';
-    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-})();
-</script>
-<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+  
 </footer>
 
- 
       </article>
     </div>
     
 
-
 <aside class="sidebar thirds">
-
   <section class="first odd">
-    <div class="gravatar-infobox">
-    <img src="http://www.gravatar.com/avatar/cf2339ab14f00498a8f3a1f91e3469a7?s=100" alt="Gravatar of Kyle Lieber " title="Gravatar of Kyle Lieber">
 
-      I'm a software developer living in Des Moines, IA. I enjoy working on open source projects and learning new technologies.
-
-    </div>
     
+
+    <p>
+      
+    </p>
   </section>
 
+
+
   
-
-
   <ul class="sidebar-nav">
     <li class="sidebar-nav-item">
-    
-      <a target="_blank" href="https://github.com/klieber/" title="https://github.com/klieber/">
-        <span class="fa-stack fa-lg">
-          <i class="fa fa-square-o fa-stack-2x"></i>
-          <i class="fa fa-github fa-stack-1x"></i>
-        </span>
-      </a>
-    
-    
-      <a target="_blank" href="https://bitbucket.org/klieber/" title="https://bitbucket.org/klieber/">
-        <span class="fa-stack fa-lg">
-          <i class="fa fa-square-o fa-stack-2x"></i>
-          <i class="fa fa-bitbucket fa-stack-1x"></i>
-        </span>
-      </a>
-    
-    
-      <a target="_blank" href="http://stackoverflow.com/users/1190144/kyle" title="http://stackoverflow.com/users/1190144/kyle">
-        <span class="fa-stack fa-lg">
-          <i class="fa fa-square-o fa-stack-2x"></i>
-          <i class="fa fa-stack-overflow fa-stack-1x"></i>
-        </span>
-      </a>
-    
-    
-      <a target="_blank" href="https://www.linkedin.com/in/kylelieber" title="https://www.linkedin.com/in/kylelieber">
-        <span class="fa-stack fa-lg">
-          <i class="fa fa-square-o fa-stack-2x"></i>
-          <i class="fa fa-linkedin fa-stack-1x"></i>
-        </span>
-      </a>
-    
-    
-    
-    
-      <a target="_blank" href="https://twitter.com/kylelieber/" title="https://twitter.com/kylelieber/">
-        <span class="fa-stack fa-lg">
-          <i class="fa fa-square-o fa-stack-2x"></i>
-          <i class="fa fa-twitter fa-stack-1x"></i>
-        </span>
-      </a>
-    
-    
-     
+      <a target="_blank" href="https://github.com/klieber/" title="https://github.com/klieber/"><i class="fa fa-github fa-3x"></i></a>
+      <a target="_blank" href="https://bitbucket.org/klieber/" title="https://bitbucket.org/klieber/"><i class="fa fa-bitbucket fa-3x"></i></a>
+      
+      <a target="_blank" href="https://twitter.com/kylelieber/" title="https://twitter.com/kylelieber/"><i class="fa fa-twitter fa-3x"></i></a>
+      
+         
+      
+      <a target="_blank" href="https://www.linkedin.com/in/kylelieber" title="https://www.linkedin.com/in/kylelieber"><i class="fa fa-linkedin fa-3x"></i></a>
+      <a target="_blank" href="http://stackoverflow.com/users/1190144/kyle" title="http://stackoverflow.com/users/1190144/kyle"><i class="fa fa-stack-overflow fa-3x"></i></a>
+      
+      
+      
+      
+      
 
     
     
@@ -267,119 +233,16 @@ Well after a few months of explaining to users and friends that they needed to h
   </ul>
 
   
-  <section class="even">
-    <h1>Recent Posts</h1>
-
-    
-    <ul id="recent_posts">
-      
-      
-      
-      <li class="post">
-        <a href="http://kylelieber.com/2018/09/restdocs-spec/">Generate OpenAPI Specs with Spring REST Docs</a>
-      </li>
-      
-      <li class="post">
-        <a href="http://kylelieber.com/2016/04/angular-transclude-directive-and-ng-if/">Angular transclude directive and ng-if</a>
-      </li>
-      
-      <li class="post">
-        <a href="http://kylelieber.com/2014/05/phantomjs-maven-plugin-0-dot-3/">PhantomJS Maven Plugin 0.3</a>
-      </li>
-      
-      <li class="post">
-        <a href="http://kylelieber.com/2013/03/jasmine-maven-plugin-1-3-1-0-my-first-release/">Jasmine Maven Plugin 1.3.1.0 - My First Release</a>
-      </li>
-      
-      <li class="post">
-        <a href="http://kylelieber.com/2012/06/maven-versioning-strategy/">Maven Versioning Strategy</a>
-      </li>
-      
-    </ul>
-  </section>
-  
-
-  <section class="odd">
-    <h1>Tags</h1>
-    <span id="tag-cloud">
-      
-      
-        <a style="font-size: 54.107142857142854%" href="http://kylelieber.com/tags/angular">angular</a>
-      
-        <a style="font-size: 54.107142857142854%" href="http://kylelieber.com/tags/apache-cxf">apache-cxf</a>
-      
-        <a style="font-size: 54.107142857142854%" href="http://kylelieber.com/tags/best-practice">best-practice</a>
-      
-        <a style="font-size: 54.107142857142854%" href="http://kylelieber.com/tags/jasmine">jasmine</a>
-      
-        <a style="font-size: 58.214285714285715%" href="http://kylelieber.com/tags/java">java</a>
-      
-        <a style="font-size: 62.32142857142857%" href="http://kylelieber.com/tags/javascript">javascript</a>
-      
-        <a style="font-size: 70.53571428571428%" href="http://kylelieber.com/tags/maven">maven</a>
-      
-        <a style="font-size: 58.214285714285715%" href="http://kylelieber.com/tags/open-source">open-source</a>
-      
-        <a style="font-size: 54.107142857142854%" href="http://kylelieber.com/tags/openapi">openapi</a>
-      
-        <a style="font-size: 54.107142857142854%" href="http://kylelieber.com/tags/release">release</a>
-      
-        <a style="font-size: 54.107142857142854%" href="http://kylelieber.com/tags/rest">rest</a>
-      
-        <a style="font-size: 54.107142857142854%" href="http://kylelieber.com/tags/spring">spring</a>
-      
-        <a style="font-size: 54.107142857142854%" href="http://kylelieber.com/tags/spring-restdocs">spring-restdocs</a>
-      
-        <a style="font-size: 54.107142857142854%" href="http://kylelieber.com/tags/testing">testing</a>
-      
-        <a style="font-size: 54.107142857142854%" href="http://kylelieber.com/tags/versioning">versioning</a>
-      
-        <a style="font-size: 54.107142857142854%" href="http://kylelieber.com/tags/web-services">web-services</a>
-      
-        <a style="font-size: 54.107142857142854%" href="http://kylelieber.com/tags/wsdl">wsdl</a>
-      
-    </span>
-  </section>
 
   
-  <section class="first even">
-    <h1>GitHub Repos</h1>
-    <ul id="gh_repos">
-      <li class="loading">Status updating...</li>
-    </ul>
-    
-    <a href="https://github.com/klieber">@klieber</a> on GitHub
-    
-    <script type="text/javascript" src="http://kylelieber.com/libs/jquery.min.js"></script>
-    <script type="text/javascript">
-      $(document).ready(function(){
-          if (!window.jXHR){
-              var jxhr = document.createElement('script');
-              jxhr.type = 'text/javascript';
-              jxhr.src = '/libs/jXHR.js';
-              var s = document.getElementsByTagName('script')[0];
-              s.parentNode.insertBefore(jxhr, s);
-          }
 
-          github.showRepos({
-              user: 'klieber',
-              count:  5 ,
-              skip_forks:  false ,
-              target: '#gh_repos'
-          });
-      });
-    </script>
-    <script src="http://kylelieber.com/github/github.js" type="text/javascript"> </script>
-  </section>
   
-
+  
+  
 </aside>
 
   </div>
 </div>
-
-
-
 
 <footer role="contentinfo">
   <p>Copyright &copy; 2018 Kyle Lieber - <a href="http://kylelieber.com/license/">License</a> -
@@ -387,6 +250,10 @@ Well after a few months of explaining to users and friends that they needed to h
 </p>
 
 </footer>
+
+
+
+
 
 
 <script>
@@ -398,5 +265,4 @@ Well after a few months of explaining to users and friends that they needed to h
 
 </body>
 </html>
-
 
