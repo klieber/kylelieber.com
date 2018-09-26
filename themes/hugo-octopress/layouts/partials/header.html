@@ -9,51 +9,55 @@
   <meta name="MobileOptimized" content="320">
   <meta name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=1">
 
-  <!--Fonts from Google"s Web font directory at http://google.com/webfonts added from Octo-->
-  <link href="//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
-  <link href="//fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+  {{ if not .Site.Params.disableGoogleFonts }}
+    <!-- If local Google Fonts are enabled -->
+    {{ if not .Site.Params.remoteFonts }}
+      <link href="/css/fonts.css" rel="stylesheet" type="text/css">
+    {{ else }}
+      <link href="//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+      <link href="//fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+    {{ end }}
+  {{ end }}
 
   <!-- goes into the title bar -->
   <title>{{ .Title }}</title>
 
-  <!-- CSS -->
-  <link rel="stylesheet" href="{{ "/css/hugo-octopress.css" | absURL }}">
-  <link rel="stylesheet" href="{{ "/css/gravatar-infobox.css" | absURL }}">
-  <link rel="stylesheet" href="/highlight/styles/{{.Site.Params.hljsStyle}}.css">
-  <script src="/highlight/highlight.pack.js"></script>
-  <script>hljs.initHighlightingOnLoad();</script>
+  <!-- css -->
+  <!-- original css -->
+  <link rel="stylesheet" href="/css/hugo-octopress.css">
 
-  <!-- For sidebar icons - TODO: find local icons I guess-->
-  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  <!-- css overrides -->
+  {{ range .Site.Params.customCSS }}
+    <link rel="stylesheet" href="{{ $.Site.BaseURL }}{{ . }}">
+  {{ end }}
 
-  <!-- if you want your own highlight.css -->
-  <!--
-  {{ if isset .Site.Params "highlight" }}<link rel="stylesheet" href="{{ "/css/highlight/" | absURL }}{{ .Site.Params.highlight }}.css">{{ end }}
-  -->
+  {{ if not .Site.Params.fontAwesome }}
+    <link rel="stylesheet" href="/css/fork-awesome.min.css">
+  {{ else }}
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+  {{ end }}
 
   <!-- Icons -->
   <link href="{{ "/favicon.png" | absURL }}" rel="icon">
 
   <!-- RSS -->
-  {{ $siteTitle := .Site.Title }}
-  {{ $authorName := .Site.Author.name }}
-
-  <!--
-  {{ with .RSSLink }}<link href="{{ . }}" rel="alternate" type="application/rss+xml" title="{{ $siteTitle }} &middot; {{ $authorName }}" />{{ end }}
-  -->
-
-  {{ with .RSSLink }}<link href="{{ . }}" rel="alternate" type="application/rss+xml" title="{{ $siteTitle }}" />{{ end }}
+  {{ with .RSSLink }}<link href="{{ . }}" rel="alternate" type="application/rss+xml" title="{{ $.Site.Title }}" />{{ end }}
 
   <meta name="description" content="{{ if ne .Description "" }}{{ .Description }}{{ else }}{{ .Site.Params.defaultDescription }}{{ end }}">
   <meta name="keywords" content="{{ range $index, $element := .Keywords }}{{ if gt $index 0 }},{{ end }}{{ . }}{{ else }}{{ .Site.Params.defaultKeywords }}{{ end }}">
 
   <meta name="author" content="{{ .Site.Params.author }}">
 
-  <!-- find a way to autoamtically put Hugo version here -->
-  <meta name="generator" content="Hugo 0.15" />
+  <!-- Generator version for usage tacking -->
+  {{ .Hugo.Generator }}
 
   <!-- Google Analytics -->
-  {{ template "_internal/google_analytics.html" . }}
+  {{ template "_internal/google_analytics_async.html" . }}
+
+  <!-- Enable Twitter card -->
+  {{ with .Site.Params.twitterCardEnabled }}
+    {{ partial "custom_twitter_card.html" $ }}
+  {{ end }}
 
 </head>
 <body{{ with .Site.Params.theme }} class="{{ . }}"{{ end }}>

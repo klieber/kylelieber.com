@@ -1,0 +1,286 @@
+diff --git a/layouts/partials/navigation.html b/layouts/partials/navigation.html
+index 45831c5..d364a23 100644
+--- a/layouts/partials/navigation.html
++++ b/layouts/partials/navigation.html
+@@ -33,7 +33,7 @@
+ </ul>
+ 
+ {{ with .Site.Params.searchEngineURL }}
+-<form action="{{ . }}" method="get" target="_blank">
++<form action="{{ . }}" method="get" target="_blank" style="padding-top: 4px;">
+   <fieldset role="search">
+   	<input class="search" type="text" name="q" results="0" placeholder="Search"/>
+     <input type="hidden" name="q" value="site:{{ "/" | absURL }}" />
+diff --git a/layouts/partials/sidebar.html b/layouts/partials/sidebar.html
+index 4e708b7..d3403a3 100644
+--- a/layouts/partials/sidebar.html
++++ b/layouts/partials/sidebar.html
+@@ -1,86 +1,173 @@
+-<!-- To modify sidebar width check the css file lines 757 and 765 (for large screens) -->
++
++<!-- to modify sidebar width check the css file lines 757 and 765 (for large screens) -->
+ 
+ <aside class="sidebar thirds">
++
+   <section class="first odd">
++    <div class="gravatar-infobox">
++    <img src="http://www.gravatar.com/avatar/cf2339ab14f00498a8f3a1f91e3469a7?s=100" alt="Gravatar of Kyle Lieber " title="Gravatar of Kyle Lieber">
+ 
+-    {{ with .Site.Params.sidebarHeader }}
+-      <h1>{{ . | markdownify }}</h1>
+-    {{ end }}
++      I'm a software developer living in Des Moines, IA. I enjoy working on open source projects and learning new technologies.
+ 
+-    <p>
+-      {{ with .Site.Params.sidebarText }}
+-        {{ . | markdownify }}
+-      {{ end }}
+-    </p>
++    </div>
++    <!-- {{ with .Site.Params.tagline }}<p class="lead">{{ . | markdownify }}</p>{{ end }} -->
+   </section>
+ 
++  <!-- Links in side bar, for example the following links add blog - I have removed them as we have links in the navigation
++  you can also add sidebar links from config file via the .Site.Menus.main  part
++  <ul class="sidebar-nav">
++    <li class="sidebar-nav-item"><a href="{{ "/" | absURL }}">{{ if isset .Site.Params "home"}}{{ .Site.Params.home }}{{ else }}Blog{{ end }}</a></li>
++    {{ range .Site.Menus.main }}
++    <li class="sidebar-nav-item">{{ .Pre }}<a href="{{ .URL | absURL }}">{{ .Name }}</a></li>
++    {{end}}
++  </ul>
++-->
++
+ <!-- Font awesome icons - code taken from the Hyde-x theme - "Font Awesome by Dave Gandy - http://fontawesome.io"
+      Icons: https://fortawesome.github.io/Font-Awesome/icons/
+      to give icons square dark backgrounds use them like this: fa fa-key-square
+      size is fa-3x, sizes are 1-5
+  -->
+-
+-  <!-- Sidebar social network icons -->
+   <ul class="sidebar-nav">
+     <li class="sidebar-nav-item">
+-      {{ with .Site.Params.github }}<a target="_blank" href="{{ . }}" title="{{ . }}"><i class="fa fa-github fa-3x"></i></a>{{ end }}
+-      {{ with .Site.Params.bitbucket }}<a target="_blank" href="{{ . }}" title="{{ . }}"><i class="fa fa-bitbucket fa-3x"></i></a>{{ end }}
+-      {{ with .Site.Params.gitlab }}<a target="_blank" href="{{ . }}" title="{{ . }}"><i class="fa fa-gitlab fa-3x"></i></a>{{ end }}
+-      {{ with .Site.Params.twitter }}<a target="_blank" href="{{ . }}" title="{{ . }}"><i class="fa fa-twitter fa-3x"></i></a>{{ end }}
+-      {{ if not .Site.Params.fontAwesome }}
+-        {{ with .Site.Params.keybase }}<a target="_blank" href="{{ . }}" title="{{ . }}"><i class="fa fa-keybase fa-3x"></i></a>{{ end }} <!-- added keybase -->
+-      {{ else }}
+-        {{ with .Site.Params.keybase }}<a target="_blank" href="{{ . }}" title="{{ . }}"><i class="fa fa-key fa-3x"></i></a>{{ end }} <!-- added keybase -->
+-      {{ end }}
+-      {{ with .Site.Params.linkedin }}<a target="_blank" href="{{ . }}" title="{{ . }}"><i class="fa fa-linkedin fa-3x"></i></a>{{ end }}
+-      {{ with .Site.Params.stackOverflow }}<a target="_blank" href="{{ . }}" title="{{ . }}"><i class="fa fa-stack-overflow fa-3x"></i></a>{{ end }}
+-      {{ with .Site.Params.googleplus }}<a target="_blank" href="{{ . }}" title="{{ . }}"><i class="fa fa-google-plus fa-3x"></i></a>{{ end }}
+-      {{ with .Site.Params.facebook }}<a target="_blank" href="{{ . }}" title="{{ . }}"><i class="fa fa-facebook fa-3x"></i></a>{{ end }}
+-      {{ with .Site.Params.youtube }}<a target="_blank" href="{{ . }}" title="{{ . }}"><i class="fa fa-youtube fa-3x"></i></a>{{ end }}
+-      {{ with .Site.Params.instagram }}<a target="_blank" href="{{ . }}" title="{{ . }}"><i class="fa fa-instagram fa-3x"></i></a>{{ end }}
+-      {{ with .Site.Params.bitcoin }}<a target="_blank" href="{{ . }}" title="{{ . }}"><i class="fa fa-bitcoin fa-3x"></i></a>{{ end }}
++    {{ with .Site.Params.github }}
++      <a target="_blank" href="{{ . }}" title="{{ . }}">
++        <span class="fa-stack fa-lg">
++          <i class="fa fa-square-o fa-stack-2x"></i>
++          <i class="fa fa-github fa-stack-1x"></i>
++        </span>
++      </a>
++    {{ end }}
++    {{ with .Site.Params.bitbucket }}
++      <a target="_blank" href="{{ . }}" title="{{ . }}">
++        <span class="fa-stack fa-lg">
++          <i class="fa fa-square-o fa-stack-2x"></i>
++          <i class="fa fa-bitbucket fa-stack-1x"></i>
++        </span>
++      </a>
++    {{ end }}
++    {{ with .Site.Params.stackoverflow }}
++      <a target="_blank" href="{{ . }}" title="{{ . }}">
++        <span class="fa-stack fa-lg">
++          <i class="fa fa-square-o fa-stack-2x"></i>
++          <i class="fa fa-stack-overflow fa-stack-1x"></i>
++        </span>
++      </a>
++    {{ end }}
++    {{ with .Site.Params.linkedin }}
++      <a target="_blank" href="{{ . }}" title="{{ . }}">
++        <span class="fa-stack fa-lg">
++          <i class="fa fa-square-o fa-stack-2x"></i>
++          <i class="fa fa-linkedin fa-stack-1x"></i>
++        </span>
++      </a>
++    {{ end }}
++    {{ with .Site.Params.googleplus }}
++      <a target="_blank" href="{{ . }}" title="{{ . }}">
++        <span class="fa-stack fa-lg">
++          <i class="fa fa-square-o fa-stack-2x"></i>
++          <i class="fa fa-google-plus fa-stack-1x"></i>
++        </span>
++      </a>
++    {{ end }}
++    {{ with .Site.Params.facebook }}
++      <a target="_blank" href="{{ . }}" title="{{ . }}">
++        <span class="fa-stack fa-lg">
++          <i class="fa fa-square-o fa-stack-2x"></i>
++          <i class="fa fa-facebook fa-stack-1x"></i>
++        </span>
++        <i class="fa fa-facebook fa-2x"></i>
++      </a>
++    {{ end }}
++    {{ with .Site.Params.twitter }}
++      <a target="_blank" href="{{ . }}" title="{{ . }}">
++        <span class="fa-stack fa-lg">
++          <i class="fa fa-square-o fa-stack-2x"></i>
++          <i class="fa fa-twitter fa-stack-1x"></i>
++        </span>
++      </a>
++    {{ end }}
++    {{ with .Site.Params.youtube }}
++      <a target="_blank" href="{{ . }}" title="{{ . }}">
++        <span class="fa-stack fa-lg">
++          <i class="fa fa-square-o fa-stack-2x"></i>
++          <i class="fa fa-youtube fa-stack-1x"></i>
++        </span>
++      </a>
++    {{ end }}
++    {{ with .Site.Params.keybase }}
++      <a target="_blank" href="{{ . }}" title="{{ . }}">
++        <span class="fa-stack fa-lg">
++          <i class="fa fa-square-o fa-stack-2x"></i>
++          <i class="fa fa-key fa-stack-1x"></i>
++        </span>
++      </a>
++    {{ end }} <!-- added keybase -->
+ 
+-    <!-- Uncomment to add the RSS icon -->
++    <!-- don't need RSS here anymore -->
+     <!-- {{ if .Site.Params.rss }}<a href="{{ "/index.xml" | absURL }}" type="application/rss+xml" title="RSS"><i class="fa fa-rss-square fa-3x"></i></a>{{ end }} -->
+     </li>
+   </ul>
+ 
+-  <!-- Sidebar menu - items are read from the config file
+-       first we check if it is enabled in config file and then start adding items.
+-       if Site.Params.sidebarNewWindow exists and is set to true then open these links in a new window -->
++  <!-- add recent posts - limit is .Site.Params.SidebarRecentLimit - example copied from https://gohugo.io/templates/go-templates/ -->
++  <section class="even">
++    <h1>Recent Posts</h1>
+ 
+-  {{ with .Site.Params.sidebarMenuEnabled }}
+-    {{ if eq . true }}
+-      <section class="odd">
+-        {{ with $.Site.Params.sidebarMenuHeader }}
+-          <h1>{{ . }}</h1>
+-        {{ end }}
+-        {{ range $.Site.Menus.sidebar }}
+-          <li>
+-            <a href="{{ .URL | absURL }}" title="{{ .Name }}" {{ if eq $.Site.Params.sidebarNewWindow true }} target="_blank" {{ end }}>{{ .Name }}</a>
+-          </li>
+-        {{ end }}
+-      </section>
+-    {{ end }}
+-  {{ end }}
++    <!-- check if the number of recent posts is set in config file, otherwise use 5 -->
++    <ul id="recent_posts">
++      {{ $.Scratch.Set "numberofrecentposts" 5  }}
++      {{ if isset .Site.Params "SidebarRecentLimit" }}
++        {{ $.Scratch.Set "numberofrecentposts" .Site.Params.SidebarRecentLimit }}
++      {{ end }}
++      {{ range first ($.Scratch.Get "numberofrecentposts") .Site.Pages }}
++      <li class="post">
++        <a href="{{ .RelPermalink }}">{{.Title}}</a>
++      </li>
++      {{ end }}
++    </ul>
++  </section>
++  {{.Params.github_user}}
++
++  <section class="odd">
++    <h1>Tags</h1>
++    <span id="tag-cloud">
++      {{ $.Scratch.Set "numberofposts" (mul (len .Site.Pages) 1.00) }}
++      {{ range $name, $taxonomy := .Site.Taxonomies.tags }}
++        <a style="font-size: {{ (add (mul (div (len $taxonomy) ($.Scratch.Get "numberofposts")) 115.0) 50.0) }}%" href="/tags/{{ $name | urlize }}">{{ $name }}</a>
++      {{ end }}
++    </span>
++  </section>
+ 
+-  <!-- Add recent posts - limit is .Site.Params.sidebarRecentLimit - example copied from https://gohugo.io/templates/go-templates/ -->
+-  <!-- Only display this section if sideBarRecentLimit is not zero -->
+-  {{ with .Site.Params.sidebarRecentLimit }}
+-    {{ if not (eq . 0) }}
+-      <section class="even">
+-        <h1>Recent Posts</h1>
+-        <ul id="recent_posts">
+-          {{ $pages := where $.Site.Pages "Type" "post" }}
+-          {{ range first . $pages }}
+-            {{ if .IsPage }}
+-              <li class="post">
+-                <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+-              </li>
+-            {{ end }}
+-          {{ end }}
+-        </ul>
+-      </section>
++  {{ if isset .Site.Params "github_user" }}
++  <section class="first even">
++    <h1>GitHub Repos</h1>
++    <ul id="gh_repos">
++      <li class="loading">Status updating...</li>
++    </ul>
++    {{ if eq .Site.Params.github_show_profile_link true }}
++    <a href="https://github.com/{{.Site.Params.github_user}}">@{{.Site.Params.github_user}}</a> on GitHub
+     {{ end }}
++    <script type="text/javascript" src="/libs/jquery.min.js"></script>
++    <script type="text/javascript">
++      $(document).ready(function(){
++          if (!window.jXHR){
++              var jxhr = document.createElement('script');
++              jxhr.type = 'text/javascript';
++              jxhr.src = '/libs/jXHR.js';
++              var s = document.getElementsByTagName('script')[0];
++              s.parentNode.insertBefore(jxhr, s);
++          }
++
++          github.showRepos({
++              user: '{{.Site.Params.github_user}}',
++              count: {{.Site.Params.github_repo_count}},
++              skip_forks: {{.Site.Params.github_skip_forks}},
++              target: '#gh_repos'
++          });
++      });
++    </script>
++    <script src="/github/github.js" type="text/javascript"> </script>
++  </section>
+   {{ end }}
++
+ </aside>
+diff --git a/static/css/hugo-octopress.css b/static/css/hugo-octopress.css
+index b46f05b..e94cb28 100755
+--- a/static/css/hugo-octopress.css
++++ b/static/css/hugo-octopress.css
+@@ -1927,4 +1927,26 @@ figure a {
+     white-space: nowrap;
+ }
+ 
+-/* Hugo Figure shortcode - end */
+\ No newline at end of file
++/* Hugo Figure shortcode - end */
++
++aside.sidebar .sidebar-nav a {
++  text-decoration: none;
++  word-wrap: normal;
++  white-space: normal;
++}
++
++aside.sidbar li.sidebar-nav-item {
++  border: 0;
++  box-shadow: none;
++}
++
++aside.sidebar .gravatar-infobox img {
++  float: left;
++  margin-right: 0.5em;
++  border: 0;
++}
++
++aside.sidebar .gravatar-infobox {
++  margin-top: 0.75em;
++  font-size: small;
++}
