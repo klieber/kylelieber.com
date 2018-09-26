@@ -3,6 +3,8 @@ canonifyurls = true
 languageCode = "en-us"
 theme = "hugo-octopress"
 title = "Kyle Lieber"
+pygmentscodefences = true
+pygmentsStyle = "monokai"
 [[menu.main]]
 name = "Restdocs Spec Maven Plugin"
 url = "https://github.com/BerkleyTechnologyServices/restdocs-spec"
