@@ -159,98 +159,90 @@
 </p>
 
 <p>Originally, I had a directive that look something like this:</p>
-
-<pre><code class="language-javascript">angular.module('app')
-  .directive('uiField', function(UiFieldService) {
-    return {
-      restrict: 'EA',
-      template:
-      `&lt;div ng-show=&quot;field.render&quot;&gt;
-        &lt;label for=&quot;{{field.code}}&quot; ng-bind=&quot;field.label&quot;&gt;&lt;/label&gt;
-        &lt;div ng-transclude&gt;&lt;/div&gt;
-       &lt;/div&gt;`,
-      transclude: true,
-      scope: {
-        code: '@'
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#a6e22e">angular</span>.<span style="color:#a6e22e">module</span>(<span style="color:#e6db74">&#39;app&#39;</span>)
+  .<span style="color:#a6e22e">directive</span>(<span style="color:#e6db74">&#39;uiField&#39;</span>, <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">UiFieldService</span>) {
+    <span style="color:#66d9ef">return</span> {
+      <span style="color:#a6e22e">restrict</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;EA&#39;</span>,
+      <span style="color:#a6e22e">template</span><span style="color:#f92672">:</span>
+      <span style="color:#e6db74">`&lt;div ng-show=&#34;field.render&#34;&gt;
+</span><span style="color:#e6db74">        &lt;label for=&#34;{{field.code}}&#34; ng-bind=&#34;field.label&#34;&gt;&lt;/label&gt;
+</span><span style="color:#e6db74">        &lt;div ng-transclude&gt;&lt;/div&gt;
+</span><span style="color:#e6db74">       &lt;/div&gt;`</span>,
+      <span style="color:#a6e22e">transclude</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span>,
+      <span style="color:#a6e22e">scope</span><span style="color:#f92672">:</span> {
+        <span style="color:#a6e22e">code</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;@&#39;</span>
       },
-      link: function(scope) {
-        scope.field = UiFieldService.getField(scope.code);
+      <span style="color:#a6e22e">link</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">scope</span>) {
+        <span style="color:#a6e22e">scope</span>.<span style="color:#a6e22e">field</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">UiFieldService</span>.<span style="color:#a6e22e">getField</span>(<span style="color:#a6e22e">scope</span>.<span style="color:#a6e22e">code</span>);
       }
     };
   }
 );
-</code></pre>
-
+</code></pre></div>
 <p>However, I wanted to make my <code>field</code> object available to the transcluded element so I can do something like this:</p>
-
-<pre><code class="language-html">&lt;ui-field code=&quot;name&quot;&gt;
-  &lt;input name=&quot;{{field.code}}&quot; type=&quot;text&quot; ng-model=&quot;person.name&quot; /&gt;
-&lt;/ui-field&gt;
-</code></pre>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">ui-field</span> <span style="color:#a6e22e">code</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;name&#34;</span>&gt;
+  &lt;<span style="color:#f92672">input</span> <span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;{{field.code}}&#34;</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text&#34;</span> <span style="color:#a6e22e">ng-model</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;person.name&#34;</span> /&gt;
+&lt;/<span style="color:#f92672">ui-field</span>&gt;</code></pre></div>
 <p>So, I changed it to use a custom transclude function like this:</p>
-
-<pre><code class="language-javascript">angular.module('app')
-  .directive('uiField', function(UiFieldService) {
-    return {
-      restrict: 'EA',
-      template:
-      `&lt;div ng-show=&quot;field.render&quot;&gt;
-        &lt;label for=&quot;{{field.code}}&quot; ng-bind=&quot;field.label&quot;&gt;&lt;/label&gt;
-        &lt;div ui-field-transclude&gt;&lt;/div&gt;
-       &lt;/div&gt;`,
-      transclude: true,
-      scope: {
-        code: '@'
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#a6e22e">angular</span>.<span style="color:#a6e22e">module</span>(<span style="color:#e6db74">&#39;app&#39;</span>)
+  .<span style="color:#a6e22e">directive</span>(<span style="color:#e6db74">&#39;uiField&#39;</span>, <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">UiFieldService</span>) {
+    <span style="color:#66d9ef">return</span> {
+      <span style="color:#a6e22e">restrict</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;EA&#39;</span>,
+      <span style="color:#a6e22e">template</span><span style="color:#f92672">:</span>
+      <span style="color:#e6db74">`&lt;div ng-show=&#34;field.render&#34;&gt;
+</span><span style="color:#e6db74">        &lt;label for=&#34;{{field.code}}&#34; ng-bind=&#34;field.label&#34;&gt;&lt;/label&gt;
+</span><span style="color:#e6db74">        &lt;div ui-field-transclude&gt;&lt;/div&gt;
+</span><span style="color:#e6db74">       &lt;/div&gt;`</span>,
+      <span style="color:#a6e22e">transclude</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span>,
+      <span style="color:#a6e22e">scope</span><span style="color:#f92672">:</span> {
+        <span style="color:#a6e22e">code</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;@&#39;</span>
       },
-      link: function(scope, element, attrs, ctrl, transclude) {
-        scope.field = UiFieldService.getField(scope.code);
+      <span style="color:#a6e22e">link</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">scope</span>, <span style="color:#a6e22e">element</span>, <span style="color:#a6e22e">attrs</span>, <span style="color:#a6e22e">ctrl</span>, <span style="color:#a6e22e">transclude</span>) {
+        <span style="color:#a6e22e">scope</span>.<span style="color:#a6e22e">field</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">UiFieldService</span>.<span style="color:#a6e22e">getField</span>(<span style="color:#a6e22e">scope</span>.<span style="color:#a6e22e">code</span>);
 
-        transclude(function(clone, transcludeScope) {
-          transcludeScope.field = scope.field;
-          element.find('*[ui-field-transclude]').append(clone);
+        <span style="color:#a6e22e">transclude</span>(<span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">clone</span>, <span style="color:#a6e22e">transcludeScope</span>) {
+          <span style="color:#a6e22e">transcludeScope</span>.<span style="color:#a6e22e">field</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">scope</span>.<span style="color:#a6e22e">field</span>;
+          <span style="color:#a6e22e">element</span>.<span style="color:#a6e22e">find</span>(<span style="color:#e6db74">&#39;*[ui-field-transclude]&#39;</span>).<span style="color:#a6e22e">append</span>(<span style="color:#a6e22e">clone</span>);
         });
       }
     };
   }
 );
-</code></pre>
-
+</code></pre></div>
 <p>This worked fine.  I wanted to change the <code>ng-show</code> in the template to an <code>ng-if</code> so that any fields not rendered are not generated at all.  Of course, after making that change then my <code>input</code> element was no longer being rendered. The problem with it is that the <code>ng-if</code> causes it&rsquo;s child elements to be removed so when I try to find the element with the <code>ui-field-tranclude</code> attribute, nothing is there.</p>
 
 <p>After, struggling to find a solution I realized that if I was still using <code>ng-transclude</code> instead of my custom transclude function then the <code>ng-if</code> worked just fine.  So I decided to take a look at the source code for <code>ng-tranclude</code>. It turns out that if you have <code>transclude: true</code> on your directive the transclude function is available in the linking function of any child directive in your template. So, I just needed a second directive:</p>
-
-<pre><code class="language-javascript">angular.module('app')
-  .directive('uiField', function(UiFieldService) {
-    return {
-      restrict: 'EA',
-      template:
-      `&lt;div ng-if=&quot;field.render&quot;&gt;
-        &lt;label for=&quot;{{field.code}}&quot; ng-bind=&quot;field.label&quot;&gt;&lt;/label&gt;
-        &lt;div ui-field-transclude&gt;&lt;/div&gt;
-       &lt;/div&gt;`,
-      transclude: true,
-      scope: {
-        code: '@'
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#a6e22e">angular</span>.<span style="color:#a6e22e">module</span>(<span style="color:#e6db74">&#39;app&#39;</span>)
+  .<span style="color:#a6e22e">directive</span>(<span style="color:#e6db74">&#39;uiField&#39;</span>, <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">UiFieldService</span>) {
+    <span style="color:#66d9ef">return</span> {
+      <span style="color:#a6e22e">restrict</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;EA&#39;</span>,
+      <span style="color:#a6e22e">template</span><span style="color:#f92672">:</span>
+      <span style="color:#e6db74">`&lt;div ng-if=&#34;field.render&#34;&gt;
+</span><span style="color:#e6db74">        &lt;label for=&#34;{{field.code}}&#34; ng-bind=&#34;field.label&#34;&gt;&lt;/label&gt;
+</span><span style="color:#e6db74">        &lt;div ui-field-transclude&gt;&lt;/div&gt;
+</span><span style="color:#e6db74">       &lt;/div&gt;`</span>,
+      <span style="color:#a6e22e">transclude</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span>,
+      <span style="color:#a6e22e">scope</span><span style="color:#f92672">:</span> {
+        <span style="color:#a6e22e">code</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;@&#39;</span>
       },
-      link: function(scope, element, attrs, ctrl, transclude) {
-        scope.field = UiFieldService.getField(scope.code);
+      <span style="color:#a6e22e">link</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">scope</span>, <span style="color:#a6e22e">element</span>, <span style="color:#a6e22e">attrs</span>, <span style="color:#a6e22e">ctrl</span>, <span style="color:#a6e22e">transclude</span>) {
+        <span style="color:#a6e22e">scope</span>.<span style="color:#a6e22e">field</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">UiFieldService</span>.<span style="color:#a6e22e">getField</span>(<span style="color:#a6e22e">scope</span>.<span style="color:#a6e22e">code</span>);
       }
     };
   }
-  .directive('uiFieldTransclude', function() {
-    return {
-      restrict: 'EA',
-      link: function(scope, element, attrs, ctrl, transclude) {
-        transclude(function(clone, transcludeScope) {
-          transcludeScope.field = scope.field;
-          element.append(clone);
+  .<span style="color:#a6e22e">directive</span>(<span style="color:#e6db74">&#39;uiFieldTransclude&#39;</span>, <span style="color:#66d9ef">function</span>() {
+    <span style="color:#66d9ef">return</span> {
+      <span style="color:#a6e22e">restrict</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;EA&#39;</span>,
+      <span style="color:#a6e22e">link</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">scope</span>, <span style="color:#a6e22e">element</span>, <span style="color:#a6e22e">attrs</span>, <span style="color:#a6e22e">ctrl</span>, <span style="color:#a6e22e">transclude</span>) {
+        <span style="color:#a6e22e">transclude</span>(<span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">clone</span>, <span style="color:#a6e22e">transcludeScope</span>) {
+          <span style="color:#a6e22e">transcludeScope</span>.<span style="color:#a6e22e">field</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">scope</span>.<span style="color:#a6e22e">field</span>;
+          <span style="color:#a6e22e">element</span>.<span style="color:#a6e22e">append</span>(<span style="color:#a6e22e">clone</span>);
         });
       }
     };
   }
 );
-</code></pre>
+</code></pre></div>
         </div>
         
 
