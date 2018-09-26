@@ -10,34 +10,30 @@
   <meta name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=1">
 
   
-  <link href="//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
-  <link href="//fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+    
+    
+      <link href="http://kylelieber.com/css/fonts.css" rel="stylesheet" type="text/css">
+    
+  
 
   
   <title>Jasmine Maven Plugin 1.3.1.0 - My First Release</title>
 
   
+  
   <link rel="stylesheet" href="http://kylelieber.com/css/hugo-octopress.css">
-  <link rel="stylesheet" href="http://kylelieber.com/css/gravatar-infobox.css">
-  <link rel="stylesheet" href="http://kylelieber.com/highlight/styles/solarized-dark.css">
-  <script src="http://kylelieber.com/highlight/highlight.pack.js"></script>
-  <script>hljs.initHighlightingOnLoad();</script>
 
   
-  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  
 
   
+    <link rel="stylesheet" href="http://kylelieber.com/css/fork-awesome.min.css">
   
 
   
   <link href="http://kylelieber.com/favicon.png" rel="icon">
 
   
-  
-  
-
-  
-
   
 
   <meta name="description" content="">
@@ -46,26 +42,20 @@
   <meta name="author" content="Kyle Lieber">
 
   
-  <meta name="generator" content="Hugo 0.15" />
+  <meta name="generator" content="Hugo 0.49" />
 
   
   
-<script>
-(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
 
-ga('create', 'UA-52118741-1', 'auto');
-ga('send', 'pageview');
-</script>
-
+  
+  
 
 </head>
 <body>
 
 
-<header role="banner"><hgroup>
+<header role="banner">
+<hgroup>
   
   <h1><a href="http://kylelieber.com/">Kyle Lieber</a></h1>
     <h2>some things I felt like writing about...</h2>
@@ -73,6 +63,23 @@ ga('send', 'pageview');
 
 
 <nav role="navigation">
+<fieldset class="mobile-nav">
+  
+  <select onchange="location = this.value;">
+    <option value="">Navigate…</option>
+      
+        <option value="http://kylelieber.com/">» Blog</option>
+      
+        <option value="http://kylelieber.com/categories/development">» Development</option>
+      
+        <option value="https://www.linkedin.com/in/kylelieber">» Resume</option>
+      
+        <option value="https://github.com/BerkleyTechnologyServices/restdocs-spec">» Restdocs Spec Maven Plugin</option>
+      
+        <option value="http://kylelieber.com/phantomjs-maven-plugin">» PhantomJS Maven Plugin</option>
+      
+  </select>
+</fieldset>
 
 
 <ul class="main-navigation">
@@ -83,34 +90,34 @@ ga('send', 'pageview');
     
   
     
-      <li><a href="http://kylelieber.com/categories/development" title="Development">Development</a></li>
+      <li><a href="http://kylelieber.com/categories/development" title="Development" >Development</a></li>
     
   
     
-      <li><a href="https://www.linkedin.com/in/kylelieber" target="_blank" title="Resume">Resume</a></li>
+      <li><a href="https://www.linkedin.com/in/kylelieber" title="Resume" >Resume</a></li>
     
   
     
-      <li><a href="https://github.com/BerkleyTechnologyServices/restdocs-spec" target="_blank" title="Restdocs Spec Maven Plugin">Restdocs Spec Maven Plugin</a></li>
+      <li><a href="https://github.com/BerkleyTechnologyServices/restdocs-spec" title="Restdocs Spec Maven Plugin" >Restdocs Spec Maven Plugin</a></li>
     
   
     
-      <li><a href="http://kylelieber.com/phantomjs-maven-plugin" target="_blank" title="PhantomJS Maven Plugin">PhantomJS Maven Plugin</a></li>
+      <li><a href="http://kylelieber.com/phantomjs-maven-plugin" title="PhantomJS Maven Plugin" >PhantomJS Maven Plugin</a></li>
     
   
 </ul>
-
 
 <ul class="subscription">
-  <a href="http://kylelieber.com/index.xml" target="_blank" type="application/rss+xml" title="RSS"><i class="fa fa-rss-square fa-lg"></i></a>
-
   
+    
+        <a href="http://kylelieber.com/index.xml" target="_blank" type="application/rss+xml" title="RSS"><i class="fa fa-rss-square fa-lg"></i></a>
+    
   
 
 </ul>
 
 
-<form style="padding-top: 4px" action="https://www.google.com/search" method="get" target="_blank">
+<form action="https://www.google.com/search" method="get" target="_blank" style="padding-top: 4px;">
   <fieldset role="search">
   	<input class="search" type="text" name="q" results="0" placeholder="Search"/>
     <input type="hidden" name="q" value="site:http://kylelieber.com/" />
@@ -124,20 +131,30 @@ ga('send', 'pageview');
   <div id="content">
     <div>
       <article class="hentry" role="article">
-        <header>
-          <h1 class="entry-title">
-            Jasmine Maven Plugin 1.3.1.0 - My First Release 
-          </h1>
-          <p class="meta">Mar 12, 2013 - 2 minute read -  <a href="http://kylelieber.com/2013/03/jasmine-maven-plugin-1-3-1-0-my-first-release/#disqus_thread">Comments</a>
 
-          
+        
+        
 
-          
-          
-          <a class="label" href="http://kylelieber.com/categories/development">Development</a>
-          </p>
-        </header>
+<header>
+    <p class="meta">Mar 12, 2013
+         - 2 minute read 
+        
+
+        
+        
+            - <a class="label" href="http://kylelieber.com/categories/development/">Development </a>
+        
+    </p>
+    <h1 class="entry-title">
+         Jasmine Maven Plugin 1.3.1.0 - My First Release 
+    </h1>
+</header>
+
+
         <div class="entry-content">
+          
+          
+          
           <p>I began using the the <a href="http://searls.github.com/jasmine-maven-plugin">Jasmine Maven Plugin</a> in June of 2012 and was immediately impressed with how well it worked and how easy it made automating my test execution. Soon after I discovered <a href="http://requirejs.org">require.js</a> and decided to begin using it in my applications. I learned quickly however that the require.js support in the Jasmine Maven Plugin had quite a few issues and so I decided to try and help fix some of them.
 
 Fast-forward to January of this year and I found myself a maintainer of the plugin with full commit access and a huge list of issues (thank you <a href="http://about.me/searls">Justin Searls</a> for the opportunity). I&rsquo;ve had a few goals for my first release:</p>
@@ -165,17 +182,14 @@ Fast-forward to January of this year and I found myself a maintainer of the plug
     <span class="byline author vcard">Posted by <span class="fn">Kyle Lieber</span></span>
     
     <time>Mar 12, 2013</time>
-    <span class="categories">
-      Tags: 
-        
+    
+      <span class="categories">
+        Tags:
         
           <a class="category" href="http://kylelieber.com/tags/javascript">javascript</a>  <a class="category" href="http://kylelieber.com/tags/maven">maven</a>  <a class="category" href="http://kylelieber.com/tags/testing">testing</a>  <a class="category" href="http://kylelieber.com/tags/jasmine">jasmine</a>  <a class="category" href="http://kylelieber.com/tags/open-source">open source</a>  
-        
+    
     </span>
   </p>
-    
-  
-  
 
   
 
@@ -184,31 +198,13 @@ Fast-forward to January of this year and I found myself a maintainer of the plug
         <a class="basic-alignment left" href="http://kylelieber.com/2012/06/maven-versioning-strategy/" title="Maven Versioning Strategy">Maven Versioning Strategy</a>
     
 
-     
+    
       <a class="basic-alignment right" href="http://kylelieber.com/2014/05/phantomjs-maven-plugin-0-dot-3/" title="PhantomJS Maven Plugin 0.3">PhantomJS Maven Plugin 0.3</a>
     
   </p>
-
-  <div id="disqus_thread"></div>
-<script type="text/javascript">
-
-(function() {
-    
-    
-    
-    
-
-    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-    var disqus_shortname = 'kylelieber';
-    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-})();
-</script>
-<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+  
 </footer>
 
- 
       </article>
     </div>
     
@@ -393,15 +389,16 @@ Fast-forward to January of this year and I found myself a maintainer of the plug
   </div>
 </div>
 
-
-
-
 <footer role="contentinfo">
   <p>Copyright &copy; 2018 Kyle Lieber - <a href="http://kylelieber.com/license/">License</a> -
   <span class="credit">Powered by <a target="_blank" href="https://gohugo.io">Hugo</a> and <a target="_blank" href="https://github.com/parsiya/hugo-octopress/">Hugo-Octopress</a> theme.
 </p>
 
 </footer>
+
+
+
+
 
 
 <script>
@@ -413,5 +410,4 @@ Fast-forward to January of this year and I found myself a maintainer of the plug
 
 </body>
 </html>
-
 

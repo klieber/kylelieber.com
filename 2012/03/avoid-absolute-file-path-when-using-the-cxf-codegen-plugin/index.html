@@ -10,34 +10,30 @@
   <meta name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=1">
 
   
-  <link href="//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
-  <link href="//fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+    
+    
+      <link href="http://kylelieber.com/css/fonts.css" rel="stylesheet" type="text/css">
+    
+  
 
   
   <title>Avoid Absolute File Path When Using the cxf-codegen-plugin</title>
 
   
+  
   <link rel="stylesheet" href="http://kylelieber.com/css/hugo-octopress.css">
-  <link rel="stylesheet" href="http://kylelieber.com/css/gravatar-infobox.css">
-  <link rel="stylesheet" href="http://kylelieber.com/highlight/styles/solarized-dark.css">
-  <script src="http://kylelieber.com/highlight/highlight.pack.js"></script>
-  <script>hljs.initHighlightingOnLoad();</script>
 
   
-  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  
 
   
+    <link rel="stylesheet" href="http://kylelieber.com/css/fork-awesome.min.css">
   
 
   
   <link href="http://kylelieber.com/favicon.png" rel="icon">
 
   
-  
-  
-
-  
-
   
 
   <meta name="description" content="">
@@ -46,26 +42,20 @@
   <meta name="author" content="Kyle Lieber">
 
   
-  <meta name="generator" content="Hugo 0.15" />
+  <meta name="generator" content="Hugo 0.49" />
 
   
   
-<script>
-(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
 
-ga('create', 'UA-52118741-1', 'auto');
-ga('send', 'pageview');
-</script>
-
+  
+  
 
 </head>
 <body>
 
 
-<header role="banner"><hgroup>
+<header role="banner">
+<hgroup>
   
   <h1><a href="http://kylelieber.com/">Kyle Lieber</a></h1>
     <h2>some things I felt like writing about...</h2>
@@ -73,6 +63,23 @@ ga('send', 'pageview');
 
 
 <nav role="navigation">
+<fieldset class="mobile-nav">
+  
+  <select onchange="location = this.value;">
+    <option value="">Navigate…</option>
+      
+        <option value="http://kylelieber.com/">» Blog</option>
+      
+        <option value="http://kylelieber.com/categories/development">» Development</option>
+      
+        <option value="https://www.linkedin.com/in/kylelieber">» Resume</option>
+      
+        <option value="https://github.com/BerkleyTechnologyServices/restdocs-spec">» Restdocs Spec Maven Plugin</option>
+      
+        <option value="http://kylelieber.com/phantomjs-maven-plugin">» PhantomJS Maven Plugin</option>
+      
+  </select>
+</fieldset>
 
 
 <ul class="main-navigation">
@@ -83,34 +90,34 @@ ga('send', 'pageview');
     
   
     
-      <li><a href="http://kylelieber.com/categories/development" title="Development">Development</a></li>
+      <li><a href="http://kylelieber.com/categories/development" title="Development" >Development</a></li>
     
   
     
-      <li><a href="https://www.linkedin.com/in/kylelieber" target="_blank" title="Resume">Resume</a></li>
+      <li><a href="https://www.linkedin.com/in/kylelieber" title="Resume" >Resume</a></li>
     
   
     
-      <li><a href="https://github.com/BerkleyTechnologyServices/restdocs-spec" target="_blank" title="Restdocs Spec Maven Plugin">Restdocs Spec Maven Plugin</a></li>
+      <li><a href="https://github.com/BerkleyTechnologyServices/restdocs-spec" title="Restdocs Spec Maven Plugin" >Restdocs Spec Maven Plugin</a></li>
     
   
     
-      <li><a href="http://kylelieber.com/phantomjs-maven-plugin" target="_blank" title="PhantomJS Maven Plugin">PhantomJS Maven Plugin</a></li>
+      <li><a href="http://kylelieber.com/phantomjs-maven-plugin" title="PhantomJS Maven Plugin" >PhantomJS Maven Plugin</a></li>
     
   
 </ul>
-
 
 <ul class="subscription">
-  <a href="http://kylelieber.com/index.xml" target="_blank" type="application/rss+xml" title="RSS"><i class="fa fa-rss-square fa-lg"></i></a>
-
   
+    
+        <a href="http://kylelieber.com/index.xml" target="_blank" type="application/rss+xml" title="RSS"><i class="fa fa-rss-square fa-lg"></i></a>
+    
   
 
 </ul>
 
 
-<form style="padding-top: 4px" action="https://www.google.com/search" method="get" target="_blank">
+<form action="https://www.google.com/search" method="get" target="_blank" style="padding-top: 4px;">
   <fieldset role="search">
   	<input class="search" type="text" name="q" results="0" placeholder="Search"/>
     <input type="hidden" name="q" value="site:http://kylelieber.com/" />
@@ -124,20 +131,30 @@ ga('send', 'pageview');
   <div id="content">
     <div>
       <article class="hentry" role="article">
-        <header>
-          <h1 class="entry-title">
-            Avoid Absolute File Path When Using the cxf-codegen-plugin 
-          </h1>
-          <p class="meta">Mar 30, 2012 - 4 minute read -  <a href="http://kylelieber.com/2012/03/avoid-absolute-file-path-when-using-the-cxf-codegen-plugin/#disqus_thread">Comments</a>
 
-          
+        
+        
 
-          
-          
-          <a class="label" href="http://kylelieber.com/categories/development">Development</a>
-          </p>
-        </header>
+<header>
+    <p class="meta">Mar 30, 2012
+         - 4 minute read 
+        
+
+        
+        
+            - <a class="label" href="http://kylelieber.com/categories/development/">Development </a>
+        
+    </p>
+    <h1 class="entry-title">
+         Avoid Absolute File Path When Using the cxf-codegen-plugin 
+    </h1>
+</header>
+
+
         <div class="entry-content">
+          
+          
+          
           <p>I ran into this problem a few months ago and scoured the internet for solution but never found one until now. So hopefully this will be helpful to someone with the same problem. By default, the <a href="http://cxf.apache.org/docs/maven-cxf-codegen-plugin-wsdl-to-java.html">Apache CXF Codegen Maven plugin</a> generates code that will attempt to read your wsdl via the absolute path.
 </p>
 
@@ -320,48 +337,27 @@ public class FooService extends Service {
     <span class="byline author vcard">Posted by <span class="fn">Kyle Lieber</span></span>
     
     <time>Mar 30, 2012</time>
-    <span class="categories">
-      Tags: 
-        
+    
+      <span class="categories">
+        Tags:
         
           <a class="category" href="http://kylelieber.com/tags/maven">maven</a>  <a class="category" href="http://kylelieber.com/tags/apache-cxf">apache cxf</a>  <a class="category" href="http://kylelieber.com/tags/web-services">web services</a>  <a class="category" href="http://kylelieber.com/tags/java">java</a>  <a class="category" href="http://kylelieber.com/tags/wsdl">wsdl</a>  
-        
+    
     </span>
   </p>
-    
-  
-  
 
   
 
   <p class="meta">
     
 
-     
+    
       <a class="basic-alignment right" href="http://kylelieber.com/2012/06/maven-versioning-strategy/" title="Maven Versioning Strategy">Maven Versioning Strategy</a>
     
   </p>
-
-  <div id="disqus_thread"></div>
-<script type="text/javascript">
-
-(function() {
-    
-    
-    
-    
-
-    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-    var disqus_shortname = 'kylelieber';
-    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-})();
-</script>
-<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+  
 </footer>
 
- 
       </article>
     </div>
     
@@ -546,15 +542,16 @@ public class FooService extends Service {
   </div>
 </div>
 
-
-
-
 <footer role="contentinfo">
   <p>Copyright &copy; 2018 Kyle Lieber - <a href="http://kylelieber.com/license/">License</a> -
   <span class="credit">Powered by <a target="_blank" href="https://gohugo.io">Hugo</a> and <a target="_blank" href="https://github.com/parsiya/hugo-octopress/">Hugo-Octopress</a> theme.
 </p>
 
 </footer>
+
+
+
+
 
 
 <script>
@@ -566,5 +563,4 @@ public class FooService extends Service {
 
 </body>
 </html>
-
 
