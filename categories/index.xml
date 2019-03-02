@@ -2,20 +2,20 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Categories on Kyle Lieber</title>
-    <link>http://kylelieber.com/categories/</link>
+    <link>/categories/</link>
     <description>Recent content in Categories on Kyle Lieber</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     
-	<atom:link href="http://kylelieber.com/categories/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/categories/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Development</title>
-      <link>http://kylelieber.com/categories/development/</link>
+      <link>/categories/development/</link>
       <pubDate>Fri, 21 Sep 2018 23:59:43 -0500</pubDate>
       
-      <guid>http://kylelieber.com/categories/development/</guid>
+      <guid>/categories/development/</guid>
       <description></description>
     </item>
     

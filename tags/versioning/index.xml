@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Versioning on Kyle Lieber</title>
-    <link>http://kylelieber.com/tags/versioning/</link>
+    <link>/tags/versioning/</link>
     <description>Recent content in Versioning on Kyle Lieber</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Mon, 25 Jun 2012 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="http://kylelieber.com/tags/versioning/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/tags/versioning/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Maven Versioning Strategy</title>
-      <link>http://kylelieber.com/2012/06/maven-versioning-strategy/</link>
+      <link>/2012/06/maven-versioning-strategy/</link>
       <pubDate>Mon, 25 Jun 2012 00:00:00 +0000</pubDate>
       
-      <guid>http://kylelieber.com/2012/06/maven-versioning-strategy/</guid>
+      <guid>/2012/06/maven-versioning-strategy/</guid>
       <description>&lt;p&gt;I&amp;rsquo;ve been having a lot of discussions with analysts in my organization about how to version software using Maven and I&amp;rsquo;m finding there is a common misconception about what SNAPSHOT actually means. I&amp;rsquo;ve been looking for a good blog to send them that helps explain versioning in Maven but unfortunately everything I&amp;rsquo;ve found merely discusses version formats and not how to use them as you&amp;rsquo;re developing an application. So, I decided I would take a stab at it. I welcome any comments and constructive criticism that will help me improve this document, so please feel free.
 
 First off, a SNAPSHOT is not the same thing as an alpha/beta/etc version. It is a special keyword that means it is the latest version of your code. This means it changes. If you pulled down someapp-1.0-SNAPSHOT yesterday and then you try to pull it down today it will most likely not be the same. This also means if you have a project dependent on a SNAPSHOT version, maven will need to check the remote repository for changes every time you run a build.&lt;/p&gt;</description>

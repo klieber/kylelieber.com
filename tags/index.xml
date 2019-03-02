@@ -2,165 +2,165 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on Kyle Lieber</title>
-    <link>http://kylelieber.com/tags/</link>
+    <link>/tags/</link>
     <description>Recent content in Tags on Kyle Lieber</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Mon, 11 Apr 2016 18:20:52 -0500</lastBuildDate>
     
-	<atom:link href="http://kylelieber.com/tags/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Angular</title>
-      <link>http://kylelieber.com/tags/angular/</link>
+      <link>/tags/angular/</link>
       <pubDate>Mon, 11 Apr 2016 18:20:52 -0500</pubDate>
       
-      <guid>http://kylelieber.com/tags/angular/</guid>
+      <guid>/tags/angular/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Apache Cxf</title>
-      <link>http://kylelieber.com/tags/apache-cxf/</link>
+      <link>/tags/apache-cxf/</link>
       <pubDate>Fri, 30 Mar 2012 00:00:00 +0000</pubDate>
       
-      <guid>http://kylelieber.com/tags/apache-cxf/</guid>
+      <guid>/tags/apache-cxf/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Best Practice</title>
-      <link>http://kylelieber.com/tags/best-practice/</link>
+      <link>/tags/best-practice/</link>
       <pubDate>Mon, 25 Jun 2012 00:00:00 +0000</pubDate>
       
-      <guid>http://kylelieber.com/tags/best-practice/</guid>
+      <guid>/tags/best-practice/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Jasmine</title>
-      <link>http://kylelieber.com/tags/jasmine/</link>
+      <link>/tags/jasmine/</link>
       <pubDate>Tue, 12 Mar 2013 00:00:00 +0000</pubDate>
       
-      <guid>http://kylelieber.com/tags/jasmine/</guid>
+      <guid>/tags/jasmine/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Java</title>
-      <link>http://kylelieber.com/tags/java/</link>
+      <link>/tags/java/</link>
       <pubDate>Fri, 21 Sep 2018 23:59:43 -0500</pubDate>
       
-      <guid>http://kylelieber.com/tags/java/</guid>
+      <guid>/tags/java/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Javascript</title>
-      <link>http://kylelieber.com/tags/javascript/</link>
+      <link>/tags/javascript/</link>
       <pubDate>Mon, 11 Apr 2016 18:20:52 -0500</pubDate>
       
-      <guid>http://kylelieber.com/tags/javascript/</guid>
+      <guid>/tags/javascript/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Maven</title>
-      <link>http://kylelieber.com/tags/maven/</link>
+      <link>/tags/maven/</link>
       <pubDate>Fri, 21 Sep 2018 23:59:43 -0500</pubDate>
       
-      <guid>http://kylelieber.com/tags/maven/</guid>
+      <guid>/tags/maven/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Open Source</title>
-      <link>http://kylelieber.com/tags/open-source/</link>
+      <link>/tags/open-source/</link>
       <pubDate>Fri, 02 May 2014 00:00:00 +0000</pubDate>
       
-      <guid>http://kylelieber.com/tags/open-source/</guid>
+      <guid>/tags/open-source/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Openapi</title>
-      <link>http://kylelieber.com/tags/openapi/</link>
+      <link>/tags/openapi/</link>
       <pubDate>Fri, 21 Sep 2018 23:59:43 -0500</pubDate>
       
-      <guid>http://kylelieber.com/tags/openapi/</guid>
+      <guid>/tags/openapi/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Release</title>
-      <link>http://kylelieber.com/tags/release/</link>
+      <link>/tags/release/</link>
       <pubDate>Mon, 25 Jun 2012 00:00:00 +0000</pubDate>
       
-      <guid>http://kylelieber.com/tags/release/</guid>
+      <guid>/tags/release/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Rest</title>
-      <link>http://kylelieber.com/tags/rest/</link>
+      <link>/tags/rest/</link>
       <pubDate>Fri, 21 Sep 2018 23:59:43 -0500</pubDate>
       
-      <guid>http://kylelieber.com/tags/rest/</guid>
+      <guid>/tags/rest/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Spring</title>
-      <link>http://kylelieber.com/tags/spring/</link>
+      <link>/tags/spring/</link>
       <pubDate>Fri, 21 Sep 2018 23:59:43 -0500</pubDate>
       
-      <guid>http://kylelieber.com/tags/spring/</guid>
+      <guid>/tags/spring/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Spring Restdocs</title>
-      <link>http://kylelieber.com/tags/spring-restdocs/</link>
+      <link>/tags/spring-restdocs/</link>
       <pubDate>Fri, 21 Sep 2018 23:59:43 -0500</pubDate>
       
-      <guid>http://kylelieber.com/tags/spring-restdocs/</guid>
+      <guid>/tags/spring-restdocs/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Testing</title>
-      <link>http://kylelieber.com/tags/testing/</link>
+      <link>/tags/testing/</link>
       <pubDate>Tue, 12 Mar 2013 00:00:00 +0000</pubDate>
       
-      <guid>http://kylelieber.com/tags/testing/</guid>
+      <guid>/tags/testing/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Versioning</title>
-      <link>http://kylelieber.com/tags/versioning/</link>
+      <link>/tags/versioning/</link>
       <pubDate>Mon, 25 Jun 2012 00:00:00 +0000</pubDate>
       
-      <guid>http://kylelieber.com/tags/versioning/</guid>
+      <guid>/tags/versioning/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Web Services</title>
-      <link>http://kylelieber.com/tags/web-services/</link>
+      <link>/tags/web-services/</link>
       <pubDate>Fri, 30 Mar 2012 00:00:00 +0000</pubDate>
       
-      <guid>http://kylelieber.com/tags/web-services/</guid>
+      <guid>/tags/web-services/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Wsdl</title>
-      <link>http://kylelieber.com/tags/wsdl/</link>
+      <link>/tags/wsdl/</link>
       <pubDate>Fri, 30 Mar 2012 00:00:00 +0000</pubDate>
       
-      <guid>http://kylelieber.com/tags/wsdl/</guid>
+      <guid>/tags/wsdl/</guid>
       <description></description>
     </item>
     
