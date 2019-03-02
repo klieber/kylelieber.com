@@ -1,4 +1,4 @@
-baseurl: 'http://kylelieber.com'
+baseurl: ''
 canonifyurls: true
 languageCode: en-us
 theme: hugo-octopress
