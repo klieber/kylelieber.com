@@ -17,8 +17,7 @@
       <pubDate>Mon, 11 Apr 2016 18:20:52 -0500</pubDate>
       
       <guid>/2016/04/angular-transclude-directive-and-ng-if/</guid>
-      <description>&lt;p&gt;As I continue to dive further and further into Angular development it never ceases to amaze me how quickly I can get tripped up by directives.  This is just something I learned last week about using a custom transclude function and an &lt;code&gt;ng-if&lt;/code&gt; on a directive.
-&lt;/p&gt;</description>
+      <description>&lt;p&gt;As I continue to dive further and further into Angular development it never ceases to amaze me how quickly I can get tripped up by directives.  This is just something I learned last week about using a custom transclude function and an &lt;code&gt;ng-if&lt;/code&gt; on a directive.&lt;/p&gt;</description>
     </item>
     
   </channel>
