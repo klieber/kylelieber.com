@@ -11,7 +11,7 @@ menu:
       url: 'https://github.com/BerkleyTechnologyServices/restdocs-spec'
       weight: 4
     - name: PhantomJS Maven Plugin
-      url: 'http://kylelieber.com/phantomjs-maven-plugin'
+      url: '/phantomjs-maven-plugin'
       weight: 5
     - name: Resume
       url: 'https://www.linkedin.com/in/kylelieber'
@@ -36,7 +36,7 @@ params:
   linkedin: 'https://www.linkedin.com/in/kylelieber'
   rss: true
   searchEngineURL: 'https://www.google.com/search'
-  stackoverflow: 'http://stackoverflow.com/users/1190144/kyle'
+  stackoverflow: 'https://stackoverflow.com/users/1190144/kyle'
   subtitle: some things I felt like writing about...
   twitter: 'https://twitter.com/kylelieber/'
 permalinks:
