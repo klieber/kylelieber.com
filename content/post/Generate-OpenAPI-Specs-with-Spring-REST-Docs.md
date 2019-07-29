@@ -15,7 +15,7 @@ Our approach was simple.  Basically, we decided the easiest thing to do would be
 1. Generate snippet files during the run of your tests.  Usually asciidoc files.
 2. After the test run, use a maven plugin to join all those snippet files into an HTML site.  Usually the asciidoctor-maven-plugin.
 
-So, we would follow that same process only instead of generate asciidoc files for our snippets we would generate a json file that contained all the information about the resource.  The instead of using the asciidoctor-maven-plugin to join everything together we would create our own plugin that would read in all the json files and spit out an OpenAPI spec.
+So, we would follow that same process only instead of generating asciidoc files for our snippets we would generate a json file that contained all the information about the resource.  Also, instead of using the asciidoctor-maven-plugin to join everything together we would create our own plugin that would read in all the json files and spit out an OpenAPI spec.
 
 At the end of the hack we had a working snippet and plugin that produced a valid OpenAPI spec.  However, we still had a lot of work to do because we were not getting any of the field or parameter documentation in our json snippets so the OpenAPI file that was generated was pretty bare.
 
@@ -23,6 +23,6 @@ Of course, as I've learned time and time again over my career as a software engi
 
 So, after getting over my frustration that my cool unique idea was not at all unique I decided that this was really a great thing.  This developer had a snippet that could generate everything we needed and we had a maven plugin which they did not have.  So, we decided best thing to do was to work together to help improve their project and contribute a maven plugin that was compatible with it.
 
-The end result is the [restdocs-spec-maven-plugin](https://github.com/BerkleyTechnologyServices/restdocs-spec).  This plugin works in conjuction with the [restdocs-openapi](https://github.com/ePages-de/restdocs-openapi) which is maintained by [Mathias Düsterhöft](https://github.com/mduesterhoeft) and his organization.  I won't get into the specifics of how to use them both here in this blog post because both projects have that information in their respective README files.  
+The end result is the [restdocs-spec-maven-plugin](https://github.com/BerkleyTechnologyServices/restdocs-spec).  This plugin works in conjunction with the [restdocs-openapi](https://github.com/ePages-de/restdocs-openapi) which is maintained by [Mathias Düsterhöft](https://github.com/mduesterhoeft) and his organization.  I won't get into the specifics of how to use them both here in this blog post because both projects have that information in their respective README files.
 
 I also want to thank Mathias for being so friendly and open to my contributions.  That is what the open source community is all about!
