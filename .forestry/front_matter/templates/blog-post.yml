@@ -29,8 +29,8 @@ fields:
   default: ''
 pages:
 - content/post/Generate-OpenAPI-Specs-with-Spring-REST-Docs.md
-- content/post/jasmine-maven-plugin-1-3-1-0-my-first-release.md
 - content/post/angular-transclude-and-ngif.md
+- content/post/avoid-absolute-file-path-when-using-the-cxf-codegen-plugin.md
+- content/post/jasmine-maven-plugin-1-3-1-0-my-first-release.md
 - content/post/maven-versioning-strategy.md
 - content/post/phantomjs-maven-plugin-0-dot-3.md
-- content/post/avoid-absolute-file-path-when-using-the-cxf-codegen-plugin.md
