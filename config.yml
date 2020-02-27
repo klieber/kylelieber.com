@@ -39,5 +39,6 @@ params:
   stackoverflow: 'https://stackoverflow.com/users/1190144/kyle'
   subtitle: some things I felt like writing about...
   twitter: 'https://twitter.com/kylelieber/'
+  sidebarRecentLimit: 5
 permalinks:
   post: '/:year/:month/:slug'

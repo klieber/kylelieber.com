@@ -1,16 +1,13 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
 <head>
-  <link href="http://gmpg.org/xfn/11" rel="profile">
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
 
   <!-- added from octo -->
-  <meta name="HandheldFriendly" content="True">
-  <meta name="MobileOptimized" content="320">
   <meta name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=1">
 
   {{ if not .Site.Params.disableGoogleFonts }}
-    <!-- If local Google Fonts are enabled -->
+    <!-- if local Google fonts are enabled -->
     {{ if not .Site.Params.remoteFonts }}
       <link href="/css/fonts.css" rel="stylesheet" type="text/css">
     {{ else }}
@@ -41,15 +38,14 @@
   <link href="{{ "/favicon.png" | absURL }}" rel="icon">
 
   <!-- RSS -->
-  {{ with .RSSLink }}<link href="{{ . }}" rel="alternate" type="application/rss+xml" title="{{ $.Site.Title }}" />{{ end }}
+  {{ with .OutputFormats.Get "RSS" }}<link href="{{ .RelPermalink }}" rel="alternate" type="application/rss+xml" title="{{ $.Site.Title }}" />{{ end }}
 
-  <meta name="description" content="{{ if ne .Description "" }}{{ .Description }}{{ else }}{{ .Site.Params.defaultDescription }}{{ end }}">
+  <meta name="description" content="{{ if .IsHome }}{{ $.Site.Params.description }}{{ else }}{{ .Description }}{{ end }}" />
   <meta name="keywords" content="{{ range $index, $element := .Keywords }}{{ if gt $index 0 }},{{ end }}{{ . }}{{ else }}{{ .Site.Params.defaultKeywords }}{{ end }}">
-
   <meta name="author" content="{{ .Site.Params.author }}">
 
-  <!-- Generator version for usage tacking -->
-  {{ .Hugo.Generator }}
+  <!-- Generator version for usage tracking -->
+  {{ hugo.Generator }}
 
   <!-- Google Analytics -->
   {{ template "_internal/google_analytics_async.html" . }}
@@ -58,12 +54,11 @@
   {{ with .Site.Params.twitterCardEnabled }}
     {{ partial "custom_twitter_card.html" $ }}
   {{ end }}
-
 </head>
-<body{{ with .Site.Params.theme }} class="{{ . }}"{{ end }}>
+<body>
 
 <!-- top header for octopress -->
-<header role="banner">{{ partial "octo-header.html" . }}</header>
+<header role="banner">{{ partial "octo_header.html" . }}</header>
 
 <!-- navigation -->
 <nav role="navigation">{{ partial "navigation.html" . }}</nav>

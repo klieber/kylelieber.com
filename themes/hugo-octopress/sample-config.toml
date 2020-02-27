@@ -7,7 +7,7 @@ theme = "hugo-octopress"
 # Disqus shortcode
 # Disable comments for any individual post by adding "comments: false" in its frontmatter
 # Note it's not under [params] anymore
-disqusShortname = "Your disqus shortname"
+# disqusShortname = "Your disqus shortname"
 
 # Number of blog posts in each pagination page
 paginate = 6
@@ -91,7 +91,7 @@ post = "/blog/:year-:month-:day-:title/" # change the post URL to look like the 
   # googleAnalytics = "UA-XXXXX-X"
 
   # Optional piwik tracking
-  #[params.analytics.piwik]
+  # [params.analytics.piwik]
   #  URL = "https://stats.example.com"
   #  ID = "42"
 
@@ -103,7 +103,7 @@ post = "/blog/:year-:month-:day-:title/" # change the post URL to look like the 
   textrss = false
 
   # Website's default description
-  defaultDescription = ""
+  description = ""
 
   # Populate this with your own search keywords - these will appear in the meta tags
   # defaultKeywords = ["keyword1" , "keyword2" , "keyword3" , "keyword4"]
@@ -144,6 +144,12 @@ post = "/blog/:year-:month-:day-:title/" # change the post URL to look like the 
   # twitterCardDomain = "parsiya.net"
   # Don't include the @.
   # twitterCardAuthor = "CryptoGangsta"
+
+  # Set to true to enable compact index. Set to false or remove to go back to classic view.
+  # compactIndex = true
+
+  # Set mainSections.
+  # mainSections = ["post", "blog"]
 
 # Menu
 # If navigationNewWindow (under [params]) is set to true then all links except root ("/") will open in a new window
