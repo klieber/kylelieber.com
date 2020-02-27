@@ -1842,7 +1842,7 @@ h6 {
 
 /* Force gist linenos to be the same size as code linenos */
 .gist .blob-num {
-    font-size: 0.938em !important; 
+    font-size: 0.938em !important;
 }
 
 .gist .highlight, .gist .blob-code-inner {
@@ -1887,7 +1887,7 @@ h6 {
 .gist .pl-s, .gist .pl-pds, .gist .pl-s .pl-pse .pl-s1, .gist .pl-sr,
 .gist .pl-sr .pl-cce, .gist .pl-sr .pl-sre, .gist .pl-sr .pl-sra {
     color: #2aa198 !important;
-    
+
 }
 
 .gist .pl-s, .gist .pl-pds, .gist .pl-s .pl-pse .pl-s1, .gist .pl-sr,
@@ -1928,3 +1928,25 @@ figure a {
 }
 
 /* Hugo Figure shortcode - end */
+
+aside.sidebar .sidebar-nav a {
+  text-decoration: none;
+  word-wrap: normal;
+  white-space: normal;
+}
+
+aside.sidbar li.sidebar-nav-item {
+  border: 0;
+  box-shadow: none;
+}
+
+aside.sidebar .gravatar-infobox img {
+  float: left;
+  margin-right: 0.5em;
+  border: 0;
+}
+
+aside.sidebar .gravatar-infobox {
+  margin-top: 0.75em;
+  font-size: small;
+}
