@@ -1928,25 +1928,3 @@ figure a {
 }
 
 /* Hugo Figure shortcode - end */
-
-aside.sidebar .sidebar-nav a {
-  text-decoration: none;
-  word-wrap: normal;
-  white-space: normal;
-}
-
-aside.sidbar li.sidebar-nav-item {
-  border: 0;
-  box-shadow: none;
-}
-
-aside.sidebar .gravatar-infobox img {
-  float: left;
-  margin-right: 0.5em;
-  border: 0;
-}
-
-aside.sidebar .gravatar-infobox {
-  margin-top: 0.75em;
-  font-size: small;
-}
