@@ -1,0 +1,117 @@
+---
+// src/pages/index.astro
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ProjectCard from '../components/ProjectCard.astro';
+---
+
+<BaseLayout
+  title="Kyle Lieber — Staff Technical Lead"
+  description="Kyle Lieber is a Staff Technical Lead and software engineer specializing in distributed systems, developer tooling, automation, and open-source software."
+>
+  <div class="container">
+    <!-- Hero Section -->
+    <section class="hero-section">
+
+      <h1 class="hero-title">
+        Hi, I'm <span class="hero-gradient-text">Kyle Lieber</span>
+      </h1>
+
+      <p class="hero-subtitle">
+        Staff Technical Lead at HubSpot
+      </p>
+
+      <div class="hero-bio">
+        <p>
+          I'm a <strong>Staff Technical Lead at HubSpot</strong>, focused on foundational backend platforms, identity, and access control.
+        </p>
+        <p>
+          I focus on taking complex, high-blast-radius tier-0 services—the critical systems that power authentication, tenant segregation, and every customer page load—and re-architecting them into resilient, decoupled platforms. I care deeply about moving teams out of firefighting into calm, predictable reliability, and building systems other engineers can depend on.
+        </p>
+        <p>
+          In my personal time, I enjoy tinkering with self-hosted home automation (Home Assistant and Hubitat) and woodworking in my garage.
+        </p>
+      </div>
+
+      <div class="hero-actions">
+        <a href="https://www.linkedin.com/in/kylelieber" target="_blank" rel="noopener noreferrer" class="btn-primary">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+            <rect x="2" y="9" width="4" height="12"></rect>
+            <circle cx="4" cy="4" r="2"></circle>
+          </svg>
+          Connect on LinkedIn
+        </a>
+
+        <a href="https://github.com/klieber" target="_blank" rel="noopener noreferrer" class="btn-secondary">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+          </svg>
+          GitHub Profile
+        </a>
+
+      </div>
+    </section>
+
+    <!-- Selected Projects Section -->
+    <section>
+      <div class="section-title-wrap">
+        <div class="section-label">Featured Work</div>
+        <h2 class="section-heading">Selected Projects & Open Source</h2>
+      </div>
+
+      <div class="projects-grid">
+        <ProjectCard
+          title="Trimlight CLI"
+          role="Creator & Author"
+          description="A command-line interface and automation suite for managing and controlling Trimlight LED lighting devices, complete with real-time effect previews and custom pattern engines."
+          repoUrl="https://github.com/klieber/trimlight"
+          tags={['Rust', 'CLI', 'IoT', 'Home Automation', 'REST API']}
+          highlights={[
+            'Built with Rust for single-binary distribution and minimal resource usage',
+            'Full support for 180+ built-in lighting effects and pixel-by-pixel pattern generation',
+            'Ecosystem companion projects for Hubitat home automation and Java client SDK'
+          ]}
+        />
+
+        <ProjectCard
+          title="Spring REST Docs OpenAPI"
+          role="Co-Author & Maintainer"
+          description="Maven plugin that generates valid OpenAPI (Swagger) and Postman specifications directly from Spring REST Docs test snippets, enabling test-driven API documentation."
+          repoUrl="https://github.com/BerkleyTechnologyServices/restdocs-spec"
+          tags={['Java', 'Maven', 'Spring Boot', 'OpenAPI', 'REST']}
+          highlights={[
+            'Transforms Spring REST Docs output into production OpenAPI 2.0 / 3.0 and Postman specs',
+            'Ensures API specifications are verified against active integration tests to eliminate documentation drift',
+            'Widely adopted open-source plugin supporting enterprise microservices'
+          ]}
+        />
+
+        <ProjectCard
+          title="PhantomJS Maven Plugin"
+          role="Creator & Author"
+          description="Maven plugin that automates cross-platform installation and script execution for PhantomJS binaries directly within continuous integration builds."
+          repoUrl="https://github.com/klieber/phantomjs-maven-plugin"
+          tags={['Java', 'Maven Plugin', 'Automation', 'CI/CD']}
+          highlights={[
+            'Auto-detects host OS architecture and pulls verified binary distributions without manual setups',
+            'Streamlined headless browser test suites across Linux, macOS, and Windows build agents'
+          ]}
+        />
+
+        <ProjectCard
+          title="Jasmine Maven Plugin"
+          role="Contributor & Maintainer"
+          description="A Maven plugin for running Jasmine JavaScript specs headlessly within standard Java/Maven build lifecycles."
+          repoUrl="https://github.com/searls/jasmine-maven-plugin"
+          tags={['JavaScript', 'Maven', 'Testing', 'RequireJS']}
+          highlights={[
+            'Introduced first-class Require.js dependency loading and headless browser runners',
+            'Maintained releases, resolved community issues, and standardized test lifecycle bindings'
+          ]}
+        />
+      </div>
+    </section>
+
+
+  </div>
+</BaseLayout>

@@ -1,0 +1,25 @@
+{
+  "name": "kylelieber.com",
+  "version": "1.0.0",
+  "description": "[![Netlify Status](https://api.netlify.com/api/v1/badges/69a9ea9c-27aa-498a-b201-900a121e07c2/deploy-status)](https://app.netlify.com/sites/kylelieber/deploys)",
+  "main": "index.js",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/klieber/kylelieber.com.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/klieber/kylelieber.com/issues"
+  },
+  "homepage": "https://github.com/klieber/kylelieber.com#readme",
+  "dependencies": {
+    "astro": "^7.3.4"
+  }
+}

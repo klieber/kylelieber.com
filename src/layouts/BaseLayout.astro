@@ -1,0 +1,117 @@
+---
+// BaseLayout.astro
+import ThemeToggle from '../components/ThemeToggle.astro';
+import '../styles/global.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+  canonicalUrl?: string;
+  type?: 'website' | 'article';
+}
+
+const {
+  title = 'Kyle Lieber — Staff Technical Lead & Architect',
+  description = 'Personal website and engineering portfolio of Kyle Lieber, Staff Technical Lead specializing in distributed systems, developer tooling, automation, and open-source software.',
+  canonicalUrl = Astro.url.href,
+  type = 'website'
+} = Astro.props;
+
+const currentYear = new Date().getFullYear();
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalUrl} />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+
+    <!-- Open Graph / Social Media -->
+    <meta property="og:type" content={type} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:site_name" content="Kyle Lieber" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+
+    <!-- JSON-LD Structured Data for Kyle Lieber -->
+    <script type="application/ld+json" is:inline>
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Kyle Lieber",
+        "jobTitle": "Staff Technical Lead",
+        "url": "https://kylelieber.com",
+        "sameAs": [
+          "https://github.com/klieber",
+          "https://www.linkedin.com/in/kylelieber",
+          "https://stackoverflow.com/users/1190144/kyle"
+        ]
+      }
+    </script>
+
+    <!-- Theme Initialization Script to Prevent FOUC -->
+    <script is:inline>
+      (function() {
+        const storedTheme = localStorage.getItem('theme');
+        if (storedTheme) {
+          document.documentElement.setAttribute('data-theme', storedTheme);
+        } else {
+          // Default to dark mode or system preference
+          const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+          document.documentElement.setAttribute('data-theme', prefersDark ? 'dark' : 'light');
+        }
+      })();
+    </script>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container nav-wrapper">
+        <a href="/" class="brand-link" title="Kyle Lieber">
+          <div class="brand-avatar">KL</div>
+          <span>Kyle Lieber</span>
+        </a>
+
+        <div class="nav-actions">
+          <a href="https://github.com/klieber" target="_blank" rel="noopener noreferrer" class="nav-social-link" title="GitHub Profile" aria-label="GitHub">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+            </svg>
+          </a>
+          <a href="https://www.linkedin.com/in/kylelieber" target="_blank" rel="noopener noreferrer" class="nav-social-link" title="LinkedIn Profile" aria-label="LinkedIn">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+              <rect x="2" y="9" width="4" height="12"></rect>
+              <circle cx="4" cy="4" r="2"></circle>
+            </svg>
+          </a>
+          <ThemeToggle />
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <slot />
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-content">
+        <div>
+          <span>© {currentYear} Kyle Lieber.</span>
+          <span style="opacity: 0.7; margin-left: 0.5rem;">Staff Technical Lead.</span>
+        </div>
+        <div class="footer-links">
+          <a href="https://github.com/klieber" target="_blank" rel="noopener noreferrer">GitHub</a>
+          <a href="https://www.linkedin.com/in/kylelieber" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          <a href="https://stackoverflow.com/users/1190144/kyle" target="_blank" rel="noopener noreferrer">Stack Overflow</a>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

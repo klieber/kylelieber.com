@@ -1,0 +1,29 @@
+---
+// src/pages/[year]/[month]/[slug].astro
+import PostLayout from '../../../layouts/PostLayout.astro';
+
+export async function getStaticPaths() {
+  const posts = Object.values(import.meta.glob('../../../content/posts/*.md', { eager: true })) as any[];
+
+  return posts.map((post) => {
+    const dateStr: string = post.frontmatter.date;
+    // Extract year and month cleanly without timezone distortion
+    const parts = dateStr.split('-');
+    const year = parts[0];
+    const month = parts[1];
+    const slug = post.frontmatter.slug;
+
+    return {
+      params: { year, month, slug },
+      props: { post }
+    };
+  });
+}
+
+const { post } = Astro.props;
+const { Content } = post;
+---
+
+<PostLayout frontmatter={post.frontmatter}>
+  <Content />
+</PostLayout>
