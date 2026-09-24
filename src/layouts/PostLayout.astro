@@ -1,0 +1,64 @@
+---
+// PostLayout.astro
+import BaseLayout from './BaseLayout.astro';
+
+interface Props {
+  frontmatter: {
+    title: string;
+    date: string;
+    slug?: string;
+    tags?: string[];
+    categories?: string[];
+  };
+}
+
+const { frontmatter } = Astro.props;
+
+const dateObj = new Date(frontmatter.date);
+const formattedDate = dateObj.toLocaleDateString('en-US', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+  timeZone: 'UTC'
+});
+---
+
+<BaseLayout title={`${frontmatter.title} — Kyle Lieber`} description={`${frontmatter.title} - Technical article by Kyle Lieber`} type="article">
+  <div class="container">
+    <header class="article-header">
+      <a href="/" class="article-back-link">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="19" y1="12" x2="5" y2="12"></line>
+          <polyline points="12 19 5 12 12 5"></polyline>
+        </svg>
+        Back to kylelieber.com
+      </a>
+
+      <div class="article-archive-notice">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="10"></circle>
+          <line x1="12" y1="8" x2="12" y2="12"></line>
+          <line x1="12" y1="16" x2="12.01" y2="16"></line>
+        </svg>
+        <span><strong>Archived Post</strong> — Originally published on {formattedDate}. Retained for reference and inbound links.</span>
+      </div>
+
+      <h1 class="article-title">{frontmatter.title}</h1>
+
+      <div class="article-meta">
+        <time datetime={frontmatter.date}>{formattedDate}</time>
+        {frontmatter.tags && frontmatter.tags.length > 0 && (
+          <div class="project-tags" style="display: inline-flex; margin-left: 0.5rem;">
+            {frontmatter.tags.map((tag: string) => (
+              <span class="tag-badge">#{tag}</span>
+            ))}
+          </div>
+        )}
+      </div>
+    </header>
+
+    <article class="article-content">
+      <slot />
+    </article>
+  </div>
+</BaseLayout>

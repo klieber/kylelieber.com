@@ -1,1 +1,15 @@
-/public
+# Build output
+dist/
+
+# Dependencies
+node_modules/
+
+# Astro
+.astro/
+
+# Environment and OS
+.DS_Store
+*.local
+
+# Legacy Hugo
+.hugo_build.lock
