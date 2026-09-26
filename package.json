@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/klieber/kylelieber.com#readme",
   "dependencies": {
+    "@astrojs/sitemap": "^3.7.4",
     "astro": "^7.3.4"
   }
 }
